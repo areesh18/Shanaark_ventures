@@ -1,0 +1,21 @@
+:root {
+  /* Backgrounds */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+
+  /* Text */
+  --color-text-primary: #07142b;
+  --color-text-secondary: #64748b;
+
+  /* Accent */
+  --color-accent: #d8ff1f;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+
+  /* Dark Sections */
+  --color-dark: #0b1120;
+
+  /* Footer Text */
+  --color-footer-text: #cbd5e1;
+}
