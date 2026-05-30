@@ -64,7 +64,7 @@ const OPEN_ROLES = [
 
 const Careers = () => {
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] pt-24 sm:pt-32 pb-16 sm:pb-24">
+    <div className="min-h-screen bg-(--color-bg-primary) pt-24 sm:pt-32 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
 
         {/* ── 1. HERO ─────────────────────────────────────────── */}
@@ -72,7 +72,7 @@ const Careers = () => {
 
           {/* Headline */}
           <div className="w-full md:w-3/5">
-            <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-[var(--color-text-primary)]">
+            <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary)">
               Build the future of{" "}
               <br className="hidden sm:block" />
               <span className="font-serif-italic font-normal text-slate-500">
@@ -84,15 +84,15 @@ const Careers = () => {
 
           {/* Badge + description */}
           <div className="w-full md:w-2/5 md:pt-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border)] mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-4 sm:mb-6">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
 
-              <span className="text-[10px] sm:text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-widest">
+              <span className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest">
                 We are actively hiring
               </span>
             </div>
 
-            <p className="text-base sm:text-lg font-light tracking-tight text-[var(--color-text-secondary)] leading-relaxed">
+            <p className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
               Join a collective of strategists, engineers, and creatives solving
               complex business challenges across three continents.
             </p>
@@ -101,7 +101,7 @@ const Careers = () => {
 
         {/* ── 2. CULTURE BENTO ────────────────────────────────── */}
         <div className="mb-16 sm:mb-32 animate-fade-up delay-100">
-          <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[var(--color-text-primary)] mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-6 sm:mb-8">
             How we operate
           </h2>
 
@@ -109,7 +109,7 @@ const Careers = () => {
             {COMPANY_VALUES.map((value) => (
               <div
                 key={value.id}
-                className={`p-8 sm:p-10 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] flex flex-col justify-between min-h-[240px] sm:min-h-[280px] md:min-h-[300px] hover:scale-[1.01] transition-transform duration-300 ${value.style}`}
+                className={`p-8 sm:p-10 md:p-12 rounded-3xl sm:rounded-4xl flex flex-col justify-between min-h-60 sm:min-h-70 md:min-h-75 hover:scale-[1.01] transition-transform duration-300 ${value.style}`}
               >
                 <h3
                   className={`text-2xl sm:text-3xl md:text-4xl font-medium tracking-tighter mb-6 sm:mb-8 ${value.titleStyle}`}
@@ -131,12 +131,12 @@ const Careers = () => {
         <div className="mb-16 sm:mb-32 animate-fade-up delay-200">
 
           {/* Section header */}
-          <div className="flex items-center justify-between mb-6 sm:mb-8 border-b border-[var(--color-border)] pb-4">
-            <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[var(--color-text-primary)]">
+          <div className="flex items-center justify-between mb-6 sm:mb-8 border-b border-(--color-border) pb-4">
+            <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary)">
               Open Positions
             </h2>
 
-            <span className="text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] bg-[var(--color-bg-secondary)] px-3 py-1 rounded-full">
+            <span className="text-xs sm:text-sm font-medium text-(--color-text-secondary) bg-(--color-bg-secondary) px-3 py-1 rounded-full">
               {OPEN_ROLES.length} Roles
             </span>
           </div>
@@ -147,28 +147,28 @@ const Careers = () => {
               <a
                 href="#apply"
                 key={role.id}
-                className="group relative bg-white border border-[var(--color-border)] p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden hover:border-[var(--color-dark)] hover:shadow-xl transition-all duration-300 flex flex-col"
+                className="group relative bg-white border border-(--color-border) p-6 sm:p-8 rounded-3xl sm:rounded-4xl overflow-hidden hover:border-(--color-dark) hover:shadow-xl transition-all duration-300 flex flex-col"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {/* Top meta */}
                 <div className="flex items-center justify-between mb-6 sm:mb-8">
-                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-text-secondary)]">
+                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary)">
                     {role.department}
                   </span>
 
-                  <span className="text-[10px] sm:text-xs font-medium bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] px-3 py-1 rounded-full">
+                  <span className="text-[10px] sm:text-xs font-medium bg-(--color-bg-secondary) text-(--color-text-primary) px-3 py-1 rounded-full">
                     {role.type}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-medium text-[var(--color-text-primary)] tracking-tight mb-6 sm:mb-8 group-hover:text-[var(--color-dark)]/70 transition-colors leading-snug">
+                <h3 className="text-xl sm:text-2xl font-medium text-(--color-text-primary) tracking-tight mb-6 sm:mb-8 group-hover:text-(--color-dark)/70 transition-colors leading-snug">
                   {role.title}
                 </h3>
 
                 {/* Bottom row */}
-                <div className="mt-auto flex items-center justify-between pt-5 sm:pt-6 border-t border-[var(--color-border)] group-hover:border-[var(--color-dark)]/10 transition-colors">
-                  <span className="text-xs sm:text-sm font-light text-[var(--color-text-secondary)] tracking-tight flex items-center gap-1.5">
+                <div className="mt-auto flex items-center justify-between pt-5 sm:pt-6 border-t border-(--color-border) group-hover:border-(--color-dark)/10 transition-colors">
+                  <span className="text-xs sm:text-sm font-light text-(--color-text-secondary) tracking-tight flex items-center gap-1.5">
                     <svg
                       width="14"
                       height="14"
@@ -184,13 +184,13 @@ const Careers = () => {
                       <circle cx="12" cy="10" r="3" />
                     </svg>
 
-                    <span className="truncate max-w-[160px] sm:max-w-none">
+                    <span className="truncate max-w-40 sm:max-w-none">
                       {role.location}
                     </span>
                   </span>
 
                   {/* Apply */}
-                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-dark)] sm:opacity-0 sm:translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0 ml-3">
+                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-(--color-dark) sm:opacity-0 sm:translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0 ml-3">
                     Apply Now
 
                     <svg
@@ -213,10 +213,10 @@ const Careers = () => {
         </div>
 
         {/* ── 4. CONVERSION PANEL ─────────────────────────────── */}
-        <div className="w-full bg-[var(--color-dark)] rounded-[1.75rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-20 overflow-hidden relative animate-fade-up delay-300 border border-slate-800 shadow-2xl text-center">
+        <div className="w-full bg-(--color-dark) rounded-[1.75rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-20 overflow-hidden relative animate-fade-up delay-300 border border-slate-800 shadow-2xl text-center">
 
           {/* Ambient glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[var(--color-accent)] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-[var(--color-accent)] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4 sm:mb-6 leading-[1.1]">
@@ -226,14 +226,14 @@ const Careers = () => {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg font-light tracking-tight text-[var(--color-footer-text)] mb-8 sm:mb-10 leading-relaxed max-w-md sm:max-w-none">
+            <p className="text-base sm:text-lg font-light tracking-tight text-(--color-footer-text) mb-8 sm:mb-10 leading-relaxed max-w-md sm:max-w-none">
               We are always looking for exceptional talent. If you believe you
               can bring immense value to Shaanark Ventures, pitch us directly.
             </p>
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-[var(--color-dark)] text-sm font-medium hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-(--color-dark) text-sm font-medium hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
             >
               Talk to Us
 

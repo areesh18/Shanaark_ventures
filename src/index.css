@@ -4,58 +4,38 @@
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom class for the premium serif accent */
 .font-serif-italic {
-  font-family: 'Newsreader', serif;
+  font-family: "Newsreader", serif;
   font-style: italic;
 }
 
-.bg-primary { background-color: var(--color-bg-primary); }
-.bg-secondary { background-color: var(--color-bg-secondary); }
-.text-primary { color: var(--color-text-primary); }
-.text-secondary { color: var(--color-text-secondary); }
-.border-primary { border-color: var(--color-border); }
-.bg-dark { background-color: var(--color-dark); }
-.text-accent { color: var(--color-accent); }
-.bg-accent { background-color: var(--color-accent); }
-
-/* Add these to the bottom of your src/index.css */
-
-/* 1. Buttery smooth entrance animation */
-@keyframes fade-up {
-  0% { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+.bg-primary {
+  background-color: var(--color-bg-primary);
 }
-
-.animate-fade-up {
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0; /* Starts hidden */
+.bg-secondary {
+  background-color: var(--color-bg-secondary);
 }
-
-/* Stagger delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-
-/* 2. Slow breathing background aurora */
-@keyframes aurora {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  33% { transform: translate(2vw, -2vh) scale(1.05) rotate(2deg); }
-  66% { transform: translate(-2vw, 2vh) scale(0.95) rotate(-2deg); }
+.text-primary {
+  color: var(--color-text-primary);
 }
-
-.animate-aurora {
-  animation: aurora 15s ease-in-out infinite;
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.border-primary {
+  border-color: var(--color-border);
+}
+.bg-dark {
+  background-color: var(--color-dark);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.bg-accent {
+  background-color: var(--color-accent);
 }

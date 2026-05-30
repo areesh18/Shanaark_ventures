@@ -64,6 +64,7 @@ const Markets = () => {
 
   useEffect(() => {
     if (!hasConsulting && activeCategory === "consulting") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveCategory("marketing");
     }
   }, [activeMarket, hasConsulting, activeCategory]);
@@ -71,18 +72,18 @@ const Markets = () => {
   const services = currentMarket.categories[activeCategory];
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] pt-24 sm:pt-32 pb-24 sm:pb-32">
+    <div className="min-h-screen bg-(--color-bg-primary) pt-24 sm:pt-32 pb-24 sm:pb-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
 
         {/* ── 1. HEADER ───────────────────────────────────────── */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 animate-fade-up">
-          <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-[var(--color-text-primary)] mb-4 sm:mb-6">
+          <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
             Global{" "}
             <span className="font-serif-italic font-normal text-slate-500">
               Markets.
             </span>
           </h1>
-          <p className="text-base sm:text-lg font-light tracking-tight text-[var(--color-text-secondary)] leading-relaxed px-2 sm:px-0">
+          <p className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed px-2 sm:px-0">
             Tailored solutions across three continents. Select a region below
             to explore our localized service offerings and capabilities.
           </p>
@@ -90,15 +91,15 @@ const Markets = () => {
 
         {/* ── 2. MARKET SWITCHER ──────────────────────────────── */}
         <div className="flex justify-center mb-10 sm:mb-16 animate-fade-up delay-100">
-          <div className="inline-flex p-1.5 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-full shadow-sm w-full sm:w-auto">
+          <div className="inline-flex p-1.5 bg-(--color-bg-secondary) border border-(--color-border) rounded-full shadow-sm w-full sm:w-auto">
             {Object.values(MARKET_DATA).map((market) => (
               <button
                 key={market.id}
                 onClick={() => setActiveMarket(market.id)}
                 className={`flex-1 sm:flex-none relative px-4 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-medium tracking-tight transition-all duration-300 whitespace-nowrap ${
                   activeMarket === market.id
-                    ? "bg-[var(--color-dark)] text-white shadow-md"
-                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                    ? "bg-(--color-dark) text-white shadow-md"
+                    : "text-(--color-text-secondary) hover:text-(--color-text-primary)"
                 }`}
               >
                 {market.name}
@@ -112,27 +113,27 @@ const Markets = () => {
 
           {/* Market title + description */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-medium text-[var(--color-text-primary)] tracking-tight mb-1.5 sm:mb-2">
+            <h2 className="text-xl sm:text-2xl font-medium text-(--color-text-primary) tracking-tight mb-1.5 sm:mb-2">
               Available in {currentMarket.name}
             </h2>
-            <p className="text-sm font-light text-[var(--color-text-secondary)] tracking-tight max-w-sm mx-auto leading-relaxed">
+            <p className="text-sm font-light text-(--color-text-secondary) tracking-tight max-w-sm mx-auto leading-relaxed">
               {currentMarket.description}
             </p>
           </div>
 
           {/* ── Category tabs ── */}
-          <div className="flex justify-center items-center gap-6 sm:gap-8 border-b border-[var(--color-border)] mb-8 sm:mb-12">
+          <div className="flex justify-center items-center gap-6 sm:gap-8 border-b border-(--color-border) mb-8 sm:mb-12">
             <button
               onClick={() => setActiveCategory("marketing")}
               className={`pb-4 text-xs sm:text-sm font-medium tracking-wide transition-all relative whitespace-nowrap ${
                 activeCategory === "marketing"
-                  ? "text-[var(--color-text-primary)]"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                  ? "text-(--color-text-primary)"
+                  : "text-(--color-text-secondary) hover:text-(--color-text-primary)"
               }`}
             >
               Marketing & Comm
               {activeCategory === "marketing" && (
-                <span className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-[var(--color-dark)] rounded-t-full" />
+                <span className="absolute -bottom-px left-0 w-full h-0.5 bg-(--color-dark) rounded-t-full" />
               )}
             </button>
 
@@ -141,13 +142,13 @@ const Markets = () => {
                 onClick={() => setActiveCategory("consulting")}
                 className={`pb-4 text-xs sm:text-sm font-medium tracking-wide transition-all relative whitespace-nowrap ${
                   activeCategory === "consulting"
-                    ? "text-[var(--color-text-primary)]"
-                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                    ? "text-(--color-text-primary)"
+                    : "text-(--color-text-secondary) hover:text-(--color-text-primary)"
                 }`}
               >
                 Business Consulting
                 {activeCategory === "consulting" && (
-                  <span className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-[var(--color-dark)] rounded-t-full" />
+                  <span className="absolute -bottom-px left-0 w-full h-0.5 bg-(--color-dark) rounded-t-full" />
                 )}
               </button>
             )}
@@ -159,21 +160,21 @@ const Markets = () => {
               {services.map((service, index) => (
                 <div
                   key={service}
-                  className="group p-5 sm:p-6 rounded-[1.25rem] sm:rounded-[1.5rem] bg-white border border-[var(--color-border)] hover:border-[var(--color-dark)]/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[130px] sm:min-h-[148px]"
+                  className="group p-5 sm:p-6 rounded-[1.25rem] sm:rounded-3xl bg-white border border-(--color-border) hover:border-(--color-dark)/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-32.5 sm:min-h-37"
                   style={{ animationDelay: `${index * 40}ms` }}
                 >
-                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border)] flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-[var(--color-accent)]/10 group-hover:border-[var(--color-accent)]/30 transition-all duration-300 text-[var(--color-text-primary)] shrink-0">
+                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-(--color-bg-secondary) border border-(--color-border) flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-(--color-accent)/10 group-hover:border-(--color-accent)/30 transition-all duration-300 text-(--color-text-primary) shrink-0">
                     {SERVICE_ICONS[index % SERVICE_ICONS.length]}
                   </div>
-                  <h3 className="text-sm sm:text-base font-medium text-[var(--color-text-primary)] tracking-tight leading-snug">
+                  <h3 className="text-sm sm:text-base font-medium text-(--color-text-primary) tracking-tight leading-snug">
                     {service}
                   </h3>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 sm:py-20 border border-dashed border-[var(--color-border)] rounded-[1.5rem] sm:rounded-[2rem] bg-[var(--color-bg-secondary)]">
-              <p className="text-[var(--color-text-secondary)] font-light text-sm">
+            <div className="text-center py-16 sm:py-20 border border-dashed border-(--color-border) rounded-3xl sm:rounded-4xl bg-(--color-bg-secondary)">
+              <p className="text-(--color-text-secondary) font-light text-sm">
                 No services currently listed in this category.
               </p>
             </div>
@@ -181,16 +182,16 @@ const Markets = () => {
         </div>
 
         {/* ── 4. CROSS-LINK CTA ────────────────────────────────── */}
-        <div className="mt-20 sm:mt-32 pt-12 sm:pt-16 border-t border-[var(--color-border)] text-center animate-fade-up delay-300">
-          <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-[var(--color-text-primary)] mb-3 sm:mb-4">
+        <div className="mt-20 sm:mt-32 pt-12 sm:pt-16 border-t border-(--color-border) text-center animate-fade-up delay-300">
+          <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3 sm:mb-4">
             Want to learn more about a specific service?
           </h3>
-          <p className="text-[var(--color-text-secondary)] font-light mb-6 sm:mb-8 text-sm sm:text-base">
+          <p className="text-(--color-text-secondary) font-light mb-6 sm:mb-8 text-sm sm:text-base">
             Read our detailed deliverables and execution strategies.
           </p>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-text-primary)] border border-[var(--color-border)] text-sm font-medium hover:bg-[var(--color-bg-secondary)] transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-(--color-text-primary) border border-(--color-border) text-sm font-medium hover:bg-(--color-bg-secondary) transition-all shadow-sm"
           >
             View Service Details
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

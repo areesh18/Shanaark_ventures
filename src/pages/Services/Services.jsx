@@ -158,7 +158,7 @@ const SERVICES_DATA = [
 ];
 
 const ServiceRow = ({ service, isOpen, onToggle }) => (
-  <div className="border-b border-[var(--color-border)] group">
+  <div className="border-b border-(--color-border) group">
     {/* Toggle button */}
     <button
       onClick={onToggle}
@@ -167,14 +167,14 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
       <h3
         className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${
           isOpen
-            ? "text-[var(--color-dark)]"
-            : "text-[var(--color-text-primary)]"
+            ? "text-(--color-dark)"
+            : "text-(--color-text-primary)"
         }`}
       >
         {service.title}
       </h3>
 
-      <div className="h-8 w-8 rounded-full border border-[var(--color-border)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-bg-secondary)] transition-colors">
+      <div className="h-8 w-8 rounded-full border border-(--color-border) flex items-center justify-center shrink-0 group-hover:bg-(--color-bg-secondary) transition-colors">
         <svg
           width="15"
           height="15"
@@ -201,16 +201,16 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
       }`}
     >
       <div className="min-h-0">
-        <div className="pl-0 sm:pl-5 border-l-0 sm:border-l-2 sm:border-[var(--color-accent)]">
-          <h4 className="text-base sm:text-lg font-medium text-[var(--color-text-primary)] mb-2 tracking-tight">
+        <div className="pl-0 sm:pl-5 border-l-0 sm:border-l-2 sm:border-(--color-accent)">
+          <h4 className="text-base sm:text-lg font-medium text-(--color-text-primary) mb-2 tracking-tight">
             {service.headline}
           </h4>
-          <p className="text-[var(--color-text-secondary)] text-sm font-light leading-relaxed mb-5 tracking-tight">
+          <p className="text-(--color-text-secondary) text-sm font-light leading-relaxed mb-5 tracking-tight">
             {service.description}
           </p>
 
           <div>
-            <h5 className="text-[10px] font-semibold uppercase tracking-widest text-[var(--color-text-secondary)] mb-3">
+            <h5 className="text-[10px] font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3">
               Key Deliverables
             </h5>
             <ul className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-y-2 gap-x-4">
@@ -225,11 +225,11 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-[var(--color-dark)] mt-0.5 shrink-0"
+                    className="text-(--color-dark) mt-0.5 shrink-0"
                   >
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-xs font-medium text-[var(--color-text-primary)] tracking-tight">
+                  <span className="text-xs font-medium text-(--color-text-primary) tracking-tight">
                     {item}
                   </span>
                 </li>
@@ -248,18 +248,18 @@ const Services = () => {
   const toggleOpen = (id) => setOpenId(openId === id ? null : id);
 
   return (
-    <div className="w-full bg-[var(--color-bg-primary)] min-h-screen">
+    <div className="w-full bg-(--color-bg-primary) min-h-screen">
 
       {/* ── 1. HEADER ─────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-[var(--color-border)]">
-        <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-[var(--color-text-primary)] mb-4 sm:mb-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-(--color-border)">
+        <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to{" "}
           <br className="hidden sm:block" />
           <span className="font-serif-italic font-normal text-slate-500">
             scale with you.
           </span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-[var(--color-text-secondary)] leading-relaxed max-w-xl sm:max-w-2xl">
+        <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-xl sm:max-w-2xl">
           From establishing your brand identity to optimizing complex leadership
           decisions, our comprehensive services connect markets and drive growth.
         </p>
@@ -274,12 +274,12 @@ const Services = () => {
               key={group.category}
               className={`animate-fade-up delay-${(groupIndex + 1) * 100} ${
                 groupIndex === 1
-                  ? "mt-0 lg:mt-0 border-t border-[var(--color-border)] lg:border-t-0 pt-10 lg:pt-0"
+                  ? "mt-0 lg:mt-0 border-t border-(--color-border) lg:border-t-0 pt-10 lg:pt-0"
                   : ""
               }`}
             >
               {/* Category label */}
-              <h2 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[var(--color-text-secondary)] mb-3 sm:mb-4 border-b border-[var(--color-border)] pb-4">
+              <h2 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4">
                 {group.category}
               </h2>
 
@@ -301,20 +301,20 @@ const Services = () => {
       </div>
 
       {/* ── 3. BOTTOM CTA ─────────────────────────────────────── */}
-      <div className="w-full bg-[var(--color-bg-secondary)] border-t border-[var(--color-border)] py-16 sm:py-24 px-5 sm:px-6 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-[var(--color-text-primary)] mb-4 sm:mb-6 leading-[1.1]">
+      <div className="w-full bg-(--color-bg-secondary) border-t border-(--color-border) py-16 sm:py-24 px-5 sm:px-6 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6 leading-[1.1]">
           Ready to scale your{" "}
           <span className="font-serif-italic font-normal text-slate-500">
             vision?
           </span>
         </h2>
-        <p className="text-base sm:text-lg font-light tracking-tight text-[var(--color-text-secondary)] mb-8 sm:mb-10 max-w-md sm:max-w-xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) mb-8 sm:mb-10 max-w-md sm:max-w-xl mx-auto leading-relaxed">
           Every project starts with a conversation. Let's discuss how we can
           align our services with your specific business goals.
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[var(--color-dark)] text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
+          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-(--color-dark) text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
         >
           Book Consultation
           <svg
