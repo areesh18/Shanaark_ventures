@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: "/caribbean", label: "Caribbean" },
   { to: "/blog", label: "Blog" },
   { to: "/careers", label: "Careers" },
+  { to: "/about", label: "About Us" },
 ];
 
 const Navbar = () => {
