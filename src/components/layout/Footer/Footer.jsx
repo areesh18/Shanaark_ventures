@@ -41,7 +41,7 @@ const Footer = () => {
            {/* Brand Column (Spans 4 columns on large screens) */}
            <div className="lg:col-span-4 pr-8">
              <Link to="/" className="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity">
-                <img src="/logo.png" alt="Shaanark Ventures" className="h-8 w-auto object-contain" />
+                <img src="/logo.png" alt="Shaanark Ventures" className="h-12 w-auto object-contain" />
              </Link>
              <p className="text-sm text-[var(--color-text-secondary)] font-light leading-relaxed tracking-tight max-w-sm">
                Bridging opportunities across Suriname, India, and The Netherlands with expert advisory, digital excellence, and end-to-end marketing.

@@ -42,7 +42,7 @@ const Navbar = () => {
             className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
             onClick={() => setIsOpen(false)}
           >
-            <img src="/logo.png" alt="Shaanark Ventures" className="h-8 w-auto object-contain" />
+            <img src="/logo.png" alt="Shaanark Ventures" className="h-12 w-auto object-contain" />
           </Link>
 
           {/* Desktop links */}
