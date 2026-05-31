@@ -159,21 +159,26 @@ const Footer = () => {
                   Contact Us
                 </Link>
               </li>
+              {/* Contact Enquiries Block */}
               <li>
-                <a
-                  href="#"
-                  className="text-sm font-light text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm font-light text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
-                >
-                  Twitter (X)
-                </a>
+                <div className="flex flex-col gap-2 mt-4">
+                  <p className="text-sm font-light text-(--color-text-secondary) leading-relaxed">
+                    For more enquiries, Contact us at <br />
+                    <a
+                      href="mailto:info@shaanark.com"
+                      className="font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity"
+                    >
+                      info@shaanark.com
+                    </a>
+                    <br />
+                    <a
+                      href="tel:+5977647759"
+                      className="font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity"
+                    >
+                      [+597] 7647759
+                    </a>
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
