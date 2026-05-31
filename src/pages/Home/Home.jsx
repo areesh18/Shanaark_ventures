@@ -5,9 +5,6 @@ const Home = () => {
     <div className="bg-(--color-bg-primary) flex flex-col items-center">
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="w-full min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
-        {/* Subtle ambient glow — purely decorative */}
-        <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-(--color-accent) opacity-[0.06] blur-[120px]" />
-
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-6 sm:mb-8 animate-fade-up">
@@ -186,8 +183,7 @@ const Home = () => {
       {/* ── 3. CARIBBEAN INDIA CORRIDOR ─────────────────────────── */}
       <section className="w-full px-5 sm:px-6 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto bg-(--color-dark) rounded-[1.75rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-12 overflow-hidden relative border border-slate-800">
-          {/* Glow */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-(--color-accent) opacity-10 blur-[100px] rounded-full pointer-events-none" />
+          
 
           {/* Left copy */}
           <div className="w-full md:w-1/2 relative z-10">
