@@ -76,7 +76,7 @@ const Home = () => {
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="w-full min-h-[75svh] md:min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
         {/* Optimized Background Image Wrapper */}
-        <div className="absolute top-90 md:top-40 z-0 pointer-events-none select-none overflow-hidden bg-(--color-bg-primary)">
+        <div className="absolute top-90 md:top-40 z-0 pointer-events-none select-none overflow-hidden bg-(--color-bg-primary) ">
           <img
             src={heroBg}
             alt=""
@@ -87,8 +87,7 @@ const Home = () => {
           />
         </div>
 
-        {/* Contrast Mask (Protects text readability on mobile) */}
-        <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0)_60%)] md:bg-none" />
+        <div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-xs bg-white/10" />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
