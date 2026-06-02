@@ -15,7 +15,7 @@ const Home = () => {
       gsap.to(".hero-bg", {
         rotationX: 20,
         y: 20,
-        duration: 7,
+        duration: 5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
