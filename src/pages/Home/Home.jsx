@@ -1,10 +1,43 @@
 import { Link } from "react-router-dom";
+import heroBg from "/public/hero-img.png";
 
+import gsap from "gsap";
+import { useEffect } from "react";
 const Home = () => {
+  /* useEffect(() => {
+    gsap.to(".hero-bg", {
+      x: -40,
+      y: 60,
+      rotation: -2,
+      scale: 1.18,
+      duration: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }, []); */
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
+    gsap.to(".hero-bg", {
+      rotationX: 20,
+      duration: 8,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }, []);
   return (
     <div className="bg-(--color-bg-primary) flex flex-col items-center">
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="w-full min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={heroBg}
+          alt=""
+          className="hero-bg absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
+        />
+
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-6 sm:mb-8 animate-fade-up">
@@ -183,8 +216,6 @@ const Home = () => {
       {/* ── 3. CARIBBEAN INDIA CORRIDOR ─────────────────────────── */}
       <section className="w-full px-5 sm:px-6 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto bg-(--color-dark) rounded-[1.75rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-12 overflow-hidden relative border border-slate-800">
-          
-
           {/* Left copy */}
           <div className="w-full md:w-1/2 relative z-10">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4 sm:mb-6 leading-[1.1]">
