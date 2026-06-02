@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroBg from "/public/hero-img.png";
+import heroBg from "/public/hero-img.webp";
 
 import gsap from "gsap";
 import { useEffect } from "react";
