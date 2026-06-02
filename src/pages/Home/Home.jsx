@@ -17,7 +17,7 @@ const Home = () => {
     });
   }, []); */
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
+    /* const isMobile = window.innerWidth < 768; */
 
     gsap.to(".hero-bg", {
       rotationX: 20,
@@ -35,7 +35,10 @@ const Home = () => {
         <img
           src={heroBg}
           alt=""
-          className="hero-bg absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="will-change-transform hero-bg absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
         />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
