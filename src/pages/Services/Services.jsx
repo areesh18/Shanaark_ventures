@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
 import Button from "../../components/ui/Button";
+
 const SERVICES_DATA = [
+  // ... (Keep your exact SERVICES_DATA array here, I am omitting it for brevity) ...
   {
     category: "Marketing & Communication",
     items: [
@@ -156,22 +159,35 @@ const SERVICES_DATA = [
   },
 ];
 
-const ServiceRow = ({ service, isOpen, onToggle }) => (
-  <div className="border-b border-(--color-border) group">
-    {/* Toggle button */}
+// ── 1. CLEAN, STATELESS COMPONENT ──
+// ServiceRow now only handles UI rendering and passes events back up.
+const ServiceRow = ({
+  service,
+  isOpen,
+  onToggleClick,
+  onMouseEnter,
+  onMouseMove,
+  onMouseLeave,
+}) => (
+  <div className="border-b border-(--color-border) group relative transition-colors">
     <button
-      onClick={onToggle}
-      className="w-full py-4 sm:py-5 flex items-center justify-between text-left hover:opacity-70 transition-opacity focus:outline-none gap-4"
+      onClick={() => onToggleClick(service.id)}
+      onMouseEnter={(e) => onMouseEnter(e, service.id, isOpen)}
+      onMouseMove={(e) => onMouseMove(e, isOpen)}
+      onMouseLeave={onMouseLeave}
+      className="w-full py-4 sm:py-5 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
     >
       <h3
         className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${
-          isOpen ? "text-(--color-dark)" : "text-(--color-text-primary)"
+          isOpen
+            ? "text-(--color-dark)"
+            : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
         }`}
       >
         {service.title}
       </h3>
 
-      <div className="h-8 w-8 rounded-full border border-(--color-border) flex items-center justify-center shrink-0 group-hover:bg-(--color-bg-secondary) transition-colors">
+      <div className="h-8 w-8 rounded-full border border-(--color-border) bg-white flex items-center justify-center shrink-0 transition-colors">
         <svg
           width="15"
           height="15"
@@ -181,7 +197,7 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`transition-transform duration-300 ${
+          className={`transition-transform duration-300 text-(--color-text-primary) ${
             isOpen ? "rotate-45" : ""
           }`}
         >
@@ -191,36 +207,27 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
       </div>
     </button>
 
-    {/* Expandable body */}
     <div
-      className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
+      className={`grid transition-all duration-500 ease-in-out relative z-10 ${
         isOpen
           ? "grid-rows-[1fr] opacity-100 pb-6 sm:pb-10"
           : "grid-rows-[0fr] opacity-0 pb-0"
       }`}
     >
       <div className="min-h-0">
-        {/* Changed items-start to items-center on large screens to perfectly balance the unequal heights */}
         <div className="pt-2 flex flex-col md:flex-row gap-8 lg:gap-12 items-start md:items-center">
-          {/* LEFT COLUMN: Scaled Typography & Expanded Margins */}
-          <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 sm:border-(--color-accent)">
-            {/* Headline: Bumped to 2xl/3xl for a stronger editorial hook */}
+          <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 border-(--color-accent)">
             <h4 className="text-xl sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-4 lg:mb-6 tracking-tight leading-snug">
               {service.headline}
             </h4>
-
-            {/* Description: Bumped to sm:text-lg, increased bottom margin */}
             <p className="text-(--color-text-secondary) text-base sm:text-lg font-light leading-relaxed mb-8 lg:mb-12 tracking-tight max-w-2xl">
               {service.description}
             </p>
 
             <div>
-              {/* Deliverables Label: Slightly larger, more margin */}
               <h5 className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-4 lg:mb-6">
                 Key Deliverables
               </h5>
-
-              {/* Grid: Increased vertical gap between items */}
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
                 {service.deliverables.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -237,7 +244,6 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    {/* Item Text: Bumped to base size */}
                     <span className="text-sm sm:text-base font-medium text-(--color-text-primary) tracking-tight">
                       {item}
                     </span>
@@ -247,10 +253,9 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Image (Unchanged) */}
           <div className="hidden md:block w-full md:w-1/3 lg:w-1/4 relative overflow-hidden rounded-2xl border border-(--color-border) aspect-[4/5] bg-(--color-bg-secondary) shadow-sm shrink-0">
             <img
-              src={`/services/${service.id}.webp`}
+              src={`../public/services/${service.id}.jpg`}
               alt={service.title}
               className="w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
               onError={(e) => {
@@ -265,14 +270,97 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
   </div>
 );
 
+// ── 2. MAIN COMPONENT WITH GLOBAL GSAP LOGIC ──
 const Services = () => {
   const [openId, setOpenId] = useState(null);
 
-  const toggleOpen = (id) => setOpenId(openId === id ? null : id);
+  // Single global references for the floating image
+  const floatingContainerRef = useRef(null);
+  const floatingImgRef = useRef(null);
+
+  const handleRowMouseEnter = (e, serviceId, isOpen) => {
+    if (isOpen || !floatingContainerRef.current || !floatingImgRef.current)
+      return;
+
+    // 1. Swap image source bypassing React state for maximum performance
+    floatingImgRef.current.src = `/services/${serviceId}.jpg`;
+
+    // 2. THE TELEPORT: Instantly snap to mouse coordinates before making it visible
+    gsap.set(floatingContainerRef.current, {
+      x: e.clientX,
+      y: e.clientY,
+      xPercent: -50,
+      yPercent: -50,
+    });
+
+    // 3. Pop it into view
+    gsap.to(floatingContainerRef.current, {
+      autoAlpha: 1,
+      scale: 1,
+      rotation: 2,
+      duration: 0.4,
+      ease: "back.out(1.5)",
+      overwrite: "auto",
+    });
+  };
+
+  const handleRowMouseMove = (e, isOpen) => {
+    if (isOpen || !floatingContainerRef.current) return;
+
+    gsap.to(floatingContainerRef.current, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.4,
+      ease: "power3.out",
+    });
+  };
+
+  const handleRowMouseLeave = () => {
+    if (!floatingContainerRef.current) return;
+
+    gsap.to(floatingContainerRef.current, {
+      autoAlpha: 0,
+      scale: 0.8,
+      rotation: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      overwrite: "auto",
+    });
+  };
+
+  const handleToggleClick = (serviceId) => {
+    setOpenId(openId === serviceId ? null : serviceId);
+
+    // Force hide global image immediately on click
+    if (floatingContainerRef.current) {
+      gsap.to(floatingContainerRef.current, {
+        autoAlpha: 0,
+        scale: 0.8,
+        duration: 0.2,
+        overwrite: true,
+      });
+    }
+  };
 
   return (
-    <div className="w-full bg-(--color-bg-primary) min-h-screen">
-      {/* ── 1. HEADER ─────────────────────────────────────────── */}
+    <div className="w-full bg-(--color-bg-primary) min-h-screen relative">
+      {/* ── THE SINGLE GLOBAL FLOATING IMAGE ── */}
+      <div
+        ref={floatingContainerRef}
+        className="fixed top-0 left-0 w-48 lg:w-64 aspect-[4/5] rounded-xl overflow-hidden pointer-events-none z-50 invisible opacity-0 scale-80 shadow-2xl hidden md:block"
+      >
+        <img
+          ref={floatingImgRef}
+          src=""
+          alt=""
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.src = "/hero-img.webp";
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-(--color-border)">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to <br className="hidden sm:block" />
@@ -287,7 +375,6 @@ const Services = () => {
         </p>
       </div>
 
-      {/* ── 2. ACCORDION GRID (Single Column, Asymmetric Headers) ── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pb-20 sm:pb-32 pt-10 sm:pt-14">
         <div className="flex flex-col gap-16 md:gap-24 items-stretch">
           {SERVICES_DATA.map((group, groupIndex) => (
@@ -295,7 +382,6 @@ const Services = () => {
               key={group.category}
               className={`animate-fade-up delay-${(groupIndex + 1) * 100}`}
             >
-              {/* Category label with conditional alignment */}
               <h2
                 className={`text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4 ${
                   groupIndex === 1 ? "text-right" : "text-left"
@@ -304,14 +390,16 @@ const Services = () => {
                 {group.category}
               </h2>
 
-              {/* Accordion rows */}
               <div className="flex flex-col">
                 {group.items.map((service) => (
                   <ServiceRow
                     key={service.id}
                     service={service}
                     isOpen={openId === service.id}
-                    onToggle={() => toggleOpen(service.id)}
+                    onToggleClick={handleToggleClick}
+                    onMouseEnter={handleRowMouseEnter}
+                    onMouseMove={handleRowMouseMove}
+                    onMouseLeave={handleRowMouseLeave}
                   />
                 ))}
               </div>
@@ -320,7 +408,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* ── 3. BOTTOM CTA ─────────────────────────────────────── */}
       <div className="w-full bg-(--color-bg-secondary) border-t border-(--color-border) py-16 sm:py-24 px-5 sm:px-6 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6 leading-[1.1]">
           Ready to scale your{" "}
