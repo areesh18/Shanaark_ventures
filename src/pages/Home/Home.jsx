@@ -14,7 +14,7 @@ const Home = () => {
       // 1. Hero Animation
       gsap.to(".hero-bg", {
         rotationX: 20,
-        y:20,
+        y: 20,
         duration: 7,
         repeat: -1,
         yoyo: true,
@@ -158,8 +158,8 @@ const Home = () => {
         </div>
       </section>
       {/* ── STATS ROW (Integrated & Left-Aligned) ───────────────── */}
-      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pb-20 sm:pb-32">
-        <div className="w-full flex flex-col md:flex-row items-start justify-between gap-12 pt-12 border-t border-(--color-border)">
+      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pb-12 sm:pb-20 md:pb-32">
+        <div className="w-full flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 pt-8 md:pt-12 border-t border-(--color-border)">
           {/* Left Anchor Copy */}
           <div className="md:w-1/3">
             <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-3">
@@ -171,7 +171,7 @@ const Home = () => {
           </div>
 
           {/* Right Aligned Stats */}
-          <div className="md:w-2/3 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-10 justify-start md:justify-end">
+          <div className="md:w-2/3 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-8 md:gap-y-10 justify-start md:justify-end">
             {[
               { value: "3", label: "Global Markets" },
               { value: "12", label: "Core Services" },
@@ -195,8 +195,8 @@ const Home = () => {
         </div>
       </section>
       {/* ── 2. CORE PILLARS (Asymmetric Grid) ───────────────────── */}
-      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pt-16 sm:pt-24 pb-12">
-        <div className="mb-12 sm:mb-20 max-w-2xl">
+      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-16 lg:pt-24 pb-12">
+        <div className="mb-8 md:mb-12 lg:mb-20 max-w-2xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight text-(--color-text-primary) mb-4">
             Everything you need to{" "}
             <span className="font-serif-italic font-normal text-slate-500">
@@ -211,7 +211,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           {/* Pillar 1 - Wider and top-aligned */}
-          <div className="md:col-span-7 group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-8 sm:p-12 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
+          <div className="md:col-span-7 group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-6 md:p-8 lg:p-12 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
             <div className="h-12 w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-300 ease-out">
               <svg
                 width="20"
@@ -309,11 +309,11 @@ const Home = () => {
         </div>
       </section>
       {/* ── 4. TRUSTED BY LOGOS (Pre-CTA Conversion Signal) ─────── */}
-      <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-20 sm:pt-28 pb-8 sm:pb-12 flex flex-col items-center">
-        <p className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-8 sm:mb-10 text-center">
+      <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-12 md:pt-20 lg:pt-28 pb-8 sm:pb-12 flex flex-col items-center">
+        <p className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-6 md:mb-8 lg:mb-10 text-center">
           Trusted by partners across the corridor
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-10 sm:gap-16 md:gap-24">
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
           {[1, 2, 3].map((num) => (
             <img
               key={num}
@@ -459,7 +459,7 @@ const Home = () => {
       {/* ── 5. FINAL CTA ────────────────────────────────────────── */}
       {/* (Your existing Final CTA code goes here) */}
       {/* ── 4. FINAL CTA ────────────────────────────────────────── */}
-      <section className="w-full max-w-4xl mx-auto px-5 sm:px-6 py-24 sm:py-32 text-center">
+      <section className="w-full max-w-4xl mx-auto px-5 sm:px-6 py-16 md:py-24 lg:py-32 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6 leading-[1.05]">
           Ready to{" "}
           <span className="font-serif-italic font-normal text-slate-500">
