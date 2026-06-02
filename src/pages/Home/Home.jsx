@@ -319,7 +319,7 @@ const Home = () => {
               key={num}
               src={`/logos/logo-${num}.webp`}
               alt={`Client Logo ${num}`}
-              className="h-14 sm:h-16 md:h-20 w-auto object-contain opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ease-in-out"
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain opacity-90  hover:opacity-100 transition-all duration-300 ease-in-out"
             />
           ))}
         </div>
