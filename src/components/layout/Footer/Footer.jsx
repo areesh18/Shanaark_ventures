@@ -127,7 +127,7 @@ const Footer = () => {
                   Shaanark Delivery Center
                 </h5>
                 <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
-                  HQ Address
+                  Prinsenstraat 47
                   <br />
                   Paramaribo, Suriname
                 </p>
@@ -137,9 +137,9 @@ const Footer = () => {
                   India Delivery Center
                 </h5>
                 <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
-                  DumDum Address
+                  8 Suryasen Pally Matkal
                   <br />
-                  Kolkata, India
+                  Kolkata - 700065, India
                 </p>
               </div>
             </div>
