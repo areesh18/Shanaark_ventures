@@ -1,34 +1,67 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import heroBg from "/public/hero-img.webp";
-
 import gsap from "gsap";
-import { useEffect } from "react";
-const Home = () => {
-  /* useEffect(() => {
-    gsap.to(".hero-bg", {
-      x: -40,
-      y: 60,
-      rotation: -2,
-      scale: 1.18,
-      duration: 15,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-  }, []); */
-  useEffect(() => {
-    /* const isMobile = window.innerWidth < 768; */
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-    gsap.to(".hero-bg", {
-      rotationX: 20,
-      duration: 8,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-  }, []);
+gsap.registerPlugin(ScrollTrigger);
+const Home = () => {
+  const container = useRef(null);
+  const statsRefs = useRef([]);
+  useGSAP(
+    () => {
+      // 1. Hero Animation
+      gsap.to(".hero-bg", {
+        rotationX: 20,
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      // 2. Stats Count-Up (ScrollTrigger)
+      statsRefs.current.forEach((stat) => {
+        if (!stat) return;
+
+        const targetValue = stat.getAttribute("data-value");
+        const isNumber = !isNaN(targetValue);
+
+        if (isNumber) {
+          gsap.fromTo(
+            stat,
+            { textContent: 0 },
+            {
+              textContent: targetValue,
+              duration: 2,
+              ease: "power2.out",
+              snap: { textContent: 1 },
+              scrollTrigger: { trigger: stat, start: "top 85%" },
+            },
+          );
+        } else {
+          // Fade in for the non-numeric "B2B" stat
+          gsap.fromTo(
+            stat,
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: stat, start: "top 85%" },
+            },
+          );
+        }
+      });
+    },
+    { scope: container },
+  );
   return (
-    <div className="bg-(--color-bg-primary) flex flex-col items-center">
+    <div
+      ref={container}
+      className="bg-(--color-bg-primary) flex flex-col items-center"
+    >
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="w-full min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
         {/* Background Image */}
@@ -95,7 +128,7 @@ const Home = () => {
           </div>
 
           {/* Stats row */}
-          <div className="mt-16 sm:mt-24 pt-8 sm:pt-10 border-t border-(--color-border) w-full grid grid-cols-3 gap-4 animate-fade-up delay-400">
+          {/* <div className="mt-16 sm:mt-24 pt-8 sm:pt-10 border-t border-(--color-border) w-full grid grid-cols-3 gap-4 animate-fade-up delay-400">
             {[
               { value: "3", label: "Global Markets" },
               { value: "12", label: "Core Services" },
@@ -110,10 +143,88 @@ const Home = () => {
                 </span>
               </div>
             ))}
+          </div> */}
+        </div>
+      </section>
+      {/* ── TRUSTED BY LOGOS ────────────────────────────────────── */}
+      <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pb-10 sm:pb-14 border-b border-(--color-border) flex flex-col items-center">
+        <p className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-6 sm:mb-8 text-center">
+          Trusted by partners across the corridor
+        </p>
+        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 md:gap-24">
+          {/* Note: Change .svg to .png or .jpg if necessary based on your files */}
+          {[1, 2, 3].map((num) => (
+            <img
+              key={num}
+              src={`/logos/logo-${num}.webp`}
+              alt={`Client Logo ${num}`}
+              className="h-8 sm:h-10 w-auto object-contain opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ease-in-out"
+            />
+          ))}
+        </div>
+      </section>
+      {/* ── MARQUEE ───────────────────────────── */}
+      <section className="w-full py-10 sm:py-14 flex justify-center">
+        <div className="relative w-[92%] sm:w-[88%] overflow-hidden">
+          {/* Fade Left */}
+          <div className="absolute left-0 top-0 z-10 h-full w-20 sm:w-32 bg-linear-to-r from-white to-transparent pointer-events-none" />
+
+          {/* Fade Right */}
+          <div className="absolute right-0 top-0 z-10 h-full w-20 sm:w-32 bg-linear-to-l from-white to-transparent pointer-events-none" />
+
+          <div className="marquee">
+            <div className="marquee-track">
+              {[
+                "SEO",
+                "Web Development",
+                "Brand Identity",
+                "Social Media Marketing",
+                "Corporate Communications",
+                "Executive Advisory",
+                "Business Strategy",
+                "Market Analysis",
+                "Sales Training",
+              ].map((item, index) => (
+                <div key={index} className="flex items-center shrink-0">
+                  <span className="text-black tracking-[-0.045em] text-2xl sm:text-3xl whitespace-nowrap">
+                    {item}
+                  </span>
+
+                  <span className="mx-5 sm:mx-7 text-[#B7BCC8] text-xl sm:text-2xl">
+                    ✦
+                  </span>
+                </div>
+              ))}
+
+              {/* duplicate */}
+              {[
+                "SEO",
+                "Web Development",
+                "Brand Identity",
+                "Social Media Marketing",
+                "Corporate Communications",
+                "Executive Advisory",
+                "Business Strategy",
+                "Market Analysis",
+                "Sales Training",
+              ].map((item, index) => (
+                <div
+                  key={`dup-${index}`}
+                  className="flex items-center shrink-0"
+                >
+                  <span className="text-black tracking-[-0.045em] text-2xl sm:text-3xl whitespace-nowrap">
+                    {item}
+                  </span>
+
+                  <span className="mx-5 sm:mx-7 text-black/25 text-xl sm:text-2xl">
+                    ✦
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
       {/* ── 2. CORE PILLARS ─────────────────────────────────────── */}
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-16 sm:py-24">
         <div className="mb-10 sm:mb-16">
@@ -131,7 +242,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {/* Pillar 1 */}
-          <div className="bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-7 sm:p-10 hover:shadow-sm transition-shadow duration-300">
+          <div className="group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-7 sm:p-10 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
             <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-6 sm:mb-8 shadow-sm">
               <svg
                 width="18"
@@ -173,7 +284,7 @@ const Home = () => {
           </div>
 
           {/* Pillar 2 */}
-          <div className="bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-7 sm:p-10 hover:shadow-sm transition-shadow duration-300">
+          <div className="group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-7 sm:p-10 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
             <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-6 sm:mb-8 shadow-sm">
               <svg
                 width="18"
@@ -215,7 +326,30 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      {/* ── STATS ROW (Bridging Section) ────────────────────────── */}
+      <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pb-16 sm:pb-24">
+        <div className="pt-10 sm:pt-14 border-t border-(--color-border) w-full grid grid-cols-3 gap-4">
+          {[
+            { value: "3", label: "Global Markets" },
+            { value: "12", label: "Core Services" },
+            { value: "B2B", label: "Growth & Advisory" },
+          ].map(({ value, label }, index) => (
+            <div key={label} className="flex flex-col items-center">
+              <span
+                ref={(el) => (statsRefs.current[index] = el)}
+                data-value={value}
+                className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter text-(--color-text-primary)"
+              >
+                {/* Fallback starting point before GSAP kicks in */}
+                {isNaN(value) ? value : "0"}
+              </span>
+              <span className="text-xs sm:text-sm font-medium text-(--color-text-secondary) mt-2 tracking-tight text-center leading-tight">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
       {/* ── 3. CARIBBEAN INDIA CORRIDOR ─────────────────────────── */}
       <section className="w-full px-5 sm:px-6 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto bg-(--color-dark) rounded-[1.75rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-12 overflow-hidden relative border border-slate-800">
