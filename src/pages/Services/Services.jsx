@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import Button from "../../components/ui/Button";
 const SERVICES_DATA = [
   {
     category: "Marketing & Communication",
@@ -162,13 +161,11 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
     {/* Toggle button */}
     <button
       onClick={onToggle}
-      className="w-full py-5 sm:py-6 flex items-center justify-between text-left hover:opacity-70 transition-opacity focus:outline-none gap-4"
+      className="w-full py-4 sm:py-5 flex items-center justify-between text-left hover:opacity-70 transition-opacity focus:outline-none gap-4"
     >
       <h3
         className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${
-          isOpen
-            ? "text-(--color-dark)"
-            : "text-(--color-text-primary)"
+          isOpen ? "text-(--color-dark)" : "text-(--color-text-primary)"
         }`}
       >
         {service.title}
@@ -184,7 +181,9 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+          className={`transition-transform duration-300 ${
+            isOpen ? "rotate-45" : ""
+          }`}
         >
           <line x1="12" y1="5" x2="12" y2="19" />
           <line x1="5" y1="12" x2="19" y2="12" />
@@ -196,45 +195,69 @@ const ServiceRow = ({ service, isOpen, onToggle }) => (
     <div
       className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
         isOpen
-          ? "grid-rows-[1fr] opacity-100 pb-7 sm:pb-8"
+          ? "grid-rows-[1fr] opacity-100 pb-6 sm:pb-10"
           : "grid-rows-[0fr] opacity-0 pb-0"
       }`}
     >
       <div className="min-h-0">
-        <div className="pl-0 sm:pl-5 border-l-0 sm:border-l-2 sm:border-(--color-accent)">
-          <h4 className="text-base sm:text-lg font-medium text-(--color-text-primary) mb-2 tracking-tight">
-            {service.headline}
-          </h4>
-          <p className="text-(--color-text-secondary) text-sm font-light leading-relaxed mb-5 tracking-tight">
-            {service.description}
-          </p>
+        {/* Changed items-start to items-center on large screens to perfectly balance the unequal heights */}
+        <div className="pt-2 flex flex-col md:flex-row gap-8 lg:gap-12 items-start md:items-center">
+          {/* LEFT COLUMN: Scaled Typography & Expanded Margins */}
+          <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 sm:border-(--color-accent)">
+            {/* Headline: Bumped to 2xl/3xl for a stronger editorial hook */}
+            <h4 className="text-xl sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-4 lg:mb-6 tracking-tight leading-snug">
+              {service.headline}
+            </h4>
 
-          <div>
-            <h5 className="text-[10px] font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3">
-              Key Deliverables
-            </h5>
-            <ul className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-y-2 gap-x-4">
-              {service.deliverables.map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-(--color-dark) mt-0.5 shrink-0"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span className="text-xs font-medium text-(--color-text-primary) tracking-tight">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {/* Description: Bumped to sm:text-lg, increased bottom margin */}
+            <p className="text-(--color-text-secondary) text-base sm:text-lg font-light leading-relaxed mb-8 lg:mb-12 tracking-tight max-w-2xl">
+              {service.description}
+            </p>
+
+            <div>
+              {/* Deliverables Label: Slightly larger, more margin */}
+              <h5 className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-4 lg:mb-6">
+                Key Deliverables
+              </h5>
+
+              {/* Grid: Increased vertical gap between items */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                {service.deliverables.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-(--color-dark) mt-[3px] shrink-0"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {/* Item Text: Bumped to base size */}
+                    <span className="text-sm sm:text-base font-medium text-(--color-text-primary) tracking-tight">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Image (Unchanged) */}
+          <div className="hidden md:block w-full md:w-1/3 lg:w-1/4 relative overflow-hidden rounded-2xl border border-(--color-border) aspect-[4/5] bg-(--color-bg-secondary) shadow-sm shrink-0">
+            <img
+              src={`/services/${service.id}.webp`}
+              alt={service.title}
+              className="w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
+              onError={(e) => {
+                e.target.src = "/hero-img.webp";
+              }}
+            />
+            <div className="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none z-10" />
           </div>
         </div>
       </div>
@@ -249,37 +272,35 @@ const Services = () => {
 
   return (
     <div className="w-full bg-(--color-bg-primary) min-h-screen">
-
       {/* ── 1. HEADER ─────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-(--color-border)">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
-          Solutions built to{" "}
-          <br className="hidden sm:block" />
+          Solutions built to <br className="hidden sm:block" />
           <span className="font-serif-italic font-normal text-slate-500">
             scale with you.
           </span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-xl sm:max-w-2xl">
           From establishing your brand identity to optimizing complex leadership
-          decisions, our comprehensive services connect markets and drive growth.
+          decisions, our comprehensive services connect markets and drive
+          growth.
         </p>
       </div>
 
-      {/* ── 2. ACCORDION GRID ─────────────────────────────────── */}
+      {/* ── 2. ACCORDION GRID (Single Column, Asymmetric Headers) ── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pb-20 sm:pb-32 pt-10 sm:pt-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 xl:gap-24 items-start">
-
+        <div className="flex flex-col gap-16 md:gap-24 items-stretch">
           {SERVICES_DATA.map((group, groupIndex) => (
             <div
               key={group.category}
-              className={`animate-fade-up delay-${(groupIndex + 1) * 100} ${
-                groupIndex === 1
-                  ? "mt-0 lg:mt-0 border-t border-(--color-border) lg:border-t-0 pt-10 lg:pt-0"
-                  : ""
-              }`}
+              className={`animate-fade-up delay-${(groupIndex + 1) * 100}`}
             >
-              {/* Category label */}
-              <h2 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4">
+              {/* Category label with conditional alignment */}
+              <h2
+                className={`text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4 ${
+                  groupIndex === 1 ? "text-right" : "text-left"
+                }`}
+              >
                 {group.category}
               </h2>
 
@@ -296,7 +317,6 @@ const Services = () => {
               </div>
             </div>
           ))}
-
         </div>
       </div>
 
@@ -312,26 +332,10 @@ const Services = () => {
           Every project starts with a conversation. Let's discuss how we can
           align our services with your specific business goals.
         </p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-(--color-dark) text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
-        >
+        <Button to="/contact" variant="primary" hasArrow>
           Book Consultation
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
+        </Button>
       </div>
-
     </div>
   );
 };
