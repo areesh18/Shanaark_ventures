@@ -215,36 +215,54 @@ const ServiceRow = ({
       }`}
     >
       <div className="min-h-0">
-        <div className="pt-2 flex flex-col md:flex-row gap-8 lg:gap-12 items-start md:items-center">
+        {/* Mobile: image strip on top, then text. Desktop: text left, image right (side-by-side). */}
+
+        {/* ── MOBILE-ONLY full-width image strip ── */}
+        <div className="block md:hidden w-full h-44 relative overflow-hidden rounded-xl mt-3 mb-5 border border-(--color-border) bg-(--color-bg-secondary)">
+          <img
+            src={`/services/${service.id}.jpg`}
+            alt={service.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
+            onError={(e) => {
+              e.target.src = "/hero-img.webp";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none" />
+        </div>
+
+        {/* ── Content row (text always, desktop image on right) ── */}
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
+          {/* Text column */}
           <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 border-(--color-accent)">
-            <h4 className="text-xl sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-4 lg:mb-6 tracking-tight leading-snug">
+            <h4 className="text-lg sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-snug">
               {service.headline}
             </h4>
-            <p className="text-(--color-text-secondary) text-base sm:text-lg font-light leading-relaxed mb-8 lg:mb-12 tracking-tight max-w-2xl">
+            <p className="text-(--color-text-secondary) text-sm sm:text-lg font-light leading-relaxed mb-6 lg:mb-12 tracking-tight max-w-2xl">
               {service.description}
             </p>
 
             <div>
-              <h5 className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-4 lg:mb-6">
+              <h5 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 lg:mb-6">
                 Key Deliverables
               </h5>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 sm:gap-y-4 gap-x-6">
                 {service.deliverables.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <li key={i} className="flex items-start gap-2 sm:gap-3">
                     <svg
-                      width="16"
-                      height="16"
+                      width="14"
+                      height="14"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-(--color-dark) mt-[3px] shrink-0"
+                      className="text-(--color-dark) mt-[3px] shrink-0 sm:w-4 sm:h-4"
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    <span className="text-sm sm:text-base font-medium text-(--color-text-primary) tracking-tight">
+                    <span className="text-xs sm:text-base font-medium text-(--color-text-primary) tracking-tight">
                       {item}
                     </span>
                   </li>
@@ -253,11 +271,12 @@ const ServiceRow = ({
             </div>
           </div>
 
-          <div className="hidden md:block w-full md:w-1/3 lg:w-1/4 relative overflow-hidden rounded-2xl border border-(--color-border) aspect-[4/5] bg-(--color-bg-secondary) shadow-sm shrink-0">
+          {/* Desktop-only side image */}
+          <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-[4/5] relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
             <img
-              src={`../public/services/${service.id}.jpg`}
+              src={`/services/${service.id}.jpg`}
               alt={service.title}
-              className="w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
               onError={(e) => {
                 e.target.src = "/hero-img.webp";
               }}
