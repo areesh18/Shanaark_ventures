@@ -14,7 +14,8 @@ const Home = () => {
       // 1. Hero Animation
       gsap.to(".hero-bg", {
         rotationX: 20,
-        duration: 8,
+        y:20,
+        duration: 7,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -25,7 +26,7 @@ const Home = () => {
         scale: 1.3,
         x: -20,
         y: -20,
-        duration: 12,
+        duration: 5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
