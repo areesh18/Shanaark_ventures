@@ -74,16 +74,21 @@ const Home = () => {
       className="bg-(--color-bg-primary) flex flex-col items-center"
     >
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
-      <section className="w-full min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
-        {/* Background Image */}
-        <img
-          src={heroBg}
-          alt=""
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="will-change-transform hero-bg absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
-        />
+      <section className="w-full min-h-[75svh] md:min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        {/* Optimized Background Image Wrapper */}
+        <div className="absolute top-90 md:top-40 z-0 pointer-events-none select-none overflow-hidden bg-(--color-bg-primary)">
+          <img
+            src={heroBg}
+            alt=""
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="will-change-transform hero-bg w-full h-full object-cover object-[center_top] md:object-center opacity-60 md:opacity-50 scale-190 md:scale-110"
+          />
+        </div>
+
+        {/* Contrast Mask (Protects text readability on mobile) */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0)_60%)] md:bg-none" />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
@@ -132,29 +137,11 @@ const Home = () => {
             </Link>
             <Link
               to="/services"
-              className="px-7 py-3.5 rounded-full bg-white text-(--color-text-primary) border border-(--color-border) text-sm font-medium hover:bg-(--color-bg-secondary) transition-all flex items-center justify-center"
+              className="px-7 py-3.5 rounded-full bg-white/30 backdrop-blur-md  text-(--color-text-primary) border border-(--color-border) text-sm font-medium hover:bg-(--color-bg-secondary)/80 transition-all flex items-center justify-center"
             >
               Explore Services
             </Link>
           </div>
-
-          {/* Stats row */}
-          {/* <div className="mt-16 sm:mt-24 pt-8 sm:pt-10 border-t border-(--color-border) w-full grid grid-cols-3 gap-4 animate-fade-up delay-400">
-            {[
-              { value: "3", label: "Global Markets" },
-              { value: "12", label: "Core Services" },
-              { value: "B2B", label: "Growth & Advisory" },
-            ].map(({ value, label }) => (
-              <div key={label} className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-semibold tracking-tighter text-(--color-text-primary)">
-                  {value}
-                </span>
-                <span className="text-[11px] sm:text-sm font-medium text-(--color-text-secondary) mt-1 tracking-tight text-center leading-tight">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div> */}
         </div>
       </section>
       {/* ── STATS ROW (Integrated & Left-Aligned) ───────────────── */}
