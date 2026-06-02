@@ -4,7 +4,7 @@ import heroBg from "/public/hero-img.webp";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
+import Button from "../../components/ui/Button";
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const container = useRef(null);
@@ -117,30 +117,12 @@ const Home = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-up delay-300">
-            <Link
-              to="/contact"
-              className="px-7 py-3.5 rounded-full bg-(--color-dark) text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm"
-            >
+            <Button to="/contact" variant="primary" hasArrow>
               Book Consultation
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              to="/services"
-              className="px-7 py-3.5 rounded-full bg-white/30 backdrop-blur-md  text-(--color-text-primary) border border-(--color-border) text-sm font-medium hover:bg-(--color-bg-secondary)/80 transition-all flex items-center justify-center"
-            >
+            </Button>
+            <Button to="/services" variant="glass">
               Explore Services
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -184,7 +166,7 @@ const Home = () => {
       {/* ── 2. CORE PILLARS (Asymmetric Grid) ───────────────────── */}
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-16 lg:pt-24 pb-12">
         <div className="mb-8 md:mb-12 lg:mb-20 max-w-2xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight text-(--color-text-primary) mb-4">
+          <h2 className="font-medium md:font-normal text-2xl sm:text-3xl md:text-4xl tracking-tight text-(--color-text-primary) mb-4">
             Everything you need to{" "}
             <span className="font-serif-italic font-normal text-slate-500">
               scale.
@@ -457,24 +439,9 @@ const Home = () => {
           Whether you need an entire marketing team or high-level CEO advisory,
           we are here to cut through the complexity.
         </p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-(--color-dark) text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
-        >
+        <Button to="/contact" variant="primary" hasArrow>
           Book Consultation
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
+        </Button>
       </section>
     </div>
   );

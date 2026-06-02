@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import Button from "../../ui/Button";
 // Restored to exact original links and routing
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -77,12 +77,9 @@ const Navbar = () => {
             >
               Talk to Us
             </Link>
-            <Link
-              to="/contact"
-              className="text-base font-medium bg-(--color-dark) text-white px-5 xl:px-6 py-2.5 rounded-full hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm tracking-tight whitespace-nowrap"
-            >
+            <Button to="/contact" hasArrow>
               Book Consultation
-            </Link>
+            </Button>
           </div>
 
           {/* Hamburger — mobile only */}
