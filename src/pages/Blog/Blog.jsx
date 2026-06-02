@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Button from "../../components/ui/Button";
 const MOCK_POSTS = [
   {
     id: 1,
@@ -254,24 +254,7 @@ const Blog = () => {
             Stop reading about growth and start executing it. Connect with our
             advisory team today.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-(--color-dark) text-white text-sm font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
-          >
-            Book Consultation
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
+          <Button hasArrow>Book Consultation</Button>
         </div>
 
       </div>

@@ -87,6 +87,10 @@ const Button = ({
       button: "bg-white text-(--color-text-primary) border border-(--color-border) hover:text-white hover:border-(--color-dark)",
       fill: "bg-(--color-dark)", // Dark fill
     },
+    darkBg: {
+      button: "bg-white text-(--color-text-primary) border border-(--color-border)  hover:border-(--color-dark)",
+      fill: "bg-transparent", // Light fill for dark backgrounds
+    },
   };
 
   const currentVariant = variants[variant] || variants.primary;

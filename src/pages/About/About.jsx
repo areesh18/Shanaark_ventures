@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "../../components/ui/Button";
 
 const About = () => {
   return (
@@ -95,9 +95,7 @@ const About = () => {
            <p className="text-lg font-light tracking-tight text-(--color-text-secondary) mb-10 max-w-xl mx-auto">
              Let’s discuss how our transformative strategies and marketing solutions can drive results for your organization.
            </p>
-           <Link to="/contact" className="inline-flex px-8 py-3.5 rounded-full bg-(--color-dark) text-white font-medium hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm">
-             Book Consultation
-           </Link>
+            <Button hasArrow>Book Consultation</Button>
         </div>
 
       </div>
