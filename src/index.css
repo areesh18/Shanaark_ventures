@@ -59,3 +59,19 @@ body {
     transform: translateX(-50%);
   }
 }
+
+.card-inner {
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+#card-1 .card-inner {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+#card-2 .card-inner {
+  background: var(--color-accent);
+}
+
+#card-3 .card-inner {
+  background: rgba(241, 245, 249, 0.88);
+}

@@ -33,7 +33,7 @@ const Button = ({
   // ── GSAP FLUID HOVER LOGIC ──
   const handleMouseEnter = (e) => {
     if (!buttonRef.current || !fillRef.current) return;
-    
+
     // Calculate mouse position relative to the button
     const rect = buttonRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -41,10 +41,10 @@ const Button = ({
 
     // Instantly snap the hidden fill circle to the mouse, scale 0
     gsap.set(fillRef.current, { x, y, scale: 0 });
-    
+
     // Expand it massively to cover the whole button
     gsap.to(fillRef.current, {
-      scale: 5, 
+      scale: 5,
       duration: 1.0,
       ease: "power3.out",
       overwrite: true, // <-- THE FIX: Kills any active shrink animations
@@ -53,7 +53,7 @@ const Button = ({
 
   const handleMouseLeave = (e) => {
     if (!buttonRef.current || !fillRef.current) return;
-    
+
     const rect = buttonRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -76,19 +76,23 @@ const Button = ({
   // ── VARIANT MAPPINGS ──
   const variants = {
     primary: {
-      button: "bg-(--color-dark) text-white border border-(--color-dark) hover:text-(--color-dark) hover:border-transparent shadow-sm",
+      button:
+        "bg-(--color-dark) text-white border border-(--color-dark) hover:text-(--color-dark) hover:border-transparent shadow-sm",
       fill: "bg-(--color-accent)", // Neon green fill
     },
     glass: {
-      button: "bg-white/30 backdrop-blur-md text-(--color-text-primary) border border-(--color-border) hover:text-white hover:border-(--color-dark)",
+      button:
+        "bg-white/30 backdrop-blur-md text-(--color-text-primary) border border-(--color-border) hover:text-white hover:border-(--color-dark)",
       fill: "bg-(--color-dark)", // Dark fill
     },
     outline: {
-      button: "bg-white text-(--color-text-primary) border border-(--color-border) hover:text-white hover:border-(--color-dark)",
+      button:
+        "bg-white text-(--color-text-primary) border border-(--color-border) hover:text-white hover:border-(--color-dark)",
       fill: "bg-(--color-dark)", // Dark fill
     },
     darkBg: {
-      button: "bg-white text-(--color-text-primary) border border-(--color-border)  hover:border-(--color-dark)",
+      button:
+        "bg-white text-(--color-text-primary) border border-(--color-border)  hover:border-(--color-dark)",
       fill: "bg-white", // Light fill for dark backgrounds
     },
   };
@@ -111,12 +115,12 @@ const Button = ({
   // If a 'to' prop is provided, render a React Router Link
   if (to) {
     return (
-      <Link 
-        to={to} 
+      <Link
+        to={to}
         ref={buttonRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={combinedClassName} 
+        className={combinedClassName}
         {...props}
       >
         {content}
@@ -126,11 +130,11 @@ const Button = ({
 
   // Otherwise, render a standard HTML button
   return (
-    <button 
+    <button
       ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={combinedClassName} 
+      className={combinedClassName}
       {...props}
     >
       {content}
