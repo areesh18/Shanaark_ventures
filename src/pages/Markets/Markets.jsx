@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../../components/ui/Button"; // Adjust path as needed
+import MaskRevealText from "../../components/animations/MaskRevealText";
 
 // Register the plugin globally
 gsap.registerPlugin(ScrollTrigger);
@@ -166,18 +167,7 @@ const Markets = () => {
         ease: "sine.inOut",
       });
 
-      // 5. CTA Viewport Reveal
-      gsap.from(".gsap-cta", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".gsap-cta",
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        }
-      });
+      
 
     }, containerRef);
 
@@ -196,10 +186,10 @@ const Markets = () => {
               Markets.
             </span>
           </h1>
-          <p className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed px-2 sm:px-0">
+          <MaskRevealText className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed px-2 sm:px-0">
             Tailored solutions across three continents. Select a region below to
             explore our localized service offerings and capabilities.
-          </p>
+          </MaskRevealText>
         </div>
 
         {/* ── MARKET SWITCHER ── */}
@@ -323,13 +313,13 @@ const Markets = () => {
         </div>
 
         {/* ── CROSS-LINK CTA ── */}
-        <div className="gsap-cta mt-24 sm:mt-32 pt-12 border-t border-(--color-border) text-center">
-          <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3 sm:mb-4">
+        <div className=" mt-24 sm:mt-32 pt-12 border-t border-(--color-border) text-center">
+          <MaskRevealText className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3 sm:mb-4">
             Want to learn more about a specific service?
-          </h3>
-          <p className="text-(--color-text-secondary) font-light mb-8 text-sm sm:text-base">
+          </MaskRevealText>
+          <MaskRevealText delay={0.08} className="text-(--color-text-secondary) font-light mb-8 text-sm sm:text-base">
             Read our detailed deliverables and execution strategies.
-          </p>
+          </MaskRevealText>
           <div className="flex justify-center">
             <Button to="/services" variant="outline" hasArrow>
               View Service Details

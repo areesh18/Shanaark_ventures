@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Button from "../../components/ui/Button";
+import MaskRevealText from "../../components/animations/MaskRevealText";
+import ScrambleText from "../../components/animations/ScrambleText";
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const container = useRef(null);
@@ -133,9 +135,9 @@ const Home = () => {
             <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-3">
               Proven Impact
             </h3>
-            <p className="text-xl sm:text-2xl font-light text-(--color-text-primary) tracking-tight leading-snug">
+            <MaskRevealText className="text-xl sm:text-2xl font-light text-(--color-text-primary) tracking-tight leading-snug">
               Driving measurable results across borders and industries.
-            </p>
+            </MaskRevealText>
           </div>
 
           {/* Right Aligned Stats */}
@@ -171,10 +173,10 @@ const Home = () => {
               scale.
             </span>
           </h2>
-          <p className="text-(--color-text-secondary) font-light tracking-tight text-base sm:text-lg leading-relaxed">
+          <MaskRevealText className="text-(--color-text-secondary) font-light tracking-tight text-base sm:text-lg leading-relaxed">
             From establishing your brand identity to optimizing leadership
             decisions, we provide end-to-end solutions.
-          </p>
+          </MaskRevealText>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
@@ -196,7 +198,9 @@ const Home = () => {
               </svg>
             </div>
             <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-              Marketing & Communication
+              <ScrambleText duration={1.0}>
+                Marketing & Communication
+              </ScrambleText>
             </h3>
             <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-base">
               We handle your end-to-end marketing efforts, ensuring consistent
@@ -251,7 +255,9 @@ const Home = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-                Business Consulting
+                <ScrambleText duration={1.5}>
+                  Business Consulting
+                </ScrambleText>
               </h3>
               <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-base">
                 High-level guidance for leadership decisions. We provide expert
@@ -278,9 +284,9 @@ const Home = () => {
       </section>
       {/* ── 4. TRUSTED BY LOGOS (Pre-CTA Conversion Signal) ─────── */}
       <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-12 md:pt-20 lg:pt-28 pb-8 sm:pb-12 flex flex-col items-center">
-        <p className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-6 md:mb-8 lg:mb-10 text-center">
+        <MaskRevealText className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-6 md:mb-8 lg:mb-10 text-center">
           Trusted by partners across the corridor
-        </p>
+        </MaskRevealText>
         <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
           {[1, 2, 3].map((num) => (
             <img

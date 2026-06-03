@@ -1,3 +1,4 @@
+import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
 
 const About = () => {
@@ -18,9 +19,9 @@ const About = () => {
             <span className="font-serif-italic font-normal text-slate-500">transforming </span>businesses.
           </h1>
           
-          <p className="text-xl md:text-2xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-3xl mx-auto">
+          <MaskRevealText className="text-xl md:text-2xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-3xl mx-auto">
             Founded in 2013 and rebranded in 2025 as Shaanark Ventures, our company has over a decade of experience in transforming businesses through innovative strategies and design services.
-          </p>
+          </MaskRevealText>
         </div>
 
         {/* 2. STATS / MILESTONES BAR */}
@@ -34,8 +35,7 @@ const About = () => {
             <span className="text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest">Years Experience</span>
           </div>
           <div className="flex flex-col items-center justify-center p-8 bg-(--color-bg-secondary) border border-(--color-border) rounded-[2rem] relative overflow-hidden">
-            {/* Subtle glow for the rebranding highlight */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-(--color-accent)/20 to-transparent opacity-50"></div>
+            
             <span className="relative z-10 text-5xl font-medium text-(--color-text-primary) tracking-tighter mb-2">2025</span>
             <span className="relative z-10 text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest">Rebranded to Shaanark</span>
           </div>
@@ -51,12 +51,12 @@ const About = () => {
           </div>
           
           <div className="lg:w-1/2 flex flex-col gap-8">
-            <p className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
+            <MaskRevealText className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
               With a sharp focus on business acceleration and ecosystem development, we empower organizations to thrive in a dynamic, fast-paced world.
-            </p>
-            <p className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
+            </MaskRevealText>
+            <MaskRevealText delay={0.1} className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
               At Shaanark Ventures, we specialize in delivering transformative marketing solutions that create lasting impact. Our marketing services are integral to our broader vision of business transformation, helping clients across various sectors—including international organizations and corporate entities—communicate their messages effectively and creatively.
-            </p>
+            </MaskRevealText>
           </div>
         </div>
 

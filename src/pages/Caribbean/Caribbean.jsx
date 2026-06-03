@@ -1,8 +1,9 @@
+import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
 import { useRef } from "react";
-import gsap from "gsap";
+/* import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/all"; */
 const CORRIDOR_PILLARS = [
   {
     id: "invest",
@@ -49,9 +50,9 @@ const Card = ({ title, description, tags, image, index }) => {
 
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 mt-auto">
             {/* Description */}
-            <p className="w-full sm:w-1/2 text-sm sm:text-base lg:text-lg font-light text-(--color-text-secondary) leading-relaxed tracking-tight">
+            <MaskRevealText className="w-full sm:w-1/2 text-sm sm:text-base lg:text-lg font-light text-(--color-text-secondary) leading-relaxed tracking-tight">
               {description}
-            </p>
+            </MaskRevealText>
 
             {/* Tags */}
             <div className="w-full sm:w-1/2 flex flex-col gap-3">
@@ -167,13 +168,13 @@ const Caribbean = () => {
 
           {/* FIX: Applied md:self-end and a slight bottom margin to anchor the text to the bottom right */}
           <div className="w-full md:w-2/5 md:self-end md:mb-2 lg:mb-4">
-            <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
+            <MaskRevealText className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
               We facilitate seamless cross-border business by connecting
               ambitious investors, scaling businesses, and elite talent across{" "}
               <span className="font-medium text-(--color-text-primary)">
                 India, Suriname, and Guyana.
               </span>
-            </p>
+            </MaskRevealText>
           </div>
         </div>
 

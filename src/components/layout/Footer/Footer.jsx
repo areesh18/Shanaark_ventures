@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MaskRevealText from "../../animations/MaskRevealText";
 
 const Footer = () => {
   return (
@@ -13,10 +14,10 @@ const Footer = () => {
                 curve.
               </span>
             </h2>
-            <p className="text-(--color-text-secondary) font-light tracking-tight">
+            <MaskRevealText className="text-(--color-text-secondary) font-light tracking-tight">
               Get the latest insights on global market trends and cross-border
               opportunities delivered directly to your inbox.
-            </p>
+            </MaskRevealText>
           </div>
 
           {/* Premium Pill-shaped Email Input */}

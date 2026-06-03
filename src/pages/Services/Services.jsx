@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import gsap from "gsap";
 import Button from "../../components/ui/Button";
-
+import MaskRevealText from "../../components/animations/MaskRevealText";
 const SERVICES_DATA = [
   // ... (Keep your exact SERVICES_DATA array here, I am omitting it for brevity) ...
   {
@@ -161,14 +161,7 @@ const SERVICES_DATA = [
 
 // ── 1. CLEAN, STATELESS COMPONENT ──
 // ServiceRow now only handles UI rendering and passes events back up.
-const ServiceRow = ({
-  service,
-  isOpen,
-  onToggleClick,
-  onMouseEnter,
-  onMouseMove,
-  onMouseLeave,
-}) => (
+const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove, onMouseLeave}) => (
   <div className="border-b border-(--color-border) group relative transition-colors">
     <button
       onClick={() => onToggleClick(service.id)}
@@ -366,7 +359,7 @@ const Services = () => {
       {/* ── THE SINGLE GLOBAL FLOATING IMAGE ── */}
       <div
         ref={floatingContainerRef}
-        className="fixed top-0 left-0 w-48 lg:w-64 aspect-[4/5] rounded-xl overflow-hidden pointer-events-none z-50 invisible opacity-0 scale-80 shadow-2xl hidden md:block"
+        className="fixed top-0 left-0 w-48 lg:w-64 aspect-4/5 rounded-xl overflow-hidden pointer-events-none z-50 invisible opacity-0 scale-80 shadow-2xl hidden md:block"
       >
         <img
           ref={floatingImgRef}
@@ -377,7 +370,7 @@ const Services = () => {
             e.target.src = "/hero-img.webp";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-(--color-border)">
@@ -387,11 +380,11 @@ const Services = () => {
             scale with you.
           </span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-xl sm:max-w-2xl">
+        <MaskRevealText className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-xl sm:max-w-2xl">
           From establishing your brand identity to optimizing complex leadership
           decisions, our comprehensive services connect markets and drive
           growth.
-        </p>
+        </MaskRevealText>
       </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pb-20 sm:pb-32 pt-10 sm:pt-14">
