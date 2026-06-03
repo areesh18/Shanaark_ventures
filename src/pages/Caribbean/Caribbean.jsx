@@ -37,10 +37,10 @@ const CORRIDOR_PILLARS = [
 const Card = ({ title, description, tags, image, index }) => {
   return (
     <div
-      className="card w-full relative border-t border-(--color-border)  group"
+      className="card w-full relative  group"
       id={`card-${index + 1}`}
     >
-      <div className=" p-[2em] card-inner relative will-change-transform  w-full h-full flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
+      <div className=" p-[2em] rounded-2xl card-inner relative will-change-transform  w-full h-full flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
         {/* ── LEFT COLUMN: Text Content ── */}
         <div className="card-content w-full lg:w-7/12 flex flex-col justify-between">
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] font-medium tracking-tighter text-(--color-text-primary) mb-12 lg:mb-24">
@@ -88,7 +88,7 @@ const Card = ({ title, description, tags, image, index }) => {
 // ── MAIN PAGE COMPONENT ────────────────────────────────────
 const Caribbean = () => {
   const container = useRef();
-  useGSAP(
+  /* useGSAP(
     () => {
       const mm = gsap.matchMedia();
 
@@ -128,7 +128,7 @@ const Caribbean = () => {
                 trigger: card,
                 start: "top 30%",
                 endTrigger: ".outro",
-                end: "top 100%",
+                end: "top 120%",
                 scrub: true,
                 invalidateOnRefresh: true,
               },
@@ -142,7 +142,7 @@ const Caribbean = () => {
       });
     },
     { scope: container },
-  );
+  ); */
   return (
     <div
       ref={container}
@@ -165,7 +165,8 @@ const Caribbean = () => {
             </h1>
           </div>
 
-          <div className="w-full md:w-2/5 md:pt-16">
+          {/* FIX: Applied md:self-end and a slight bottom margin to anchor the text to the bottom right */}
+          <div className="w-full md:w-2/5 md:self-end md:mb-2 lg:mb-4">
             <p className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
               We facilitate seamless cross-border business by connecting
               ambitious investors, scaling businesses, and elite talent across{" "}
@@ -177,7 +178,7 @@ const Caribbean = () => {
         </div>
 
         {/* ── 2. EDITORIAL PILLARS (The Extracted Cards) ──────── */}
-        <div className="w-full flex flex-col gap-14 md:gap-0">
+        <div className="w-full flex flex-col gap-14 md:gap-10">
           {CORRIDOR_PILLARS.map((pillar, index) => (
             <Card key={pillar.id} index={index} {...pillar} />
           ))}
