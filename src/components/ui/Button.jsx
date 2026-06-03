@@ -89,7 +89,7 @@ const Button = ({
     },
     darkBg: {
       button: "bg-white text-(--color-text-primary) border border-(--color-border)  hover:border-(--color-dark)",
-      fill: "bg-transparent", // Light fill for dark backgrounds
+      fill: "bg-white", // Light fill for dark backgrounds
     },
   };
 
