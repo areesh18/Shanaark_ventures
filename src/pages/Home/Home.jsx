@@ -110,7 +110,7 @@ const Home = () => {
           </h1>
 
           {/* Subtext */}
-          <p className="text-base sm:text-lg md:text-xl font-light text-(--color-text-secondary) max-w-xl sm:max-w-2xl mb-8 sm:mb-10 leading-relaxed tracking-tight animate-fade-up delay-200 px-2 sm:px-0">
+          <p className="text-lg sm:text-xl md:text-xl text-(--color-text-secondary) max-w-xl sm:max-w-2xl mb-8 sm:mb-10 leading-relaxed tracking-tight animate-fade-up delay-200 px-2 sm:px-0">
             We facilitate cross-border business by connecting investors,
             businesses, and talent. Expert advisory, digital excellence, and
             end-to-end marketing.
@@ -135,13 +135,13 @@ const Home = () => {
             <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-3">
               Proven Impact
             </h3>
-            <MaskRevealText className="text-xl sm:text-2xl font-light text-(--color-text-primary) tracking-tight leading-snug">
+            <MaskRevealText className="text-2xl sm:text-3xl font-light text-(--color-text-primary) tracking-tight leading-snug">
               Driving measurable results across borders and industries.
             </MaskRevealText>
           </div>
 
           {/* Right Aligned Stats */}
-          <div className="md:w-2/3 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-8 md:gap-y-10 justify-start md:justify-end">
+          <div className="md:w-2/3 mt-0 sm:mt-0 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-8 md:gap-y-10 justify-start md:justify-end">
             {[
               { value: "3", label: "Global Markets" },
               { value: "12", label: "Core Services" },
@@ -156,7 +156,7 @@ const Home = () => {
                   {/* Fallback starting point before GSAP kicks in */}
                   {isNaN(value) ? value : "0"}
                 </span>
-                <span className="text-sm font-medium text-(--color-text-secondary) tracking-tight">
+                <span className="text-md font-medium text-(--color-text-secondary) tracking-tight">
                   {label}
                 </span>
               </div>
@@ -167,13 +167,13 @@ const Home = () => {
       {/* ── 2. CORE PILLARS (Asymmetric Grid) ───────────────────── */}
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-16 lg:pt-24 pb-12">
         <div className="mb-8 md:mb-12 lg:mb-20 max-w-2xl">
-          <h2 className="font-medium md:font-normal text-2xl sm:text-3xl md:text-4xl tracking-tight text-(--color-text-primary) mb-4">
+          <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-(--color-text-primary) mb-4">
             Everything you need to{" "}
             <span className="font-serif-italic font-normal text-slate-500">
               scale.
             </span>
           </h2>
-          <MaskRevealText className="text-(--color-text-secondary) font-light tracking-tight text-base sm:text-lg leading-relaxed">
+          <MaskRevealText className="text-(--color-text-primary) font-light tracking-tight text-lg sm:text-xl leading-relaxed">
             From establishing your brand identity to optimizing leadership
             decisions, we provide end-to-end solutions.
           </MaskRevealText>
@@ -202,7 +202,7 @@ const Home = () => {
                 Marketing & Communication
               </ScrambleText>
             </h3>
-            <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-base">
+            <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
               We handle your end-to-end marketing efforts, ensuring consistent
               growth and alignment with your business goals.
             </p>
@@ -255,11 +255,9 @@ const Home = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-                <ScrambleText duration={1.5}>
-                  Business Consulting
-                </ScrambleText>
+                <ScrambleText duration={1.5}>Business Consulting</ScrambleText>
               </h3>
-              <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-base">
+              <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
                 High-level guidance for leadership decisions. We provide expert
                 advisory to help businesses scale and optimize operations.
               </p>
@@ -284,7 +282,7 @@ const Home = () => {
       </section>
       {/* ── 4. TRUSTED BY LOGOS (Pre-CTA Conversion Signal) ─────── */}
       <section className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-12 md:pt-20 lg:pt-28 pb-8 sm:pb-12 flex flex-col items-center">
-        <MaskRevealText className="text-xs sm:text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest mb-6 md:mb-8 lg:mb-10 text-center">
+        <MaskRevealText className="text-sm sm:text-md font-medium text-(--color-text-primary) uppercase tracking-normal mb-6 md:mb-8 lg:mb-10 text-center">
           Trusted by partners across the corridor
         </MaskRevealText>
         <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
@@ -310,7 +308,7 @@ const Home = () => {
               </span>{" "}
               Corridor.
             </h2>
-            <p className="text-(--color-footer-text) font-light text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed tracking-tight">
+            <p className="text-(--color-footer-text) font-light text-lg sm:text-xl mb-6 sm:mb-8 leading-relaxed tracking-tight">
               Bridging opportunities. We facilitate cross-border business by
               connecting investors, businesses, and talent across India,
               Suriname, and Guyana.
@@ -359,7 +357,7 @@ const Home = () => {
                 <h4 className="text-white text-sm sm:text-base font-medium tracking-tight mb-1.5">
                   {title}
                 </h4>
-                <p className="text-slate-300 font-light text-xs sm:text-sm tracking-tight leading-relaxed">
+                <p className="text-slate-300 font-light sm:text-sm tracking-tight leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -430,8 +428,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* ── 5. FINAL CTA ────────────────────────────────────────── */}
-      {/* (Your existing Final CTA code goes here) */}
       {/* ── 4. FINAL CTA ────────────────────────────────────────── */}
       <section className="w-full max-w-4xl mx-auto px-5 sm:px-6 py-16 md:py-24 lg:py-32 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6 leading-[1.05]">
@@ -440,7 +436,7 @@ const Home = () => {
             get started?
           </span>
         </h2>
-        <p className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) mb-8 sm:mb-10 max-w-md sm:max-w-xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl font-light tracking-tight text-(--color-text-secondary) mb-8 sm:mb-10 max-w-md sm:max-w-xl mx-auto leading-relaxed">
           Whether you need an entire marketing team or high-level CEO advisory,
           we are here to cut through the complexity.
         </p>
