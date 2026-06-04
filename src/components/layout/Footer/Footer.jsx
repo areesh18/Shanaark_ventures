@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MaskRevealText from "../../animations/MaskRevealText";
-
+import logo from "/logo.webp";
 const Footer = () => {
   return (
     <footer className="bg-(--color-bg-secondary) pt-24 pb-8 border-t border-(--color-border)">
@@ -48,7 +48,7 @@ const Footer = () => {
               className="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity"
             >
               <img
-                src="/logo.png"
+                src={logo}
                 alt="Shaanark Ventures"
                 className="h-12 w-auto object-contain"
               />
