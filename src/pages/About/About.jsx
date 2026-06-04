@@ -1,13 +1,12 @@
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
-
 const About = () => {
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* 1. HERO SECTION (Using the first sentence) */}
-        <div className="max-w-4xl mx-auto text-center mb-24 animate-fade-up border-b border-(--color-border) pb-16">
+        <div className="max-w-6xl mx-auto text-center mb-24 animate-fade-up border-b border-(--color-border) pb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-8">
             <span className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest">
               Our Story
@@ -19,71 +18,85 @@ const About = () => {
             <span className="font-serif-italic font-normal text-slate-500">transforming </span>businesses.
           </h1>
           
-          <MaskRevealText className="text-xl md:text-2xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-3xl mx-auto">
+          <MaskRevealText className="text-xl md:text-3xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-5xl mx-auto">
             Founded in 2013 and rebranded in 2025 as Shaanark Ventures, our company has over a decade of experience in transforming businesses through innovative strategies and design services.
           </MaskRevealText>
         </div>
 
-        {/* 2. STATS / MILESTONES BAR */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 animate-fade-up delay-100">
-          <div className="flex flex-col items-center justify-center p-8 bg-(--color-bg-secondary) border border-(--color-border) rounded-[2rem]">
-            <span className="text-5xl font-medium text-(--color-text-primary) tracking-tighter mb-2">2013</span>
-            <span className="text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest">Original Founding</span>
-          </div>
-          <div className="flex flex-col items-center justify-center p-8 bg-(--color-bg-secondary) border border-(--color-border) rounded-[2rem]">
-            <span className="text-5xl font-medium text-(--color-text-primary) tracking-tighter mb-2">10+</span>
-            <span className="text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest">Years Experience</span>
-          </div>
-          <div className="flex flex-col items-center justify-center p-8 bg-(--color-bg-secondary) border border-(--color-border) rounded-[2rem] relative overflow-hidden">
-            
-            <span className="relative z-10 text-5xl font-medium text-(--color-text-primary) tracking-tighter mb-2">2025</span>
-            <span className="relative z-10 text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest">Rebranded to Shaanark</span>
-          </div>
-        </div>
-
-        {/* 3. CORE VISION (Split Screen Layout using the second & third sentences) */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start mb-32 animate-fade-up delay-200">
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-text-primary) leading-tight mb-6">
-              Empowering organizations to thrive in a <span className="text-slate-400">fast-paced world.</span>
-            </h2>
-            <div className="h-1 w-24 bg-(--color-dark) rounded-full"></div>
-          </div>
+       {/* 2. STATS / MILESTONES BAR (Editorial Staircase) */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-4 mb-32 md:mb-24 animate-fade-up delay-100 max-w-8xl mx-auto px-4 md:px-0">
           
-          <div className="lg:w-1/2 flex flex-col gap-8">
-            <MaskRevealText className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
-              With a sharp focus on business acceleration and ecosystem development, we empower organizations to thrive in a dynamic, fast-paced world.
-            </MaskRevealText>
-            <MaskRevealText delay={0.1} className="text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed">
-              At Shaanark Ventures, we specialize in delivering transformative marketing solutions that create lasting impact. Our marketing services are integral to our broader vision of business transformation, helping clients across various sectors—including international organizations and corporate entities—communicate their messages effectively and creatively.
-            </MaskRevealText>
+          {/* Step 1: Top Left */}
+          <div className="flex flex-col items-start md:mt-0">
+            <span className="text-6xl lg:text-[8rem] font-normal md:font-light text-(--color-text-primary) tracking-tighter leading-none mb-4">2013</span>
+            <span className="text-sm font-normal text-(--color-text-secondary) uppercase tracking-widest pl-3 ">Original Founding</span>
+          </div>
+
+          {/* Step 2: Middle (Down and Right) */}
+          <div className="flex flex-col items-start md:mt-32">
+            <span className="text-6xl lg:text-[8rem] font-normal md:font-light text-(--color-text-primary) tracking-tighter leading-none mb-4">10+</span>
+            <span className="text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest pl-3 ">Years Experience</span>
+          </div>
+
+          {/* Step 3: Bottom Right */}
+          <div className="flex flex-col items-start md:mt-64">
+            <span className="relative z-10 text-6xl lg:text-[8rem] font-normal md:font-light text-(--color-text-primary) tracking-tighter leading-none mb-4">2025</span>
+            <span className="relative z-10 text-sm font-medium text-(--color-text-secondary) uppercase tracking-widest pl-3 ">Rebranded to Shaanark</span>
+          </div>
+
+        </div>
+        {/* 3. CORE VISION (Editorial Staggered Layout) */}
+        <div className="mb-32  delay-200">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            
+            {/* Massive Offset Headline */}
+            <div className="md:col-span-12 lg:col-span-10 lg:col-start-1 mb-4 md:mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-normal tracking-tighter text-(--color-text-primary) leading-[1.05]">
+                Empowering organizations to thrive <br className="hidden lg:block"/>
+                in a <span className="font-serif-italic font-normal text-slate-500">fast-paced world.</span>
+              </h2>
+            </div>
+
+           {/* Structured Detail Stack - Left Aligned with a Top Border */}
+            <div className="md:col-span-12 lg:col-span-9 lg:col-start-1 flex flex-col gap-8 md:gap-10 border-t border-(--color-border) pt-8 md:pt-12 text-left">
+              <MaskRevealText className="text-xl md:text-2xl lg:text-3xl font-light tracking-tight text-slate-600 leading-relaxed">
+                With a sharp focus on business acceleration and ecosystem development, we empower organizations to thrive in a dynamic, fast-paced world.
+              </MaskRevealText>
+              
+              <MaskRevealText delay={0.05} className="text-xl md:text-2xl lg:text-3xl font-light tracking-tight text-slate-600 leading-relaxed">
+                At Shaanark Ventures, we specialize in delivering transformative marketing solutions that create lasting impact. Our marketing services are integral to our broader vision of business transformation, helping clients across various sectors communicate their messages effectively and creatively.
+              </MaskRevealText>
+            </div>
+
           </div>
         </div>
 
-        {/* 4. THE TEAM (Dark Premium Card using the final sentence) */}
-        <div className="w-full bg-(--color-dark) rounded-[2.5rem] p-10 md:p-20 overflow-hidden relative animate-fade-up delay-300 border border-slate-800 shadow-xl">
-          {/* Subtle Ambient Glow */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-(--color-accent) opacity-[0.05] blur-[120px] rounded-full pointer-events-none"></div>
+        {/* 4. THE TEAM (Dark Premium Card with Image) */}
+        <div className="w-full bg-(--color-dark) rounded-[2.5rem] p-6 md:p-12 lg:p-16 overflow-hidden relative animate-fade-up delay-300 border border-slate-800 shadow-xl group">
+          
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-24">
-            <div className="md:w-1/3 flex justify-center md:justify-start">
-              <div className="h-24 w-24 rounded-full border border-slate-700 bg-slate-800/50 flex items-center justify-center">
-                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                   <circle cx="9" cy="7" r="4"></circle>
-                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                 </svg>
-              </div>
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+            
+            {/* The Photo Left Pane */}
+            <div className="w-full md:w-2/5 shrink-0 h-64 md:h-80 rounded-2xl overflow-hidden relative">
+              {/* Swap '/hero-img.webp' with a photo of the team or a sleek boardroom */}
+              <img 
+                src="../../../public/about/team.png" 
+                alt="The Team" 
+                className="w-full h-full object-cover   transition-all duration-700 ease-out"
+              />
             </div>
-            <div className="md:w-2/3 text-center md:text-left">
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-white mb-4">
+            
+            {/* The Text Right Pane */}
+            <div className="w-full md:w-3/5 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6">
                 A team of seasoned professionals.
               </h3>
-              <p className="text-lg font-light tracking-tight text-(--color-footer-text) leading-relaxed">
+              <p className="text-lg md:text-xl font-normal tracking-tight text-slate-300 leading-relaxed">
                 We apply the latest technologies and methodologies to craft visually compelling solutions that resonate with audiences and drive absolute results.
               </p>
             </div>
+            
           </div>
         </div>
 

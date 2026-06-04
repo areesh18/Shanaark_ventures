@@ -373,7 +373,7 @@ const Services = () => {
         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16  border-b border-(--color-border)">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16  ">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to <br className="hidden sm:block" />
           <span className="font-serif-italic font-normal text-slate-500">
