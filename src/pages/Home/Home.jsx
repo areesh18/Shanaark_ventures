@@ -7,8 +7,13 @@ import { useGSAP } from "@gsap/react";
 import Button from "../../components/ui/Button";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import ScrambleText from "../../components/animations/ScrambleText";
+import logo1 from "../../../public/logos/logo-1.webp";
+import logo2 from "../../../public/logos/logo-2.webp";
+import logo3 from "../../../public/logos/logo-3.webp";
+
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
+  const logos = [logo1, logo2, logo3];
   const container = useRef(null);
   const statsRefs = useRef([]);
   useGSAP(
@@ -286,12 +291,12 @@ const Home = () => {
           Trusted by partners across the corridor
         </MaskRevealText>
         <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
-          {[1, 2, 3].map((num) => (
+          {logos.map((logo, index) => (
             <img
-              key={num}
-              src={`/logos/logo-${num}.webp`}
-              alt={`Client Logo ${num}`}
-              className="h-14 sm:h-16 md:h-20 w-auto object-contain opacity-90  hover:opacity-100 transition-all duration-300 ease-in-out"
+              key={index}
+              src={logo}
+              alt={`Client Logo ${index + 1}`}
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out"
             />
           ))}
         </div>

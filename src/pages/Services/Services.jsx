@@ -2,8 +2,35 @@ import { useState, useRef } from "react";
 import gsap from "gsap";
 import Button from "../../components/ui/Button";
 import MaskRevealText from "../../components/animations/MaskRevealText";
+
+// ── Service images ──
+import imgGraphicDesign from "/services/graphic-design.jpg";
+import imgSeo from "/services/seo.jpg";
+import imgBranding from "/services/branding.jpg";
+import imgTiktok from "/services/tiktok.jpg";
+import imgMarketingManagement from "/services/marketing-management.jpg";
+import imgCorpComm from "/services/corp-comm.jpg";
+import imgWebDev from "/services/web-dev.jpg";
+import imgCorridor from "/services/corridor.jpg";
+import imgBizAdvisory from "/services/biz-advisory.jpg";
+import imgCeoAdvisory from "/services/ceo-advisory.jpg";
+import imgSalesTraining from "/services/sales-training.jpg";
+import imgFallback from "/hero-img.webp";
+
+const SERVICE_IMAGES = {
+  "graphic-design": imgGraphicDesign,
+  seo: imgSeo,
+  branding: imgBranding,
+  tiktok: imgTiktok,
+  "marketing-management": imgMarketingManagement,
+  "corp-comm": imgCorpComm,
+  "web-dev": imgWebDev,
+  corridor: imgCorridor,
+  "biz-advisory": imgBizAdvisory,
+  "ceo-advisory": imgCeoAdvisory,
+  "sales-training": imgSalesTraining,
+};
 const SERVICES_DATA = [
-  // ... (Keep your exact SERVICES_DATA array here, I am omitting it for brevity) ...
   {
     category: "Marketing & Communication",
     items: [
@@ -161,7 +188,14 @@ const SERVICES_DATA = [
 
 // ── 1. CLEAN, STATELESS COMPONENT ──
 // ServiceRow now only handles UI rendering and passes events back up.
-const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove, onMouseLeave}) => (
+const ServiceRow = ({
+  service,
+  isOpen,
+  onToggleClick,
+  onMouseEnter,
+  onMouseMove,
+  onMouseLeave,
+}) => (
   <div className="border-b border-(--color-border) group relative transition-colors">
     <button
       onClick={() => onToggleClick(service.id)}
@@ -213,12 +247,9 @@ const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove,
         {/* ── MOBILE-ONLY full-width image strip ── */}
         <div className="block md:hidden w-full h-44 relative overflow-hidden rounded-xl mt-3 mb-5 border border-(--color-border) bg-(--color-bg-secondary)">
           <img
-            src={`/services/${service.id}.jpg`}
+            src={SERVICE_IMAGES[service.id] ?? imgFallback}
             alt={service.title}
             className="absolute inset-0 w-full h-full object-cover opacity-90"
-            onError={(e) => {
-              e.target.src = "/hero-img.webp";
-            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
           <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none" />
@@ -267,12 +298,9 @@ const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove,
           {/* Desktop-only side image */}
           <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-[4/5] relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
             <img
-              src={`/services/${service.id}.jpg`}
+              src={SERVICE_IMAGES[service.id] ?? imgFallback}
               alt={service.title}
               className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
-              onError={(e) => {
-                e.target.src = "/hero-img.webp";
-              }}
             />
             <div className="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none z-10" />
           </div>
@@ -295,7 +323,7 @@ const Services = () => {
       return;
 
     // 1. Swap image source bypassing React state for maximum performance
-    floatingImgRef.current.src = `/services/${serviceId}.jpg`;
+    floatingImgRef.current.src = SERVICE_IMAGES[serviceId] ?? imgFallback;
 
     // 2. THE TELEPORT: Instantly snap to mouse coordinates before making it visible
     gsap.set(floatingContainerRef.current, {
@@ -366,9 +394,6 @@ const Services = () => {
           src=""
           alt=""
           className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src = "/hero-img.webp";
-          }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
       </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "../../ui/Button";
+import logo from "/logo.png";
 // Restored to exact original links and routing
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -46,7 +47,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             <img
-              src="/logo.png"
+              src={logo}
               alt="Shaanark Ventures"
               className="h-12 w-auto object-contain"
             />
