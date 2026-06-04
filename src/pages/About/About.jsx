@@ -1,5 +1,6 @@
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
+import teamImg from "../../../public/about/team.png" 
 const About = () => {
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-32 pb-24">
@@ -81,7 +82,7 @@ const About = () => {
             <div className="w-full md:w-2/5 shrink-0 h-64 md:h-80 rounded-2xl overflow-hidden relative">
               {/* Swap '/hero-img.webp' with a photo of the team or a sleek boardroom */}
               <img 
-                src="../../../public/about/team.png" 
+                src={teamImg}
                 alt="The Team" 
                 className="w-full h-full object-cover   transition-all duration-700 ease-out"
               />
