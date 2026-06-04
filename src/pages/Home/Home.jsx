@@ -89,7 +89,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-xs bg-white/10" />
+        <div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-xs bg-white/5" />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}

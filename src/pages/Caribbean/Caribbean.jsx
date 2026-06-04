@@ -1,9 +1,9 @@
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
 import { useRef } from "react";
-/* import gsap from "gsap";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all"; */
+import { ScrollTrigger } from "gsap/all";
 const CORRIDOR_PILLARS = [
   {
     id: "invest",
@@ -37,10 +37,7 @@ const CORRIDOR_PILLARS = [
 // ── EXTRACTED CARD COMPONENT ───────────────────────────────
 const Card = ({ title, description, tags, image, index }) => {
   return (
-    <div
-      className="card w-full relative  group"
-      id={`card-${index + 1}`}
-    >
+    <div className="card w-full relative  group" id={`card-${index + 1}`}>
       <div className=" p-[2em] rounded-2xl card-inner relative will-change-transform  w-full h-full flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
         {/* ── LEFT COLUMN: Text Content ── */}
         <div className="card-content w-full lg:w-7/12 flex flex-col justify-between">

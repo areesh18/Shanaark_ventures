@@ -11,7 +11,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-(--color-bg-primary) pt-[72px]">
+    <div className="min-h-screen bg-(--color-bg-primary) pt-18">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-20 sm:pb-24">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-24 items-start">
@@ -49,13 +49,13 @@ const Contact = () => {
                 {[
                   {
                     name: "Shaanark Delivery Center",
-                    address: "HQ Address",
+                    address: "Prinsenstraat 47",
                     city: "Paramaribo, Suriname",
                   },
                   {
                     name: "India Delivery Center",
-                    address: "DumDum Address",
-                    city: "Kolkata, West Bengal, India",
+                    address: "8 Suryasen Pally Matkal",
+                    city: "Kolkata- 700065, West Bengal, India",
                   },
                 ].map((office) => (
                   <div key={office.name} className="group">
@@ -80,21 +80,21 @@ const Contact = () => {
               {/* Direct Contact */}
               <div className="pt-2">
                 <a
-                  href="mailto:hello@shaanark.com"
+                  href="mailto:info@shaanark.com"
                   className="inline-flex items-center gap-2 text-sm font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
-                  hello@shaanark.com
+                  info@shaanark.com
                 </a>
               </div>
             </div>
           </div>
 
           {/* ── RIGHT: Form ───────────────────────────────────── */}
-          <div className="bg-(--color-bg-secondary) rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-(--color-border) shadow-sm animate-fade-up delay-200">
+          <div className="bg-(--color-bg-secondary) rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-(--color-border) shadow-sm animate-fade-up delay-200">
             <form className="flex flex-col gap-6 sm:gap-8">
 
               {/* Name & Email */}

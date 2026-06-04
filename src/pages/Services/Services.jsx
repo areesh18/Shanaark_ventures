@@ -171,7 +171,7 @@ const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove,
       className="w-full py-4 sm:py-5 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
     >
       <h3
-        className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${
+        className={`text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight transition-colors duration-300 ${
           isOpen
             ? "text-(--color-dark)"
             : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
@@ -231,7 +231,7 @@ const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove,
             <h4 className="text-lg sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-snug">
               {service.headline}
             </h4>
-            <p className="text-(--color-text-secondary) text-sm sm:text-lg font-light leading-relaxed mb-6 lg:mb-12 tracking-tight max-w-2xl">
+            <p className="text-(--color-text-secondary) text-base sm:text-lg font-normal leading-relaxed mb-6 lg:mb-12 tracking-tight max-w-2xl">
               {service.description}
             </p>
 
@@ -255,7 +255,7 @@ const ServiceRow = ({ service, isOpen, onToggleClick, onMouseEnter, onMouseMove,
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    <span className="text-xs sm:text-base font-medium text-(--color-text-primary) tracking-tight">
+                    <span className="text-xs sm:text-base font-normal text-(--color-text-primary) tracking-tight">
                       {item}
                     </span>
                   </li>
@@ -373,14 +373,14 @@ const Services = () => {
         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 animate-fade-up border-b border-(--color-border)">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16  border-b border-(--color-border)">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to <br className="hidden sm:block" />
           <span className="font-serif-italic font-normal text-slate-500">
             scale with you.
           </span>
         </h1>
-        <MaskRevealText className="text-base sm:text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) leading-relaxed max-w-xl sm:max-w-2xl">
+        <MaskRevealText className=" text-lg sm:text-xl md:text-2xl font-light tracking-tighter text-(--color-text-primary) leading-relaxed max-w-xl sm:max-w-2xl">
           From establishing your brand identity to optimizing complex leadership
           decisions, our comprehensive services connect markets and drive
           growth.
