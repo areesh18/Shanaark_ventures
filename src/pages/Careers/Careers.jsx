@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import MaskRevealText from '../../components/animations/MaskRevealText'
+import MaskRevealText from "../../components/animations/MaskRevealText";
+import Button from "../../components/ui/Button";
+import handShake from "../../../public/handshake.webp";
 const OPEN_ROLES = [
   {
     id: 1,
@@ -42,7 +44,6 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-24 sm:pt-32 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
-        
         {/* ── 1. HERO ─────────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-24 items-start mb-16 sm:mb-24 animate-fade-up">
           {/* Headline */}
@@ -54,10 +55,17 @@ const Careers = () => {
               </span>{" "}
               growth.
             </h1>
+            <div className=" max-w-md  mt-8 sm:mt-10 overflow-hidden rounded-2xl">
+              <img
+                src={handShake}
+                alt="Team collaborating"
+                className="w-full h-auto md:h-64 object-cover"
+              />
+            </div>
           </div>
 
           {/* Description */}
-          <div className="w-full md:w-2/5 md:mt-44">
+          <div className="w-full md:w-2/5 md:mt-64">
             <MaskRevealText className="text-lg sm:text-2xl font-normal tracking-tight text-slate-600 leading-relaxed">
               Join a collective of strategists, engineers, and creatives solving
               complex business challenges across three continents.
@@ -67,7 +75,6 @@ const Careers = () => {
 
         {/* ── 2. OPEN ROLES (Editorial Stacked Layout) ────────── */}
         <div className="mb-16 sm:mb-32 animate-fade-up delay-200">
-          
           <div className="flex flex-col border-t border-(--color-border)">
             {OPEN_ROLES.map((role, index) => (
               <div
@@ -83,21 +90,48 @@ const Careers = () => {
                 {/* Meta Row (Icons + Text) */}
                 <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-sm text-slate-500 mb-6">
                   <span className="flex items-center gap-1.5 font-medium">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                     {role.location}
                   </span>
                   <span className="flex items-center gap-1.5 font-medium">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                     {role.type}
                   </span>
                   <span className="flex items-center gap-1.5 font-medium">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
                       <line x1="9" x2="15" y1="22" y2="22" />
                       <line x1="9" x2="15" y1="18" y2="18" />
@@ -110,12 +144,12 @@ const Careers = () => {
 
                 {/* Action Buttons */}
                 <div className="flex items-center gap-6">
-                  <Link
+                  <Button
                     to={`/apply/${role.id}`}
                     className="px-6 py-2.5 bg-(--color-text-primary) text-white text-sm font-medium rounded-full hover:bg-(--color-dark) transition-all shadow-sm"
                   >
                     Apply Now
-                  </Link>
+                  </Button>
                 </div>
               </div>
             ))}
