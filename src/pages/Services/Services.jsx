@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import gsap from "gsap";
+import { useState } from "react";
 import Button from "../../components/ui/Button";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 
@@ -313,91 +312,43 @@ const ServiceRow = ({
 // ── 2. MAIN COMPONENT WITH GLOBAL GSAP LOGIC ──
 const Services = () => {
   const [openId, setOpenId] = useState(null);
-
-  // Single global references for the floating image
-  const floatingContainerRef = useRef(null);
-  const floatingImgRef = useRef(null);
-
-  const handleRowMouseEnter = (e, serviceId, isOpen) => {
-    if (isOpen || !floatingContainerRef.current || !floatingImgRef.current)
-      return;
-
-    // 1. Swap image source bypassing React state for maximum performance
-    floatingImgRef.current.src = SERVICE_IMAGES[serviceId] ?? imgFallback;
-
-    // 2. THE TELEPORT: Instantly snap to mouse coordinates before making it visible
-    gsap.set(floatingContainerRef.current, {
-      x: e.clientX,
-      y: e.clientY,
-      xPercent: -50,
-      yPercent: -50,
-    });
-
-    // 3. Pop it into view
-    gsap.to(floatingContainerRef.current, {
-      autoAlpha: 1,
-      scale: 1,
-      rotation: 2,
-      duration: 0.4,
-      ease: "back.out(1.5)",
-      overwrite: "auto",
-    });
+  const [activeService, setActiveService] = useState(null);
+  const handleRowMouseEnter = (_, serviceId) => {
+    if (openId) return;
+    setActiveService(serviceId);
   };
-
-  const handleRowMouseMove = (e, isOpen) => {
-    if (isOpen || !floatingContainerRef.current) return;
-
-    gsap.to(floatingContainerRef.current, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.4,
-      ease: "power3.out",
-    });
-  };
-
   const handleRowMouseLeave = () => {
-    if (!floatingContainerRef.current) return;
-
-    gsap.to(floatingContainerRef.current, {
-      autoAlpha: 0,
-      scale: 0.8,
-      rotation: 0,
-      duration: 0.3,
-      ease: "power2.in",
-      overwrite: "auto",
-    });
+    setActiveService(null);
   };
-
   const handleToggleClick = (serviceId) => {
-    setOpenId(openId === serviceId ? null : serviceId);
+    const nextOpenId = openId === serviceId ? null : serviceId;
 
-    // Force hide global image immediately on click
-    if (floatingContainerRef.current) {
-      gsap.to(floatingContainerRef.current, {
-        autoAlpha: 0,
-        scale: 0.8,
-        duration: 0.2,
-        overwrite: true,
-      });
+    setOpenId(nextOpenId);
+
+    if (nextOpenId) {
+      setActiveService(null);
     }
   };
-
+  const showPreview = activeService && !openId;
   return (
     <div className="w-full bg-(--color-bg-primary) min-h-screen relative">
       {/* ── THE SINGLE GLOBAL FLOATING IMAGE ── */}
       <div
-        ref={floatingContainerRef}
-        className="fixed top-0 left-0 w-48 lg:w-64 aspect-4/5 rounded-xl overflow-hidden pointer-events-none z-50 invisible opacity-0 scale-80 shadow-2xl hidden md:block"
+        className={`z-1 hidden lg:block fixed left-1/2 -translate-1/2 top-1/2 -translate-y-1/2
+    transition-all duration-500 ease-out
+    ${showPreview ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
       >
-        <img
-          ref={floatingImgRef}
-          src=""
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
+        {activeService && (
+          <div className="w-48 aspect-4/5 rounded-2xl overflow-hidden border border-(--color-border)">
+            <img
+              key={activeService}
+              src={SERVICE_IMAGES[activeService]}
+              alt=""
+              className="w-full h-full object-cover opacity-90 "
+            />
+          </div>
+        )}
       </div>
-
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16  ">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to <br className="hidden sm:block" />
@@ -435,7 +386,6 @@ const Services = () => {
                     isOpen={openId === service.id}
                     onToggleClick={handleToggleClick}
                     onMouseEnter={handleRowMouseEnter}
-                    onMouseMove={handleRowMouseMove}
                     onMouseLeave={handleRowMouseLeave}
                   />
                 ))}
