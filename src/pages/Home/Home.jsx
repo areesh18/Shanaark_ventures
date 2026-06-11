@@ -10,10 +10,12 @@ import ScrambleText from "../../components/animations/ScrambleText";
 import logo1 from "../../../public/logos/logo-1.webp";
 import logo2 from "../../../public/logos/logo-2.webp";
 import logo3 from "../../../public/logos/logo-3.webp";
+import logo4 from "../../../public/logos/logo-4.webp";
+import logo5 from "../../../public/logos/logo-5.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
-  const logos = [logo1, logo2, logo3];
+  const logos = [logo1, logo2, logo3, logo4, logo5];
   const container = useRef(null);
   const statsRefs = useRef([]);
   useGSAP(
@@ -290,13 +292,13 @@ const Home = () => {
         <MaskRevealText className="text-sm sm:text-md font-medium text-(--color-text-primary) uppercase tracking-normal mb-6 md:mb-8 lg:mb-10 text-center">
           Trusted by partners across the corridor
         </MaskRevealText>
-        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
+        <div className="flex flex-nowrap lg:flex-nowrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
           {logos.map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Client Logo ${index + 1}`}
-              className="h-14 sm:h-16 md:h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out"
+              className="h-8 sm:h-16 md:h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out"
             />
           ))}
         </div>
