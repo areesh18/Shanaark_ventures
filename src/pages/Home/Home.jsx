@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import heroBg from "/public/hero-img.webp";
 import gsap from "gsap";
@@ -53,14 +53,30 @@ const Home = () => {
   const statsRefs = useRef([]);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
+  const testimonialTimer = useRef(null);
+  const TESTIMONIAL_INTERVAL = 7000;
+  const resetTimer = () => {
+    if (testimonialTimer.current) clearInterval(testimonialTimer.current);
+    testimonialTimer.current = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, TESTIMONIAL_INTERVAL);
+  };
+
+  useEffect(() => {
+    resetTimer();
+    return () => clearInterval(testimonialTimer.current);
+  }, []);
+
   const nextTestimonial = () => {
     setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+    resetTimer();
   };
 
   const prevTestimonial = () => {
     setActiveTestimonial(
       (prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
     );
+    resetTimer();
   };
 
   // Array of 5 soft alternating background colors
@@ -492,144 +508,200 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* ── 5. TESTIMONIALS (Responsive Navigation) ───────────────────────────── */}
+      {/* ── 5. TESTIMONIALS ───────────────────────────────────────────────── */}
+
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-16 md:py-24 border-t border-(--color-border)">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
-          {/* Left Column: Heading, Copy & DESKTOP Controls */}
-          <div className="w-full md:w-5/12 flex flex-col items-start">
-            <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-4">
+        {/* Header Row */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 md:mb-14">
+          <div>
+            <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-3">
               Client Outcomes
             </h3>
-
-            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-(--color-text-primary) mb-5 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-(--color-text-primary) leading-[1.1]">
               Your money, well spent.
             </h2>
-
-            <p className="text-base sm:text-lg font-normal text-(--color-text-secondary) mb-8 leading-relaxed md:pr-6">
-              We treat your projects with the care they deserve. But don't just
-              take our word for it—take a peek at what others say.
-            </p>
-
-            {/* DESKTOP Navigation Buttons (Hidden on Mobile) */}
-            <div className="hidden md:flex items-center gap-3">
-              <button
-                onClick={prevTestimonial}
-                className="h-11 w-11 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-500 active:scale-95 shadow-sm"
-                aria-label="Previous testimonial"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m15 18-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="h-11 w-11 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-900 active:scale-95 shadow-sm"
-                aria-label="Next testimonial"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </button>
-            </div>
           </div>
 
-          {/* Right Column: Stabilized Wrapper */}
-          <div className="w-full md:w-7/12 h-130 sm:h-112.5 flex items-center justify-center md:justify-end">
-            {/* The Card */}
-            <div
-              key={activeTestimonial}
-              className={`w-full max-w-xl h-full p-6 sm:p-10 rounded-3xl sm:rounded-3xl border border-(--color-border) animate-fade-up flex flex-col ${CARD_COLORS[activeTestimonial % CARD_COLORS.length]}`}
+          {/* Arrow Controls */}
+          <div className="flex items-center gap-3 sm:pb-1">
+            <button
+              onClick={prevTestimonial}
+              className="h-10 w-10 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-500 active:scale-95"
+              aria-label="Previous testimonial"
             >
-              {/* Top Icon */}
               <svg
-                width="28"
-                height="28"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
-                fill="currentColor"
-                className="text-slate-300 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                <path d="m15 18-6-6 6-6" />
               </svg>
-
-              {/* Quote Container */}
-              <div className="my-auto py-4 sm:py-6">
-                <p className="text-lg sm:text-xl font-normal text-(--color-text-primary) leading-relaxed tracking-tight">
-                  "{TESTIMONIALS[activeTestimonial].quote}"
-                </p>
-              </div>
-
-              {/* Bottom Section */}
-              <div className="pt-5 sm:pt-6 border-t border-(--color-border)/60 shrink-0 flex items-end sm:items-center justify-between gap-4">
-                <div className="flex-1 pr-2">
-                  <h4 className="text-base font-semibold text-(--color-text-primary) mb-0.5">
-                    {TESTIMONIALS[activeTestimonial].name}
-                  </h4>
-                  <p className="text-sm font-medium text-(--color-text-secondary) line-clamp-1 sm:line-clamp-none">
-                    {TESTIMONIALS[activeTestimonial].title}
-                  </p>
-                </div>
-
-                {/* MOBILE Navigation Buttons (Hidden on Desktop) */}
-                <div className="flex md:hidden items-center gap-2 shrink-0">
-                  <button
-                    onClick={prevTestimonial}
-                    className="h-10 w-10 rounded-full border border-(--color-border) bg-white/40 flex items-center justify-center hover:bg-white hover:border-slate-300 transition-all text-slate-500 active:scale-95 shadow-sm"
-                    aria-label="Previous testimonial"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m15 18-6-6 6-6" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={nextTestimonial}
-                    className="h-10 w-10 rounded-full border border-(--color-border) bg-white/40 flex items-center justify-center hover:bg-white hover:border-slate-300 transition-all text-slate-900 active:scale-95 shadow-sm"
-                    aria-label="Next testimonial"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
+            </button>
+            <span className="text-sm font-medium text-(--color-text-secondary) tabular-nums w-12 text-center">
+              {activeTestimonial + 1} / {TESTIMONIALS.length}
+            </span>
+            <button
+              onClick={nextTestimonial}
+              className="h-10 w-10 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-900 active:scale-95"
+              aria-label="Next testimonial"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
           </div>
         </div>
+
+        <div
+          className="relative"
+          onTouchStart={(e) => {
+            const t = e.touches[0];
+            e.currentTarget.dataset.touchX = t.clientX;
+            e.currentTarget.dataset.touchY = t.clientY;
+          }}
+          onTouchEnd={(e) => {
+            const startX = parseFloat(e.currentTarget.dataset.touchX || 0);
+            const startY = parseFloat(e.currentTarget.dataset.touchY || 0);
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+              dx < 0 ? nextTestimonial() : prevTestimonial();
+            }
+          }}
+        >
+          {/* Invisible spacer — longest card, locks container height */}
+          <div
+            aria-hidden="true"
+            className={`invisible w-full p-7 sm:p-10 rounded-3xl border border-(--color-border) ${CARD_COLORS[0]}`}
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+              <div className="flex-1">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-slate-300 mb-5 shrink-0"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-lg sm:text-xl font-normal text-(--color-text-primary) leading-relaxed tracking-tight">
+                  "
+                  {
+                    TESTIMONIALS.reduce(
+                      (longest, t) =>
+                        t.quote.length > longest.quote.length ? t : longest,
+                      TESTIMONIALS[0],
+                    ).quote
+                  }
+                  "
+                </p>
+              </div>
+              <div className="hidden md:block w-px self-stretch bg-(--color-border)" />
+              <div className="block md:hidden h-px w-full bg-(--color-border)/60" />
+              <div className="md:w-52 shrink-0 flex flex-col gap-1 md:pt-1">
+                <p className="text-sm font-semibold text-(--color-text-primary)">
+                  Placeholder
+                </p>
+                <p className="text-xs font-medium text-(--color-text-secondary) leading-snug">
+                  Placeholder title
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* All cards stacked absolutely */}
+          {TESTIMONIALS.map((testimonial, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 w-full p-7 sm:p-10 rounded-3xl border border-(--color-border) transition-opacity duration-500 ${
+                CARD_COLORS[i % CARD_COLORS.length]
+              } ${
+                i === activeTestimonial
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <div className="flex flex-col md:flex-row md:items-stretch gap-8 md:gap-12">
+                <div className="flex-1">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-slate-300 mb-5 shrink-0"
+                  >
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-lg sm:text-xl font-normal text-(--color-text-primary) leading-relaxed tracking-tight">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="hidden md:block w-px self-stretch bg-(--color-border)" />
+                <div className="block md:hidden h-px w-full bg-(--color-border)/60" />
+                <div className="md:w-52 shrink-0 flex flex-col gap-1 md:mt-auto md:pt-0">
+                  <p className="text-sm font-semibold text-(--color-text-primary)">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs font-medium text-(--color-text-secondary) leading-snug">
+                    {testimonial.title}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dot indicators — active dot has animated progress fill */}
+        <div className="flex items-center justify-center gap-2 mt-6">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setActiveTestimonial(i);
+                resetTimer();
+              }}
+              aria-label={`Go to testimonial ${i + 1}`}
+              className={`rounded-full transition-all duration-300 overflow-hidden relative ${
+                i === activeTestimonial
+                  ? "w-5 h-2"
+                  : "w-2 h-2 bg-(--color-border) hover:bg-slate-300"
+              }`}
+              style={
+                i === activeTestimonial
+                  ? { background: "var(--color-border)" }
+                  : {}
+              }
+            >
+              {i === activeTestimonial && (
+                <span
+                  key={activeTestimonial}
+                  className="absolute inset-0 rounded-full bg-(--color-text-primary) origin-left"
+                  style={{
+                    animation: `progress ${TESTIMONIAL_INTERVAL / 1000}s linear forwards`,
+                  }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Progress animation keyframe — inject once */}
+        <style>{`@keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }`}</style>
       </section>
       {/* ── 4. FINAL CTA ────────────────────────────────────────── */}
       <section className="w-full max-w-4xl mx-auto px-5 sm:px-6 py-16 md:py-24 lg:py-32 text-center">
