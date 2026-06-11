@@ -125,7 +125,7 @@ const Footer = () => {
             <div className="space-y-6">
               <div>
                 <h5 className="text-sm font-medium text-(--color-text-primary) mb-1">
-                  Shaanark Delivery Center
+                  Suriname Operations Centre 
                 </h5>
                 <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
                   Prinsenstraat 47
@@ -135,7 +135,7 @@ const Footer = () => {
               </div>
               <div>
                 <h5 className="text-sm font-medium text-(--color-text-primary) mb-1">
-                  India Delivery Center
+                  India Operations Center
                 </h5>
                 <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
                   8 Suryasen Pally Matkal

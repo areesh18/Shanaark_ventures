@@ -14,6 +14,7 @@ import imgCorridor from "/services/corridor.jpg";
 import imgBizAdvisory from "/services/biz-advisory.jpg";
 import imgCeoAdvisory from "/services/ceo-advisory.jpg";
 import imgSalesTraining from "/services/sales-training.jpg";
+import imgEduConsulting from "/services/edu-consulting.jpg";
 import imgFallback from "/hero-img.webp";
 
 const SERVICE_IMAGES = {
@@ -28,6 +29,7 @@ const SERVICE_IMAGES = {
   "biz-advisory": imgBizAdvisory,
   "ceo-advisory": imgCeoAdvisory,
   "sales-training": imgSalesTraining,
+  "edu-consulting": imgEduConsulting,
 };
 const SERVICES_DATA = [
   {
@@ -179,6 +181,20 @@ const SERVICES_DATA = [
           "Marketing workshops",
           "Team capability building",
           "Performance frameworks",
+        ],
+      },
+      {
+        id: "edu-consulting",
+        title: "Educational Consulting",
+        headline:
+          "Empowering institutions to deliver meaningful learning outcomes.",
+        description:
+          "We provide strategic guidance to educational institutions, training centers, and learning organizations to enhance academic quality, operational efficiency, student engagement, and long-term growth.",
+        deliverables: [
+          "Academic program development",
+          "Curriculum design & review",
+          "Institutional growth strategy",
+          "Faculty training & capacity building",
         ],
       },
     ],

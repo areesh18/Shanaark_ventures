@@ -109,7 +109,7 @@ const Home = () => {
 
           {/* H1 */}
           <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-5 sm:mb-6 animate-fade-up delay-100">
-            Strategic guidance for <br className="hidden sm:block" />
+            Strategic solutions for <br className="hidden sm:block" />
             <span className="font-serif-italic font-normal text-slate-500">
               smarter
             </span>{" "}
@@ -262,7 +262,7 @@ const Home = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-                <ScrambleText duration={1.5}>Business Consulting</ScrambleText>
+                <ScrambleText duration={1.5}>Consulting and Advisory</ScrambleText>
               </h3>
               <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
                 High-level guidance for leadership decisions. We provide expert
@@ -274,6 +274,7 @@ const Home = () => {
                   "Business Strategy",
                   "Market Analysis",
                   "Sales Training",
+                  "Education Consulting"
                 ].map((item) => (
                   <span
                     key={item}

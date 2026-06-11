@@ -253,7 +253,7 @@ const MARKET_DATA = {
   },
   netherlands: {
     id: "netherlands",
-    name: "The Netherlands",
+    name: "Netherlands",
     categories: {
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
       consulting: [],
