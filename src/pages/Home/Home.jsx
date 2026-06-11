@@ -171,7 +171,7 @@ const Home = () => {
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-6 sm:mb-8 animate-fade-up">
-            <span className="flex h-2 w-2 rounded-full bg-(--color-accent) shrink-0" />
+            
             <span className="text-[11px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest">
               Suriname • India • Netherlands
             </span>
