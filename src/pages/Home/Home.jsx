@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import heroBg from "/public/hero-img.webp";
 import gsap from "gsap";
@@ -12,12 +12,66 @@ import logo2 from "../../../public/logos/logo-2.webp";
 import logo3 from "../../../public/logos/logo-3.webp";
 import logo4 from "../../../public/logos/logo-4.webp";
 import logo5 from "../../../public/logos/logo-5.webp";
-
+const TESTIMONIALS = [
+  {
+    quote:
+      "Shaanark provides us with services in the field of customer support. Clearly defined on the basis of an agreement. The response time is low and, if necessary, the approach is discussed first. I never have to worry about whether it will work out well.",
+    name: "Rik Verhagen",
+    title: "Director, Nieuw Ontwerp",
+  },
+  {
+    quote:
+      "We are really satisfied with the design that Shaanark has made for us. The delivery was fast, professional and they understood directly what we envisioned for the project, client-oriented and very dynamic company!",
+    name: "Laetitia Peant",
+    title:
+      "Development & Communications Coordinator, Conservation International Suriname",
+  },
+  {
+    quote:
+      "I have experienced that working with Kris and Mathias is very pleasant, and that they work with an open mind for customers’ needs and challenges. We had the opportunity to hire Shaanark on doing a baseline training for graphic design and Facebook branding with a combination of conducting a gap analysis and we were sincerely glad with their professionalism...",
+    name: "Hans Hiralal",
+    title: "Marketing & Operations Director, Subisco International N.V.",
+  },
+  {
+    quote:
+      "Last year I asked Kris and Mathias to develop my logo and website for my company. I really like their way of working, they took the time to listen to my preferences and they are very professional. When my website and logo were finished, I got a lot of compliments from my clients. Their after service is also very good. I recommend them to anybody.",
+    name: "Jovanka Pigot",
+    title: "Legal Advisor, Qarah",
+  },
+  {
+    quote:
+      "As a growing company, we greatly value the support Shaanark provides with our marketing. They help us communicate our brand message more effectively and are flexible in their approach to collaboration. They actively contribute ideas and show a genuine interest in the growth and success of our business.",
+    name: "Jonas van Ravenswaay",
+    title: "Managing Director of Marthiland (Bam Bino)",
+  },
+];
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const logos = [logo1, logo2, logo3, logo4, logo5];
+
   const container = useRef(null);
   const statsRefs = useRef([]);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const nextTestimonial = () => {
+    setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveTestimonial(
+      (prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
+    );
+  };
+
+  // Array of 5 soft alternating background colors
+  const CARD_COLORS = [
+    "bg-[var(--color-accent)]/10", // Soft Lime (Brand Accent)
+    "bg-slate-100", // Soft Slate
+    "bg-blue-50/50", // Soft Blue
+    "bg-emerald-50/50", // Soft Emerald
+    "bg-violet-50/50", // Soft Violet
+  ];
+
   useGSAP(
     () => {
       // 1. Hero Animation
@@ -262,7 +316,9 @@ const Home = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-                <ScrambleText duration={1.5}>Consulting and Advisory</ScrambleText>
+                <ScrambleText duration={1.5}>
+                  Consulting and Advisory
+                </ScrambleText>
               </h3>
               <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
                 High-level guidance for leadership decisions. We provide expert
@@ -274,7 +330,7 @@ const Home = () => {
                   "Business Strategy",
                   "Market Analysis",
                   "Sales Training",
-                  "Education Consulting"
+                  "Education Consulting",
                 ].map((item) => (
                   <span
                     key={item}
@@ -432,6 +488,145 @@ const Home = () => {
                   </span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── 5. TESTIMONIALS (Responsive Navigation) ───────────────────────────── */}
+      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-16 md:py-24 border-t border-(--color-border)">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          {/* Left Column: Heading, Copy & DESKTOP Controls */}
+          <div className="w-full md:w-5/12 flex flex-col items-start">
+            <h3 className="text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-4">
+              Client Outcomes
+            </h3>
+
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-(--color-text-primary) mb-5 leading-[1.1]">
+              Your money, well spent.
+            </h2>
+
+            <p className="text-base sm:text-lg font-normal text-(--color-text-secondary) mb-8 leading-relaxed md:pr-6">
+              We treat your projects with the care they deserve. But don't just
+              take our word for it—take a peek at what others say.
+            </p>
+
+            {/* DESKTOP Navigation Buttons (Hidden on Mobile) */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={prevTestimonial}
+                className="h-11 w-11 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-500 active:scale-95 shadow-sm"
+                aria-label="Previous testimonial"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="h-11 w-11 rounded-full border border-(--color-border) flex items-center justify-center hover:bg-(--color-bg-secondary) hover:border-slate-300 transition-all text-slate-900 active:scale-95 shadow-sm"
+                aria-label="Next testimonial"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Stabilized Wrapper */}
+          <div className="w-full md:w-7/12 h-130 sm:h-112.5 flex items-center justify-center md:justify-end">
+            {/* The Card */}
+            <div
+              key={activeTestimonial}
+              className={`w-full max-w-xl h-full p-6 sm:p-10 rounded-3xl sm:rounded-3xl border border-(--color-border) animate-fade-up flex flex-col ${CARD_COLORS[activeTestimonial % CARD_COLORS.length]}`}
+            >
+              {/* Top Icon */}
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="text-slate-300 shrink-0"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+
+              {/* Quote Container */}
+              <div className="my-auto py-4 sm:py-6">
+                <p className="text-lg sm:text-xl font-normal text-(--color-text-primary) leading-relaxed tracking-tight">
+                  "{TESTIMONIALS[activeTestimonial].quote}"
+                </p>
+              </div>
+
+              {/* Bottom Section */}
+              <div className="pt-5 sm:pt-6 border-t border-(--color-border)/60 shrink-0 flex items-end sm:items-center justify-between gap-4">
+                <div className="flex-1 pr-2">
+                  <h4 className="text-base font-semibold text-(--color-text-primary) mb-0.5">
+                    {TESTIMONIALS[activeTestimonial].name}
+                  </h4>
+                  <p className="text-sm font-medium text-(--color-text-secondary) line-clamp-1 sm:line-clamp-none">
+                    {TESTIMONIALS[activeTestimonial].title}
+                  </p>
+                </div>
+
+                {/* MOBILE Navigation Buttons (Hidden on Desktop) */}
+                <div className="flex md:hidden items-center gap-2 shrink-0">
+                  <button
+                    onClick={prevTestimonial}
+                    className="h-10 w-10 rounded-full border border-(--color-border) bg-white/40 flex items-center justify-center hover:bg-white hover:border-slate-300 transition-all text-slate-500 active:scale-95 shadow-sm"
+                    aria-label="Previous testimonial"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="h-10 w-10 rounded-full border border-(--color-border) bg-white/40 flex items-center justify-center hover:bg-white hover:border-slate-300 transition-all text-slate-900 active:scale-95 shadow-sm"
+                    aria-label="Next testimonial"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
