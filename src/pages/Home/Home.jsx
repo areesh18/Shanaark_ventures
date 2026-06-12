@@ -11,6 +11,8 @@ import logo1 from "../../../public/logos/logo-1.webp";
 import logo2 from "../../../public/logos/logo-2.webp";
 import logo3 from "../../../public/logos/logo-3.webp";
 import logo4 from "../../../public/logos/logo-4.webp";
+import pillar1 from "../../../public/pillar1.png";
+import pillar2 from "../../../public/pillar2.png";
 
 const TESTIMONIALS = [
   {
@@ -240,120 +242,150 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* ── 2. CORE PILLARS (Asymmetric Grid) ───────────────────── */}
-      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-16 lg:pt-24 pb-12">
-        <div className="mb-8 md:mb-12 lg:mb-20 max-w-2xl">
-          <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-(--color-text-primary) mb-4">
-            Everything you need to{" "}
-            <span className="font-serif-italic font-normal text-slate-500">
-              scale.
-            </span>
-          </h2>
-          <MaskRevealText className="text-(--color-text-primary) font-light tracking-tight text-lg sm:text-xl leading-relaxed">
-            From establishing your brand identity to optimizing leadership
-            decisions, we provide end-to-end solutions.
-          </MaskRevealText>
-        </div>
+      {/* ── 2. CORE PILLARS (Asymmetric Bento Grid) ──────────────── */}
+      <section className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-16 lg:pt-24 pb-12">
+        {/* Background grid, fading on all 4 edges */}
+        <div
+          className=" absolute inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgb(148 163 184 / 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgb(148 163 184 / 0.08) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+            maskImage:
+              "linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+            maskComposite: "intersect",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskComposite: "source-in",
+          }}
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-          {/* Pillar 1 - Wider and top-aligned */}
-          <div className="md:col-span-7 group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-6 md:p-8 lg:p-12 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
-            <div className="h-12 w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-300 ease-out">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-(--color-text-primary)"
-              >
-                <path d="M12 20v-6M6 20V10M18 20V4" />
-              </svg>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-              <ScrambleText duration={1.0}>
-                Marketing & Communication
-              </ScrambleText>
-            </h3>
-            <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
-              We handle your end-to-end marketing efforts, ensuring consistent
-              growth and alignment with your business goals.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "SEO",
-                "Web Development",
-                "Branding Kits",
-                "TikTok & FB Marketing",
-                "Corporate Comm",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="px-3 py-1.5 bg-white border border-(--color-border) rounded-full text-xs font-medium tracking-wide text-(--color-text-secondary)"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+        <div className="relative z-1">
+          <div className=" mb-8 md:mb-12 lg:mb-20 max-w-2xl">
+            <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-(--color-text-primary) mb-4">
+              Everything you need to{" "}
+              <span className="font-serif-italic font-normal text-slate-500">
+                scale.
+              </span>
+            </h2>
+            <MaskRevealText className="text-(--color-text-primary) font-light tracking-tight text-lg sm:text-xl leading-relaxed">
+              From establishing your brand identity to optimizing leadership
+              decisions, we provide end-to-end solutions.
+            </MaskRevealText>
           </div>
 
-          {/* Pillar 2 - Narrower and staggered downward */}
-          <div className="md:col-span-5 md:mt-24 group relative overflow-hidden bg-white/40 border border-(--color-border) rounded-3xl sm:rounded-4xl hover:shadow-sm hover:border-slate-300 transition-all duration-300">
-            {/* LAYER 1: Animated Background Image */}
-            <img
-              src={heroBg}
-              alt=""
-              className="pillar-shape absolute -bottom-20 -right-16 w-80 h-80 object-cover opacity-100 z-0 pointer-events-none select-none  -rotate-25"
-            />
-
-            {/* LAYER 2: Frosted Glass Overlay */}
-            <div className="absolute -inset-4 bg-white/10 backdrop-blur-sm z-1 transition-colors duration-300 group-hover:bg-white/30"></div>
-
-            {/* LAYER 3: Card Content (Elevated above the glass) */}
-            <div className="relative z-10 p-8 sm:p-10">
-              <div className="h-12 w-12 rounded-full bg-(--color-bg-secondary) border border-(--color-border) flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-300 ease-out">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-(--color-text-primary)"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 16v-4M12 8h.01" />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
-                <ScrambleText duration={1.5}>
-                  Consulting and Advisory
-                </ScrambleText>
-              </h3>
-              <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
-                High-level guidance for leadership decisions. We provide expert
-                advisory to help businesses scale and optimize operations.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "CEO Advisory",
-                  "Business Strategy",
-                  "Market Analysis",
-                  "Sales Training",
-                  "Education Consulting",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="px-3 py-1.5 bg-(--color-bg-secondary)/80 backdrop-blur-sm border border-(--color-border) rounded-full text-xs font-medium tracking-wide text-(--color-text-secondary)"
+          <div className="flex flex-col gap-6 md:gap-8">
+            {/* Row 1 — Pillar 1 (text) + image, image nudged upward on desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+              {/* Pillar 1 - Wider */}
+              <div className="md:col-span-7 group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-6 md:p-8 lg:p-12 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
+                <div className="h-12 w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-300 ease-out">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-(--color-text-primary)"
                   >
-                    {item}
-                  </span>
-                ))}
+                    <path d="M12 20v-6M6 20V10M18 20V4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-(--color-text-primary) mb-3">
+                  <ScrambleText duration={1.0}>
+                    Marketing & Communication
+                  </ScrambleText>
+                </h3>
+                <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
+                  We handle your end-to-end marketing efforts, ensuring
+                  consistent growth and alignment with your business goals.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "SEO",
+                    "Web Development",
+                    "Branding Kits",
+                    "TikTok & FB Marketing",
+                    "Corporate Comm",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 bg-white border border-(--color-border) rounded-full text-xs font-medium tracking-wide text-(--color-text-secondary)"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Pillar 1 image - nudged upward on desktop */}
+              <div className="md:col-span-5 md:-mt-10 lg:-mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) aspect-[4/3]">
+                <img
+                  src={pillar1}
+                  alt="Marketing and communication"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </div>
+            </div>
+
+            {/* Row 2 — image + Pillar 2 (text), image nudged downward on desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+              {/* Pillar 2 image - nudged downward on desktop */}
+              <div className="md:col-span-7 md:mt-10 lg:mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) min-h-[18rem] md:min-h-[22rem]">
+                <img
+                  src={pillar2}
+                  alt="Advisors discussing strategy in a meeting"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </div>
+
+              {/* Pillar 2 - Narrower */}
+              <div className="md:col-span-5 group bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl p-8 sm:p-10 hover:shadow-sm hover:border-slate-300 transition-all duration-300">
+                <div className="h-12 w-12 rounded-full bg-white border border-(--color-border) flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-300 ease-out">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-(--color-text-primary)"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4M12 8h.01" />
+                  </svg>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-(--color-text-primary) mb-3">
+                  <ScrambleText duration={1.5}>
+                    Consulting and Advisory
+                  </ScrambleText>
+                </h3>
+                <p className="text-(--color-text-secondary) font-light tracking-tight mb-8 leading-relaxed text-lg">
+                  High-level guidance for leadership decisions. We provide
+                  expert advisory to help businesses scale and optimize
+                  operations.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "CEO Advisory",
+                    "Business Strategy",
+                    "Market Analysis",
+                    "Sales Training",
+                    "Education Consulting",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 bg-white border border-(--color-border) rounded-full text-xs font-medium tracking-wide text-(--color-text-secondary)"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
