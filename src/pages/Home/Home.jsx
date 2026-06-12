@@ -11,7 +11,7 @@ import logo1 from "../../../public/logos/logo-1.webp";
 import logo2 from "../../../public/logos/logo-2.webp";
 import logo3 from "../../../public/logos/logo-3.webp";
 import logo4 from "../../../public/logos/logo-4.webp";
-import logo5 from "../../../public/logos/logo-5.webp";
+
 const TESTIMONIALS = [
   {
     quote:
@@ -47,7 +47,7 @@ const TESTIMONIALS = [
 ];
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
-  const logos = [logo1, logo2, logo3, logo4, logo5];
+  const logos = [logo1, logo2, logo3, logo4];
 
   const container = useRef(null);
   const statsRefs = useRef([]);
