@@ -28,13 +28,13 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "I have experienced that working with Kris and Mathias is very pleasant, and that they work with an open mind for customers’ needs and challenges. We had the opportunity to hire Shaanark on doing a baseline training for graphic design and Facebook branding with a combination of conducting a gap analysis and we were sincerely glad with their professionalism...",
+      "I have experienced that working with Kris is very pleasant, and that his work with an open mind for customers’ needs and challenges. We had the opportunity to hire Shaanark on doing a baseline training for graphic design and Facebook branding with a combination of conducting a gap analysis and we were sincerely glad with their professionalism...",
     name: "Hans Hiralal",
     title: "Marketing & Operations Director, Subisco International N.V.",
   },
   {
     quote:
-      "Last year I asked Kris and Mathias to develop my logo and website for my company. I really like their way of working, they took the time to listen to my preferences and they are very professional. When my website and logo were finished, I got a lot of compliments from my clients. Their after service is also very good. I recommend them to anybody.",
+      "Last year I asked Kris to develop my logo and website for my company. I really like his way of working, he took the time to listen to my preferences and was very professional. When my website and logo were finished, I got a lot of compliments from my clients. His after service is also very good. I recommend him to anybody.",
     name: "Jovanka Pigot",
     title: "Legal Advisor, Qarah",
   },
@@ -54,7 +54,7 @@ const Home = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const testimonialTimer = useRef(null);
-  const TESTIMONIAL_INTERVAL = 7000;
+  const TESTIMONIAL_INTERVAL = 4000;
   const resetTimer = () => {
     if (testimonialTimer.current) clearInterval(testimonialTimer.current);
     testimonialTimer.current = setInterval(() => {
@@ -171,7 +171,6 @@ const Home = () => {
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-6 sm:mb-8 animate-fade-up">
-            
             <span className="text-[11px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest">
               Suriname • India • Netherlands
             </span>
