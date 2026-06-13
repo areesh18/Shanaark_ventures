@@ -35,8 +35,29 @@ const OPEN_ROLES = [
     id: 5,
     title: "Business Development Consultant",
     department: "Business Advisory",
-    location: "The Netherlands",
+    location: "Netherlands",
     type: "Full-time",
+  },
+  {
+    id: 6,
+    title: "Commission based Sales Consultant",
+    department: "Business Advisory",
+    location: "Paramaribo, Suriname",
+    type: "Freelance",
+  },
+  {
+    id: 7,
+    title: "Commission based Sales Consultant",
+    department: "Business Advisory",
+    location: "Kolkata, India",
+    type: "Freelance",
+  },
+  {
+    id: 8,
+    title: "Marketing & Sales Intern",
+    department: "Marketing & Communication",
+    location: "Netherlands",
+    type: "Internship",
   },
 ];
 
