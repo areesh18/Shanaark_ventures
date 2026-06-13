@@ -7,6 +7,7 @@ import imgGraphicDesign from "/services/graphic-design.jpg";
 import imgSeo from "/services/seo.jpg";
 import imgBranding from "/services/branding.jpg";
 import imgTiktok from "/services/tiktok.jpg";
+import imgFb from "/services/facebook.jpg";
 import imgMarketingManagement from "/services/marketing-management.jpg";
 import imgCorpComm from "/services/corp-comm.jpg";
 import imgWebDev from "/services/web-dev.jpg";
@@ -22,6 +23,7 @@ const SERVICE_IMAGES = {
   seo: imgSeo,
   branding: imgBranding,
   tiktok: imgTiktok,
+  facebook: imgFb,
   "marketing-management": imgMarketingManagement,
   "corp-comm": imgCorpComm,
   "web-dev": imgWebDev,
@@ -76,10 +78,21 @@ const SERVICES_DATA = [
       },
       {
         id: "tiktok",
-        title: "Social Media Marketing",
+        title: "Tik Tok Marketing",
         headline: "Capture attention where it matters most.",
-        description:
-          "We help brands grow through creative content and targeted campaigns on top social platforms that drive engagement and virality.",
+        description:"We help brands grow on TikTok through creative content and targeted campaigns that drive engagement and virality.",
+        deliverables: [
+          "Content strategy",
+          "Trend-based campaigns",
+          "Influencer collaboration",
+          "Performance tracking",
+        ],
+      },
+      {
+        id: "facebook",
+        title: "Facebook Marketing",
+        headline: "Capture attention where it matters most.",
+        description:"We help brands grow on Facebook through creative content and targeted campaigns that drive engagement and virality.",
         deliverables: [
           "Content strategy",
           "Trend-based campaigns",

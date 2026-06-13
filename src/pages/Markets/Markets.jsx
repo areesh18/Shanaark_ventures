@@ -442,7 +442,7 @@ const Markets = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex items-center justify-center p-8 h-full opacity-60 bg-(--color-bg-secondary) rounded-[2rem] border border-(--color-border)">
+                <div className="flex items-center justify-center p-8 h-full opacity-60 bg-(--color-bg-secondary) rounded-4xl border border-(--color-border)">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-center text-(--color-text-secondary) leading-relaxed">
                     No localized consulting services <br /> currently available
                     in this region.
