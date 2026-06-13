@@ -243,6 +243,7 @@ const MARKET_DATA = {
       ],
     },
   },
+
   india: {
     id: "india",
     name: "India",
@@ -257,6 +258,28 @@ const MARKET_DATA = {
     categories: {
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
       consulting: [],
+    },
+  },
+  guyana: {
+    id: "guyana",
+    name: "Guyana",
+    categories: {
+      marketing: [
+        "Graphic Design",
+        "SEO",
+        "Branding Kit Design",
+        "Facebook Marketing",
+        "TikTok Marketing",
+        "Marketing Management",
+        "Corporate Communication",
+        "Web Development",
+      ],
+      consulting: [
+        "Caribbean India Corridor",
+        "Business Advisory",
+        "CEO Advisory",
+        "Marketing and Sales Training",
+      ],
     },
   },
 };
