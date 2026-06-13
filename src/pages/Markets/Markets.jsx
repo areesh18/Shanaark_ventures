@@ -2,14 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import Button from "../../components/ui/Button"; // Adjust path as needed
 import MaskRevealText from "../../components/animations/MaskRevealText";
-
 // ── MARKET DATA ─────────────────────────────────────────
 const MARKET_DATA = {
   suriname: {
     id: "suriname",
     name: "Suriname",
-    image:
-      "https://i.pinimg.com/736x/b0/93/3a/b0933a5d060248efbb8c4c31cf962b2d.jpg",
+    image: "../../../public/markets/suriname.webp",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -32,8 +30,7 @@ const MARKET_DATA = {
   guyana: {
     id: "guyana",
     name: "Guyana",
-    image:
-      "https://i.pinimg.com/736x/25/8f/6b/258f6b71bcdf98da074d6359c63cf456.jpg",
+    image: "../../../public/markets/guyana.webp",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -56,8 +53,7 @@ const MARKET_DATA = {
   india: {
     id: "india",
     name: "India",
-    image:
-      "https://i.pinimg.com/736x/bb/2d/52/bb2d52cb72fd0fea16fcedeea0612ddf.jpg",
+    image: "../../../public/markets/india.webp",
     categories: {
       consulting: ["Caribbean India Corridor", "CEO Advisory"],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
@@ -66,8 +62,7 @@ const MARKET_DATA = {
   netherlands: {
     id: "netherlands",
     name: "Netherlands",
-    image:
-      "https://i.pinimg.com/736x/c5/52/29/c55229f256cbd8e422d691edce7a754b.jpg",
+    image: "../../../public/markets/netherlands.webp",
     categories: {
       consulting: [],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
@@ -90,7 +85,7 @@ const Markets = () => {
   // time the active market changes.
   useEffect(() => {
     const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (reduceMotion) return;
 
@@ -145,8 +140,8 @@ const Markets = () => {
             </span>
           </h1>
           <MaskRevealText className="text-base sm:text-lg font-light tracking-tight text-(--color-text-secondary) leading-relaxed px-2 sm:px-0">
-            Tailored solutions across three continents. Select a region below
-            to explore our localized service offerings and capabilities.
+            Tailored solutions across three continents. Select a region below to
+            explore our localized service offerings and capabilities.
           </MaskRevealText>
         </div>
 
@@ -262,7 +257,7 @@ const Markets = () => {
                         ))}
                       </ul>
                     </div>
-                  )
+                  ),
               )}
             </div>
           </div>
