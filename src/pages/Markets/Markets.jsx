@@ -8,7 +8,8 @@ const MARKET_DATA = {
   suriname: {
     id: "suriname",
     name: "Suriname",
-    code: "SR",
+    image:
+      "https://i.pinimg.com/736x/b0/93/3a/b0933a5d060248efbb8c4c31cf962b2d.jpg",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -31,7 +32,8 @@ const MARKET_DATA = {
   guyana: {
     id: "guyana",
     name: "Guyana",
-    code: "GY",
+    image:
+      "https://i.pinimg.com/736x/25/8f/6b/258f6b71bcdf98da074d6359c63cf456.jpg",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -54,7 +56,8 @@ const MARKET_DATA = {
   india: {
     id: "india",
     name: "India",
-    code: "IN",
+    image:
+      "https://i.pinimg.com/736x/bb/2d/52/bb2d52cb72fd0fea16fcedeea0612ddf.jpg",
     categories: {
       consulting: ["Caribbean India Corridor", "CEO Advisory"],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
@@ -63,7 +66,8 @@ const MARKET_DATA = {
   netherlands: {
     id: "netherlands",
     name: "Netherlands",
-    code: "NL",
+    image:
+      "https://i.pinimg.com/736x/c5/52/29/c55229f256cbd8e422d691edce7a754b.jpg",
     categories: {
       consulting: [],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
@@ -91,11 +95,20 @@ const Markets = () => {
     if (reduceMotion) return;
 
     let ctx = gsap.context(() => {
+      gsap.from(".gsap-hero-image", {
+        scale: 1.08,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        clearProps: "opacity,transform",
+      });
+
       gsap.from(".gsap-region-name", {
         y: 20,
         opacity: 0,
         duration: 0.5,
         ease: "power3.out",
+        clearProps: "opacity,transform",
       });
 
       gsap.from(".gsap-divider", {
@@ -103,15 +116,17 @@ const Markets = () => {
         duration: 0.7,
         delay: 0.08,
         ease: "power3.inOut",
+        clearProps: "transform",
       });
 
       gsap.from(".gsap-list-row", {
-        y: 10,
+        y: 5,
         opacity: 0,
-        duration: 0.35,
+        duration: 0.25,
         stagger: 0.03,
-        delay: 0.16,
-        ease: "power2.out",
+        delay: 0.06,
+        ease: "power1.out",
+        clearProps: "opacity,transform",
       });
     }, containerRef);
 
@@ -138,7 +153,7 @@ const Markets = () => {
         {/* ── SPLIT LAYOUT ── */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* ── LEFT: MARKET INDEX ── */}
-          <div className="lg:w-56 lg:flex-shrink-0 lg:sticky lg:top-32 lg:self-start">
+          <div className="lg:w-56 lg:shrink-0 lg:sticky lg:top-32 lg:self-start">
             <p className="hidden lg:block text-[11px] font-medium uppercase tracking-[0.2em] text-(--color-text-secondary) mb-4">
               Select a market
             </p>
@@ -152,17 +167,14 @@ const Markets = () => {
                     key={market.id}
                     onClick={() => setActiveMarket(market.id)}
                     aria-current={isActive}
-                    className={`flex items-center justify-between gap-2 rounded-xl border px-3.5 py-3 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-dark) ${
+                    className={`flex items-center justify-between gap-2 rounded-xl border px-3.5 py-3 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-dark) ${
                       isActive
                         ? "border-(--color-dark) bg-(--color-bg-secondary)"
-                        : "border-(--color-border) hover:border-(--color-text-secondary)"
+                        : "border-(--color-border) hover:border-(--color-text-secondary) hover:bg-(--color-bg-secondary)"
                     }`}
                   >
                     <span className="text-sm font-medium tracking-tight text-(--color-text-primary)">
                       {market.name}
-                    </span>
-                    <span className="text-[10px] font-mono tracking-[0.15em] text-(--color-text-secondary) opacity-60">
-                      {market.code}
                     </span>
                   </button>
                 );
@@ -178,7 +190,7 @@ const Markets = () => {
                     key={market.id}
                     onClick={() => setActiveMarket(market.id)}
                     aria-current={isActive}
-                    className={`group flex items-baseline gap-3 py-2.5 pl-5 border-l-2 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-dark) focus-visible:ring-offset-4 rounded-sm ${
+                    className={`group flex items-baseline gap-3 py-2.5 pl-5 border-l-2 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-dark) focus-visible:ring-offset-4 rounded-sm hover:pl-6 ${
                       isActive
                         ? "border-(--color-dark)"
                         : "border-(--color-border) hover:border-(--color-text-secondary)"
@@ -193,9 +205,6 @@ const Markets = () => {
                     >
                       {market.name}
                     </span>
-                    <span className="text-[10px] font-mono tracking-[0.15em] text-(--color-text-secondary) opacity-60">
-                      {market.code}
-                    </span>
                   </button>
                 );
               })}
@@ -204,9 +213,19 @@ const Markets = () => {
 
           {/* ── RIGHT: MARKET PAGE ── */}
           <div className="flex-1 min-w-0" key={activeMarket}>
-            <h2 className="gsap-region-name text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-(--color-text-primary) mb-6 sm:mb-8">
-              {currentMarket.name}
-            </h2>
+            {/* Hero image banner */}
+            <div className="gsap-hero-image relative w-full max-w-2xl h-44 sm:h-56 rounded-2xl overflow-hidden mb-6 sm:mb-8 group">
+              <img
+                src={currentMarket.image}
+                alt={`${currentMarket.name} skyline`}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-(--color-dark)/70 via-(--color-dark)/10 to-transparent" />
+              <h2 className="gsap-region-name absolute bottom-4 left-5 sm:bottom-6 sm:left-7 text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-white">
+                {currentMarket.name}
+              </h2>
+            </div>
 
             {/* Hairline divider */}
             <div className="gsap-divider h-px w-full bg-(--color-border) origin-left mb-8 sm:mb-10" />
@@ -214,13 +233,13 @@ const Markets = () => {
             {/* ── SERVICE LEDGERS ── */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 sm:gap-y-10">
               {Object.entries(currentMarket.categories).map(
-                ([key, services]) => (
-                  <div key={key}>
-                    <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-(--color-text-secondary) mb-3 sm:mb-4">
-                      {CATEGORY_LABELS[key]}
-                    </h3>
+                ([key, services]) =>
+                  services.length > 0 && (
+                    <div key={key}>
+                      <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-(--color-text-secondary) mb-3 sm:mb-4">
+                        {CATEGORY_LABELS[key]}
+                      </h3>
 
-                    {services.length > 0 ? (
                       <ul
                         className={
                           services.length > 4
@@ -231,7 +250,7 @@ const Markets = () => {
                         {services.map((service, i) => (
                           <li
                             key={service}
-                            className="gsap-list-row group flex items-baseline gap-3 py-2 border-b border-(--color-border)"
+                            className="gsap-list-row group flex items-baseline gap-3 py-2 border-b border-(--color-border) transition-all duration-300 ease-out hover:translate-x-1"
                           >
                             <span className="font-mono text-[10px] sm:text-xs text-(--color-text-secondary) group-hover:text-(--color-dark) transition-colors duration-300">
                               {String(i + 1).padStart(2, "0")}
@@ -242,14 +261,8 @@ const Markets = () => {
                           </li>
                         ))}
                       </ul>
-                    ) : (
-                      <p className="text-sm sm:text-base font-light italic text-(--color-text-secondary) py-2 border-b border-(--color-border)">
-                        No localized {CATEGORY_LABELS[key].toLowerCase()}{" "}
-                        services are currently offered in this market.
-                      </p>
-                    )}
-                  </div>
-                )
+                    </div>
+                  )
               )}
             </div>
           </div>
