@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import MaskRevealText from "../../animations/MaskRevealText";
 import logo from "/logo.webp";
+
 const Footer = () => {
   return (
     <footer className="bg-(--color-bg-secondary) pt-24 pb-8 border-t border-(--color-border)">
@@ -123,39 +124,71 @@ const Footer = () => {
               Offices
             </h4>
             <div className="space-y-6">
+              {/* Suriname Office */}
               <div>
                 <h5 className="text-sm font-medium text-(--color-text-primary) mb-1">
                   Suriname Operations Centre
                 </h5>
-                <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
+                <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight mb-2">
                   Prinsenstraat 47
                   <br />
                   Paramaribo, Suriname
+                  <br />
+                  <a href="tel:+5977647759" className="font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity">
+                    [+597] 7647759
+                  </a>
                 </p>
+                <div className="w-full h-24 rounded overflow-hidden shadow-sm border border-(--color-border)">
+                  <iframe
+                    src="https://maps.google.com/maps?q=Prinsenstraat+47,+Paramaribo,+Suriname&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Suriname Operations Centre Map"
+                  ></iframe>
+                </div>
               </div>
+
+              {/* India Office */}
               <div>
                 <h5 className="text-sm font-medium text-(--color-text-primary) mb-1">
                   India Operations Center
                 </h5>
-                <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
+                <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight mb-2">
                   8 Suryasen Pally Matkal
                   <br />
                   Kolkata - 700065, India
+                  <br />
+                  <a href="tel:+916291944781" className="font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity">
+                    +91 6291944781
+                  </a>
                 </p>
+                <div className="w-full h-24 rounded overflow-hidden shadow-sm border border-(--color-border)">
+                  <iframe
+                    src="https://maps.google.com/maps?q=8+Suryasen+Pally+Matkal,+Kolkata+-+700065,+India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="India Operations Center Map"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Connect Column */}
           <div className="lg:col-span-2">
-            <h4 className="text-(--color-text-primary) text-sm font-semibold tracking-tight mb-6">
-              Connect
-            </h4>
             <ul className="space-y-4">
               <li>
                 <Link
                   to="/contact"
-                  className="text-sm font-light text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
+                  className="text-sm font-semibold text-(--color-text-primary) hover:text-(--color-text-primary) transition-colors"
                 >
                   Contact Us
                 </Link>

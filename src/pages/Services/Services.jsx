@@ -80,7 +80,8 @@ const SERVICES_DATA = [
         id: "tiktok",
         title: "Tik Tok Marketing",
         headline: "Capture attention where it matters most.",
-        description:"We help brands grow on TikTok through creative content and targeted campaigns that drive engagement and virality.",
+        description:
+          "We help brands grow on TikTok through creative content and targeted campaigns that drive engagement and virality.",
         deliverables: [
           "Content strategy",
           "Trend-based campaigns",
@@ -92,7 +93,8 @@ const SERVICES_DATA = [
         id: "facebook",
         title: "Facebook Marketing",
         headline: "Capture attention where it matters most.",
-        description:"We help brands grow on Facebook through creative content and targeted campaigns that drive engagement and virality.",
+        description:
+          "We help brands grow on Facebook through creative content and targeted campaigns that drive engagement and virality.",
         deliverables: [
           "Content strategy",
           "Trend-based campaigns",
@@ -279,7 +281,7 @@ const ServiceRow = ({
             alt={service.title}
             className="absolute inset-0 w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
           <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none" />
         </div>
 
@@ -310,7 +312,7 @@ const ServiceRow = ({
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-(--color-dark) mt-[3px] shrink-0 sm:w-4 sm:h-4"
+                      className="text-(--color-dark) mt-0.75 shrink-0 sm:w-4 sm:h-4"
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -324,7 +326,7 @@ const ServiceRow = ({
           </div>
 
           {/* Desktop-only side image */}
-          <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-[4/5] relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
+          <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-4/5 relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
             <img
               src={SERVICE_IMAGES[service.id] ?? imgFallback}
               alt={service.title}
