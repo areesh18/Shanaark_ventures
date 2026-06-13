@@ -54,9 +54,9 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight max-w-sm">
-              Bridging opportunities across Suriname, India, and The Netherlands
-              with expert advisory, digital excellence, and end-to-end
-              marketing.
+              Bridging opportunities across Suriname, India, Guyana and
+              Netherlands with expert advisory, digital excellence, and
+              end-to-end marketing.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ const Footer = () => {
             <div className="space-y-6">
               <div>
                 <h5 className="text-sm font-medium text-(--color-text-primary) mb-1">
-                  Suriname Operations Centre 
+                  Suriname Operations Centre
                 </h5>
                 <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight">
                   Prinsenstraat 47
