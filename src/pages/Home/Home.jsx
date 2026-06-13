@@ -11,8 +11,8 @@ import logo1 from "../../../public/logos/logo-1.webp";
 import logo2 from "../../../public/logos/logo-2.webp";
 import logo3 from "../../../public/logos/logo-3.webp";
 import logo4 from "../../../public/logos/logo-4.webp";
-import pillar1 from "../../../public/pillar1.png";
-import pillar2 from "../../../public/pillar2.png";
+import pillar1 from "../../../public/pillar1.webp";
+import pillar2 from "../../../public/pillar2.webp";
 
 const TESTIMONIALS = [
   {
@@ -322,7 +322,7 @@ const Home = () => {
               </div>
 
               {/* Pillar 1 image - nudged upward on desktop */}
-              <div className="md:col-span-5 md:-mt-10 lg:-mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) aspect-[4/3]">
+              <div className="md:col-span-5 md:-mt-10 lg:-mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) aspect-4/3">
                 <img
                   src={pillar1}
                   alt="Marketing and communication"
@@ -334,7 +334,7 @@ const Home = () => {
             {/* Row 2 — image + Pillar 2 (text), image nudged downward on desktop */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
               {/* Pillar 2 image - nudged downward on desktop */}
-              <div className="md:col-span-7 md:mt-10 lg:mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) min-h-[18rem] md:min-h-[22rem]">
+              <div className="h-auto md:col-span-7 md:mt-10 lg:mt-14 group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-(--color-border) ">
                 <img
                   src={pillar2}
                   alt="Advisors discussing strategy in a meeting"
