@@ -92,13 +92,14 @@ const SERVICES_DATA = [
       {
         id: "facebook",
         title: "Facebook Marketing",
-        headline: "Capture attention where it matters most.",
+        headline: "Reach the right audience and grow your brand on Facebook.",
         description:
-          "We help brands grow on Facebook through creative content and targeted campaigns that drive engagement and virality.",
+          "We help businesses increase visibility, engagement, and leads through strategic Facebook content and targeted advertising campaigns.",
         deliverables: [
           "Content strategy",
-          "Trend-based campaigns",
-          "Influencer collaboration",
+          "Facebook ad campaigns",
+          "Community engagement",
+          "Lead generation",
           "Performance tracking",
         ],
       },
