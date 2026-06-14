@@ -7,7 +7,7 @@ const MARKET_DATA = {
   suriname: {
     id: "suriname",
     name: "Suriname",
-    image: "../../../public/markets/suriname.webp",
+    image: "/markets/suriname.webp",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -30,7 +30,7 @@ const MARKET_DATA = {
   guyana: {
     id: "guyana",
     name: "Guyana",
-    image: "../../../public/markets/guyana.webp",
+    image: "/markets/guyana.webp",
     categories: {
       consulting: [
         "Caribbean India Corridor",
@@ -53,7 +53,7 @@ const MARKET_DATA = {
   india: {
     id: "india",
     name: "India",
-    image: "../../../public/markets/india.webp",
+    image: "/markets/india.webp",
     categories: {
       consulting: ["Caribbean India Corridor", "CEO Advisory"],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
@@ -62,7 +62,7 @@ const MARKET_DATA = {
   netherlands: {
     id: "netherlands",
     name: "Netherlands",
-    image: "../../../public/markets/netherlands.webp",
+    image: "/markets/netherlands.webp",
     categories: {
       consulting: [],
       marketing: ["Web Design", "SEO", "Facebook Marketing"],
