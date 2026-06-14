@@ -74,3 +74,11 @@ body {
 #card-3 .card-inner {
   background: rgba(241, 245, 249, 0.88);
 }
+.hero-bg {
+     background-position: center top;
+   }
+   @media (min-width: 768px) {
+     .hero-bg {
+       background-position: center center;
+     }
+   }

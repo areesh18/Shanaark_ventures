@@ -157,16 +157,15 @@ const Home = () => {
       {/* ── 1. HERO ─────────────────────────────────────────────── */}
       <section className="w-full min-h-[75svh] md:min-h-svh pt-32 sm:pt-40 pb-16 px-5 sm:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
         {/* Optimized Background Image Wrapper */}
-        <div className="absolute top-90 md:top-40 z-0 pointer-events-none select-none overflow-hidden bg-(--color-bg-primary) ">
-          <img
-            src={heroBg}
-            alt=""
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="will-change-transform hero-bg w-full h-full object-cover object-[center_top] md:object-center opacity-60 md:opacity-50 scale-190 md:scale-110"
-          />
-        </div>
+        <div
+          className="hero-bg absolute top-50 md:top-25 z-0 pointer-events-none select-none overflow-hidden bg-(--color-bg-primary) w-full h-1/2 md:h-full opacity-80 md:opacity-70 scale-190 md:scale-120"
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            willChange: "transform",
+          }}
+        />
 
         <div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-xs bg-white/5" />
 
