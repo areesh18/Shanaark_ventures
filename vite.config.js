@@ -12,6 +12,13 @@ export default defineConfig({
       includeAssets: ["**/*.{webp,woff2,svg}"],
       workbox: {
         globPatterns: ["**/*.{js,css,html,webp,woff2,svg}"],
+        navigateFallbackDenylist: [
+          /^\/wp-admin/,
+          /^\/wp-json/,
+          /^\/wp-login\.php/,
+          /^\/wp-content/,
+          /^\/wp-includes/,
+        ],
         runtimeCaching: [
           {
             urlPattern: /\.(?:webp|png|jpg|jpeg|svg)$/i,
