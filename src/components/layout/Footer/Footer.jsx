@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MaskRevealText from "../../animations/MaskRevealText";
-import logo from "/logo.webp";
+import logo from "../../../assets/logo.webp";
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
-import teamImg from "../../../public/about/team.png" 
+import teamImg from "../../assets/about/team.webp"
 const About = () => {
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-32 pb-24">

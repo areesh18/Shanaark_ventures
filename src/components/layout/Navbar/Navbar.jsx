@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "../../ui/Button";
-import logo from "/logo.webp";
+import logo from "../../../assets/logo.webp";
 // Restored to exact original links and routing
 const NAV_LINKS = [
   { to: "/", label: "Home" },

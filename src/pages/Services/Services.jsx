@@ -3,20 +3,20 @@ import Button from "../../components/ui/Button";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 
 // ── Service images ──
-import imgGraphicDesign from "/services/graphic-design.jpg";
-import imgSeo from "/services/seo.jpg";
-import imgBranding from "/services/branding.jpg";
-import imgTiktok from "/services/tiktok.jpg";
-import imgFb from "/services/facebook.jpg";
-import imgMarketingManagement from "/services/marketing-management.jpg";
-import imgCorpComm from "/services/corp-comm.jpg";
-import imgWebDev from "/services/web-dev.jpg";
-import imgCorridor from "/services/corridor.jpg";
-import imgBizAdvisory from "/services/biz-advisory.jpg";
-import imgCeoAdvisory from "/services/ceo-advisory.jpg";
-import imgSalesTraining from "/services/sales-training.jpg";
-import imgEduConsulting from "/services/edu-consulting.jpg";
-import imgFallback from "/hero-img.webp";
+import imgGraphicDesign from "/services/graphic-design.webp";
+import imgSeo from "/services/seo.webp";
+import imgBranding from "/services/branding.webp";
+import imgTiktok from "/services/tiktok.webp";
+import imgFb from "/services/facebook.webp";
+import imgMarketingManagement from "/services/marketing-management.webp";
+import imgCorpComm from "/services/corp-comm.webp";
+import imgWebDev from "/services/web-dev.webp";
+import imgCorridor from "/services/corridor.webp";
+import imgBizAdvisory from "/services/biz-advisory.webp";
+import imgCeoAdvisory from "/services/ceo-advisory.webp";
+import imgSalesTraining from "/services/sales-training.webp";
+import imgEduConsulting from "/services/edu-consulting.webp";
+import imgFallback from "../../assets/hero-img.webp";
 
 const SERVICE_IMAGES = {
   "graphic-design": imgGraphicDesign,

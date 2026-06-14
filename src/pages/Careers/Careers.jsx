@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
-import handShake from "../../../public/handshake.webp";
+import handShake from "../../assets/handshake.webp";
 const OPEN_ROLES = [
   {
     id: 1,

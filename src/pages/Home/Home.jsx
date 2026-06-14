@@ -1,18 +1,18 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import heroBg from "/public/hero-img.webp";
+import heroBg from "../../assets/hero-img.webp";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Button from "../../components/ui/Button";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import ScrambleText from "../../components/animations/ScrambleText";
-import logo1 from "../../../public/logos/logo-1.webp";
-import logo2 from "../../../public/logos/logo-2.webp";
-import logo3 from "../../../public/logos/logo-3.webp";
-import logo4 from "../../../public/logos/logo-4.webp";
-import pillar1 from "../../../public/pillar1.webp";
-import pillar2 from "../../../public/pillar2.webp";
+import logo1 from "../../assets/logos/logo-1.webp";
+import logo2 from "../../assets/logos/logo-2.webp";
+import logo3 from "../../assets/logos/logo-3.webp";
+import logo4 from "../../assets/logos/logo-4.webp";
+import pillar1 from "../../assets/pillar1.webp";
+import pillar2 from "../../assets/pillar2.webp";
 
 const TESTIMONIALS = [
   {
