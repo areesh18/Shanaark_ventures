@@ -225,16 +225,29 @@ const ServiceRow = ({ service, isOpen, onToggleClick }) => (
       onClick={() => onToggleClick(service.id)}
       className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
     >
-      <h3
-        className={`text-2xl sm:text-3xl lg:text-2xl font-medium tracking-tight transition-colors duration-300 ${
-          isOpen
-            ? "text-(--color-dark)"
-            : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
-        }`}
-      >
-        {service.title}
-      </h3>
-      
+      <div className="flex items-baseline gap-3  min-w-0">
+        <h3
+          className={`text-2xl sm:text-3xl lg:text-2xl font-medium tracking-tight transition-colors duration-300 shrink-0 ${
+            isOpen
+              ? "text-(--color-dark)"
+              : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
+          }`}
+        >
+          {service.title}
+          {!isOpen && (
+            <div
+              className="hidden md:block absolute left-40 top-2  -translate-y-full
+    px-4 py-2 rounded-xl bg-[#c7ff1f] border border-(--color-border) shadow-sm
+    opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0
+    transition-all duration-300 ease-out pointer-events-none z-20 max-w-60"
+            >
+              <p className="text-base sm:text-2xl lg:2xl font-normal tracking-tighter text-(--color-text-primary) leading-tight">
+                {service.headline}
+              </p>
+            </div>
+          )}
+        </h3>
+      </div>
 
       <div className="h-8 w-8 rounded-full border border-(--color-border) bg-white flex items-center justify-center shrink-0 transition-colors">
         <svg
@@ -364,7 +377,7 @@ const Services = () => {
               className={`animate-fade-up delay-${(groupIndex + 1) * 100}`}
             >
               <h2
-                className={`text-[15px] sm:text-sm font-semibold uppercase tracking-normal text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4 ${
+                className={`text-[15px] sm:text-sm font-semibold uppercase tracking-normal text-(--color-text-secondary)   border-b border-(--color-border) pb-4 ${
                   groupIndex === 1 ? "text-right" : "text-left"
                 }`}
               >
