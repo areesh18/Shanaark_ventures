@@ -11,19 +11,14 @@ import logo1 from "../../assets/logos/logo-1.webp";
 import logo2 from "../../assets/logos/logo-2.webp";
 import logo3 from "../../assets/logos/logo-3.webp";
 import logo4 from "../../assets/logos/logo-4.webp";
+import logo5 from "../../assets/logos/logo-5.webp";
 import pillar1 from "../../assets/pillar1.webp";
 import pillar2 from "../../assets/pillar2.webp";
 
 const TESTIMONIALS = [
   {
     quote:
-      "Shaanark provides us with services in the field of customer support. Clearly defined on the basis of an agreement. The response time is low and, if necessary, the approach is discussed first. I never have to worry about whether it will work out well.",
-    name: "Rik Verhagen",
-    title: "Director, Nieuw Ontwerp",
-  },
-  {
-    quote:
-      "We are really satisfied with the design that Shaanark has made for us. The delivery was fast, professional and they understood directly what we envisioned for the project, client-oriented and very dynamic company!",
+      "We are really satisfied with the design that Shaanark has made for us. It was a pleasure to work with Kris & others in the team. The delivery was fast, professional and they understood directly what we envisioned for the project, client-oriented and very dynamic company!",
     name: "Laetitia Peant",
     title:
       "Development & Communications Coordinator, Conservation International Suriname",
@@ -36,7 +31,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Last year I asked Kris to develop my logo and website for my company. I really like his way of working, he took the time to listen to my preferences and was very professional. When my website and logo were finished, I got a lot of compliments from my clients. His after service is also very good. I recommend him to anybody.",
+      "Few years ago I asked Kris to develop my logo and website for my company. I really like his way of working, he took the time to listen to my preferences and was very professional. When my website and logo were finished, I got a lot of compliments from my clients. His after service is also very good. I recommend him to anybody.",
     name: "Jovanka Pigot",
     title: "Legal Advisor, Qarah",
   },
@@ -49,7 +44,7 @@ const TESTIMONIALS = [
 ];
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
-  const logos = [logo1, logo2, logo3, logo4];
+  const logos = [logo1, logo2, logo3, logo4, logo5];
 
   const container = useRef(null);
   const statsRefs = useRef([]);
@@ -172,8 +167,8 @@ const Home = () => {
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-bg-secondary) border border-(--color-border) mb-6 sm:mb-8 animate-fade-up">
-            <span className="text-[11px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest">
-              Suriname • India • Netherlands
+            <span className="text-[11px] sm:text-xs font-medium text-(--color-text-primary) uppercase tracking-widest">
+              Suriname • India • Netherlands • Guyana
             </span>
           </div>
 
@@ -220,8 +215,8 @@ const Home = () => {
           {/* Right Aligned Stats */}
           <div className="md:w-2/3 mt-0 sm:mt-0 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-8 md:gap-y-10 justify-start md:justify-end">
             {[
-              { value: "3", label: "Global Markets" },
-              { value: "12", label: "Core Services" },
+              { value: "5", label: "Global Markets" },
+              { value: "13", label: "Core Services" },
               { value: "B2B", label: "Growth & Advisory" },
             ].map(({ value, label }, index) => (
               <div key={label} className="flex flex-col items-start">

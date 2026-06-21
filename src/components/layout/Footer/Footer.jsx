@@ -163,7 +163,7 @@ const Footer = () => {
                   Kolkata - 700065, India
                   <br />
                   <a href="tel:+916291944781" className="font-medium text-(--color-text-primary) hover:opacity-70 transition-opacity">
-                    +91 6291944781
+                    [+91] 6291944781
                   </a>
                 </p>
                 <div className="w-full h-24 rounded overflow-hidden shadow-sm border border-(--color-border)">
