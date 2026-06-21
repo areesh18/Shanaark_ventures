@@ -219,20 +219,10 @@ const SERVICES_DATA = [
 
 // ── 1. CLEAN, STATELESS COMPONENT ──
 // ServiceRow now only handles UI rendering and passes events back up.
-const ServiceRow = ({
-  service,
-  isOpen,
-  onToggleClick,
-  onMouseEnter,
-  onMouseMove,
-  onMouseLeave,
-}) => (
+const ServiceRow = ({ service, isOpen, onToggleClick }) => (
   <div className="border-b border-(--color-border) group relative transition-colors">
     <button
       onClick={() => onToggleClick(service.id)}
-      onMouseEnter={(e) => onMouseEnter(e, service.id, isOpen)}
-      onMouseMove={(e) => onMouseMove(e, isOpen)}
-      onMouseLeave={onMouseLeave}
       className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
     >
       <h3
@@ -244,6 +234,7 @@ const ServiceRow = ({
       >
         {service.title}
       </h3>
+      
 
       <div className="h-8 w-8 rounded-full border border-(--color-border) bg-white flex items-center justify-center shrink-0 transition-colors">
         <svg
@@ -344,43 +335,13 @@ const ServiceRow = ({
 // ── 2. MAIN COMPONENT WITH GLOBAL GSAP LOGIC ──
 const Services = () => {
   const [openId, setOpenId] = useState(null);
-  const [activeService, setActiveService] = useState(null);
-  const handleRowMouseEnter = (_, serviceId) => {
-    if (openId) return;
-    setActiveService(serviceId);
-  };
-  const handleRowMouseLeave = () => {
-    setActiveService(null);
-  };
+
   const handleToggleClick = (serviceId) => {
-    const nextOpenId = openId === serviceId ? null : serviceId;
-
-    setOpenId(nextOpenId);
-
-    if (nextOpenId) {
-      setActiveService(null);
-    }
+    setOpenId(openId === serviceId ? null : serviceId);
   };
-  const showPreview = activeService && !openId;
+
   return (
     <div className="w-full bg-(--color-bg-primary) min-h-screen relative">
-      {/* ── THE SINGLE GLOBAL FLOATING IMAGE ── */}
-      <div
-        className={`z-1 hidden lg:block fixed left-1/2 -translate-1/2 top-1/2 -translate-y-1/2
-    transition-all duration-500 ease-out
-    ${showPreview ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-      >
-        {activeService && (
-          <div className="w-48 aspect-4/5 rounded-2xl overflow-hidden border border-(--color-border)">
-            <img
-              key={activeService}
-              src={SERVICE_IMAGES[activeService]}
-              alt=""
-              className="w-full h-full object-cover opacity-90 "
-            />
-          </div>
-        )}
-      </div>
       <div className="max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16  ">
         <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-4 sm:mb-6">
           Solutions built to <br className="hidden sm:block" />
@@ -417,8 +378,6 @@ const Services = () => {
                     service={service}
                     isOpen={openId === service.id}
                     onToggleClick={handleToggleClick}
-                    onMouseEnter={handleRowMouseEnter}
-                    onMouseLeave={handleRowMouseLeave}
                   />
                 ))}
               </div>
