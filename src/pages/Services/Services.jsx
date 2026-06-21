@@ -216,134 +216,152 @@ const SERVICES_DATA = [
     ],
   },
 ];
-
+const BADGE_COLORS = [
+  "#c7ff1f", // lime
+  "#ff8a5c", // coral
+  "#7dd3fc", // sky blue
+  "#fbbf24", // amber
+  "#f472b6", // pink
+  "#a3e635", // lighter lime/green
+];
 // ── 1. CLEAN, STATELESS COMPONENT ──
 // ServiceRow now only handles UI rendering and passes events back up.
-const ServiceRow = ({ service, isOpen, onToggleClick }) => (
-  <div className="border-b border-(--color-border) group relative transition-colors">
-    <button
-      onClick={() => onToggleClick(service.id)}
-      className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
-    >
-      <div className="flex items-baseline gap-3  min-w-0">
-        <h3
-          className={`text-2xl sm:text-3xl lg:text-2xl font-medium tracking-tight transition-colors duration-300 shrink-0 ${
-            isOpen
-              ? "text-(--color-dark)"
-              : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
-          }`}
-        >
-          {service.title}
-          {!isOpen && (
-            <div
-              className="hidden md:block absolute left-40 top-2  -translate-y-full
-    px-4 py-2 rounded-xl bg-[#c7ff1f] border border-(--color-border) shadow-sm
-    opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0
-    transition-all duration-300 ease-out pointer-events-none z-20 max-w-60"
-            >
-              <p className="text-base sm:text-2xl lg:2xl font-normal tracking-tighter text-(--color-text-primary) leading-tight">
-                {service.headline}
-              </p>
-            </div>
-          )}
-        </h3>
-      </div>
-
-      <div className="h-8 w-8 rounded-full border border-(--color-border) bg-white flex items-center justify-center shrink-0 transition-colors">
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`transition-transform duration-300 text-(--color-text-primary) ${
-            isOpen ? "rotate-45" : ""
-          }`}
-        >
-          <line x1="12" y1="5" x2="12" y2="19" />
-          <line x1="5" y1="12" x2="19" y2="12" />
-        </svg>
-      </div>
-    </button>
-
+const ServiceRow = ({
+  service,
+  isOpen,
+  onToggleClick,
+  onRowMouseEnter,
+  onRowMouseLeave,
+  badgeColor,
+}) => {
+  return (
     <div
-      className={`grid transition-all duration-500 ease-in-out relative z-10 ${
-        isOpen
-          ? "grid-rows-[1fr] opacity-100 pb-6 sm:pb-10"
-          : "grid-rows-[0fr] opacity-0 pb-0"
-      }`}
+      className=" border-b border-(--color-border) group relative transition-colors"
+      onMouseEnter={onRowMouseEnter}
+      onMouseLeave={onRowMouseLeave}
     >
-      <div className="min-h-0">
-        {/* Mobile: image strip on top, then text. Desktop: text left, image right (side-by-side). */}
-
-        {/* ── MOBILE-ONLY full-width image strip ── */}
-        <div className="block md:hidden w-full h-44 relative overflow-hidden rounded-xl mt-3 mb-5 border border-(--color-border) bg-(--color-bg-secondary)">
-          <img
-            src={SERVICE_IMAGES[service.id] ?? imgFallback}
-            alt={service.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-90"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none" />
+      <button
+        onClick={() => onToggleClick(service.id)}
+        className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
+      >
+        <div className="flex items-baseline gap-3  min-w-0">
+          <h3
+            className={`text-2xl sm:text-3xl lg:text-2xl font-medium tracking-tight transition-colors duration-300 shrink-0 ${
+              isOpen
+                ? "text-(--color-dark)"
+                : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
+            }`}
+          >
+            {service.title}
+            {!isOpen && (
+              <div
+                style={{ backgroundColor: badgeColor }}
+                className="hidden md:block absolute left-40 top-2 -translate-y-full px-4 py-2 rounded-xl border border-(--color-border) shadow-sm transition-all duration-300 ease-out pointer-events-none z-20 max-w-[40vw] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+              >
+                <p className=" sm:text-5xl lg:2xl font-normal tracking-tighter text-(--color-text-primary) leading-tight">
+                  {service.headline}
+                </p>
+              </div>
+            )}
+          </h3>
         </div>
 
-        {/* ── Content row (text always, desktop image on right) ── */}
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
-          {/* Text column */}
-          <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 border-(--color-accent)">
-            <h4 className="text-lg sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-snug">
-              {service.headline}
-            </h4>
-            <p className="text-(--color-text-secondary) text-base sm:text-lg font-normal leading-relaxed mb-6 lg:mb-12 tracking-tight max-w-2xl">
-              {service.description}
-            </p>
+        <div className="h-8 w-8 rounded-full border border-(--color-border) bg-white flex items-center justify-center shrink-0 transition-colors">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`transition-transform duration-300 text-(--color-text-primary) ${
+              isOpen ? "rotate-45" : ""
+            }`}
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </div>
+      </button>
 
-            <div>
-              <h5 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 lg:mb-6">
-                Key Deliverables
-              </h5>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 sm:gap-y-4 gap-x-6">
-                {service.deliverables.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 sm:gap-3">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-(--color-dark) mt-0.75 shrink-0 sm:w-4 sm:h-4"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span className="text-xs sm:text-base font-normal text-(--color-text-primary) tracking-tight">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+      <div
+        className={`grid transition-all duration-500 ease-in-out relative z-10 ${
+          isOpen
+            ? "grid-rows-[1fr] opacity-100 pb-6 sm:pb-10"
+            : "grid-rows-[0fr] opacity-0 pb-0 pointer-events-none"
+        }`}
+      >
+        <div className="min-h-0">
+          {/* Mobile: image strip on top, then text. Desktop: text left, image right (side-by-side). */}
 
-          {/* Desktop-only side image */}
-          <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-4/5 relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
+          {/* ── MOBILE-ONLY full-width image strip ── */}
+          <div className="block md:hidden w-full h-44 relative overflow-hidden rounded-xl mt-3 mb-5 border border-(--color-border) bg-(--color-bg-secondary)">
             <img
               src={SERVICE_IMAGES[service.id] ?? imgFallback}
               alt={service.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none" />
+          </div>
+
+          {/* ── Content row (text always, desktop image on right) ── */}
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
+            {/* Text column */}
+            <div className="w-full md:w-2/3 lg:w-3/4 pl-0 sm:pl-6 border-l-0 sm:border-l-2 border-(--color-accent)">
+              <h4 className="text-lg sm:text-2xl lg:text-3xl font-medium text-(--color-text-primary) mb-3 sm:mb-4 lg:mb-6 tracking-tight leading-snug">
+                {service.headline}
+              </h4>
+              <p className="text-(--color-text-secondary) text-base sm:text-lg font-normal leading-relaxed mb-6 lg:mb-12 tracking-tight max-w-2xl">
+                {service.description}
+              </p>
+
+              <div>
+                <h5 className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 lg:mb-6">
+                  Key Deliverables
+                </h5>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 sm:gap-y-4 gap-x-6">
+                  {service.deliverables.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 sm:gap-3">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-(--color-dark) mt-0.75 shrink-0 sm:w-4 sm:h-4"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span className="text-xs sm:text-base font-normal text-(--color-text-primary) tracking-tight">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Desktop-only side image */}
+            <div className="hidden md:block md:w-1/3 lg:w-1/4 self-auto aspect-4/5 relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-bg-secondary) shadow-sm shrink-0">
+              <img
+                src={SERVICE_IMAGES[service.id] ?? imgFallback}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] ease-out hover:scale-105"
+              />
+              <div className="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none z-10" />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // ── 2. MAIN COMPONENT WITH GLOBAL GSAP LOGIC ──
 const Services = () => {
@@ -385,12 +403,17 @@ const Services = () => {
               </h2>
 
               <div className="flex flex-col">
-                {group.items.map((service) => (
+                {group.items.map((service, itemIndex) => (
                   <ServiceRow
                     key={service.id}
                     service={service}
                     isOpen={openId === service.id}
                     onToggleClick={handleToggleClick}
+                    badgeColor={
+                      BADGE_COLORS[
+                        (groupIndex * 100 + itemIndex) % BADGE_COLORS.length
+                      ]
+                    }
                   />
                 ))}
               </div>
