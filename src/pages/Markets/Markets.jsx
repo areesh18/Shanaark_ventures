@@ -14,6 +14,7 @@ const MARKET_DATA = {
         "Business Advisory",
         "CEO Advisory",
         "Marketing and Sales Training",
+        "Educational Consulting",
       ],
       marketing: [
         "Graphic Design",
@@ -37,6 +38,7 @@ const MARKET_DATA = {
         "Business Advisory",
         "CEO Advisory",
         "Marketing and Sales Training",
+        "Educational Consulting",
       ],
       marketing: [
         "Graphic Design",
@@ -72,7 +74,7 @@ const MARKET_DATA = {
 
 const CATEGORY_LABELS = {
   consulting: "Consulting & Advisory",
-  marketing: "Marketing & Execution",
+  marketing: "Marketing & Communication",
 };
 
 // ── MAIN COMPONENT ─────────────────────────────────────
