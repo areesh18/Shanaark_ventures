@@ -233,10 +233,10 @@ const ServiceRow = ({
       onMouseEnter={(e) => onMouseEnter(e, service.id, isOpen)}
       onMouseMove={(e) => onMouseMove(e, isOpen)}
       onMouseLeave={onMouseLeave}
-      className="w-full py-4 sm:py-5 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
+      className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
     >
       <h3
-        className={`text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight transition-colors duration-300 ${
+        className={`text-2xl sm:text-3xl lg:text-2xl font-medium tracking-tight transition-colors duration-300 ${
           isOpen
             ? "text-(--color-dark)"
             : "text-(--color-text-primary) group-hover:text-(--color-text-secondary)"
@@ -403,7 +403,7 @@ const Services = () => {
               className={`animate-fade-up delay-${(groupIndex + 1) * 100}`}
             >
               <h2
-                className={`text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4 ${
+                className={`text-[15px] sm:text-sm font-semibold uppercase tracking-normal text-(--color-text-secondary) mb-3 sm:mb-4 border-b border-(--color-border) pb-4 ${
                   groupIndex === 1 ? "text-right" : "text-left"
                 }`}
               >
