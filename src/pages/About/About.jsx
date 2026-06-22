@@ -51,36 +51,57 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-(--color-bg-primary) pt-32 selection:bg-(--color-accent) selection:text-(--color-text-primary)">
+    <div className="min-h-screen bg-(--color-bg-primary) pt-24 selection:bg-(--color-accent) selection:text-(--color-text-primary)">
       {/* 1. HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mb-16   animate-fade-up">
-        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-medium tracking-tighter text-(--color-text-primary) leading-none max-w-6xl">
-          Over a decade of <br className="hidden md:block" />
-          <span className="font-serif-italic font-light text-(--color-text-secondary)">
-            transforming{" "}
-          </span>
-          businesses.
-        </h1>
+      {/* Editorial split: eyebrow / headline / descriptor row */}
+      <section className="max-w-7xl mx-auto px-6 mb-10 animate-fade-up">
+        {/* Main headline — mid-weight, two lines, measured size */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:gap-16">
+          <h1 className="flex-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-(--color-text-primary) leading-[1.05] max-w-4xl">
+            Over a decade of <br />
+            <span className="font-serif-italic font-light text-(--color-text-secondary)">
+              transforming
+            </span>{" "}
+            businesses.
+          </h1>
+
+          {/* Right descriptor — visible lg+ */}
+          <p className="hidden lg:block text-base font-light text-(--color-text-secondary) leading-relaxed max-w-xs pb-1 shrink-0">
+            Business restructuring, marketing, and growth solutions — built for
+            the markets that matter.
+          </p>
+        </div>
       </section>
 
       {/* 2. OUR STORY & VIDEO */}
-      <section className="pt-16 pb-20 md:pt-24 md:pb-32 bg-(--color-bg-secondary) relative overflow-hidden">
+      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-(--color-bg-secondary) relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-12 md:mb-24">
+          <h2 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-8 md:mb-14">
             Our Story
           </h2>
 
-          <div className="w-full md:max-w-5xl mb-16 md:mb-32">
-            <MaskRevealText className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-(--color-text-primary) leading-[1.15] sm:leading-[1.1]">
-              Some ventures begin with a business plan.{" "}
-              <br className="hidden sm:block" />
-              <span className="font-serif-italic text-(--color-text-secondary)">
-                Ours began with a leap of faith.
-              </span>
-            </MaskRevealText>
+          {/* Opening quote + inline image side by side */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16 mb-10 md:mb-16">
+            <div className="w-full lg:w-3/5 mb-8 lg:mb-0">
+              <MaskRevealText className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-(--color-text-primary) leading-[1.15] sm:leading-[1.1]">
+                Some ventures begin with a business plan.{" "}
+                <br className="hidden sm:block" />
+                <span className="font-serif-italic text-(--color-text-secondary)">
+                  Ours began with a leap of faith.
+                </span>
+              </MaskRevealText>
+            </div>
+            {/* Decorative image — replace with: aerial shot of Suriname city or tropical coastline */}
+            <div className="w-full lg:w-2/5 aspect-[4/3] rounded-lg overflow-hidden shrink-0">
+              <img
+                src="https://images.pexels.com/photos/13966908/pexels-photo-13966908.jpeg"
+                alt="Aerial view of Suriname's lush tropical coastline representing the founding location of Shaanark Ventures"
+                className="w-full h-full object-cover opacity-100"
+              />
+            </div>
           </div>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed mb-16 md:mb-32">
+          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed mb-10 md:mb-16">
             <p>
               When one of our founders first arrived in Suriname from India, he
               brought little more than curiosity and an entrepreneurial spirit.
@@ -94,7 +115,7 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <div className="w-full md:w-4/5 lg:w-3/4 md:ml-auto mb-16 md:mb-32 group cursor-pointer">
+          <div className="w-full md:w-4/5 lg:w-3/4 md:ml-auto mb-10 md:mb-16 group cursor-pointer">
             <div className="w-full aspect-video bg-(--color-dark) rounded-lg md:rounded-xl overflow-hidden shadow-xl md:shadow-2xl relative">
               <div className="absolute inset-0 transition-transform duration-1000 ease-out group-hover:scale-105">
                 <iframe
@@ -107,12 +128,12 @@ const About = () => {
                 ></iframe>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-(--color-text-secondary) uppercase tracking-widest mt-4 md:mt-6 text-left md:text-right">
+            <p className="text-xs sm:text-sm text-(--color-text-secondary) uppercase tracking-widest mt-3 md:mt-4 text-left md:text-right">
               The Revealing — Where it all started
             </p>
           </div>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-8 md:gap-12 mb-16 md:mb-32">
+          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-6 md:gap-8 mb-10 md:mb-16">
             <p>
               On set, he met Charlotte Beelen, a graduate in Event and Leisure
               Management from the Netherlands. What started as a creative
@@ -129,13 +150,13 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <div className="border-l-2 md:border-l-4 border-(--color-accent) pl-4 md:pl-10 w-full md:max-w-4xl mb-16 md:mb-32">
+          <div className="border-l-2 md:border-l-4 border-(--color-accent) pl-4 md:pl-10 w-full md:max-w-4xl mb-10 md:mb-16">
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-(--color-text-primary) tracking-tight leading-snug md:leading-tight">
               But a good story rarely stops at one chapter.
             </p>
           </div>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-8 md:gap-12 mb-16 md:mb-32">
+          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-6 md:gap-8 mb-10 md:mb-16">
             <p>
               As the vision expanded, so did the team. In 2026, conversations
               with long-time professional associates{" "}
@@ -164,14 +185,14 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <div className="w-full md:max-w-3xl mx-auto md:text-center text-lg sm:text-xl md:text-2xl font-light text-(--color-text-secondary) leading-relaxed flex flex-col gap-6 md:gap-8">
+          <div className="w-full md:max-w-3xl mx-auto md:text-center text-lg sm:text-xl md:text-2xl font-light text-(--color-text-secondary) leading-relaxed flex flex-col gap-4 md:gap-6">
             <p>
               With offices in Suriname and India, the firm is backed by Honorary
               Advisors with deep global expertise, a leadership team spanning
               more than six industry verticals, and a track record of delivering
               results across five markets — and counting.
             </p>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-(--color-text-primary) font-normal mt-4 md:mt-8 leading-snug">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-(--color-text-primary) font-normal mt-2 md:mt-4 leading-snug">
               The journey that began with one person, one unfamiliar country,
               and one short film now reaches across continents.{" "}
               <br className="hidden sm:block" />
@@ -185,14 +206,14 @@ const About = () => {
 
       {/* 3. METRICS / STATS */}
       <section className="border-y border-(--color-border) bg-(--color-bg-primary)">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="flex flex-wrap justify-start lg:justify-between gap-x-12 gap-y-16">
+        <div className="max-w-7xl mx-auto px-6 py-14 md:py-18">
+          <div className="flex flex-wrap justify-start lg:justify-between gap-x-12 gap-y-10">
             {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="flex flex-col flex-1 min-w-37.5 border-l-2 border-(--color-border) pl-6 hover:border-(--color-accent) transition-colors duration-500 cursor-default"
               >
-                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-(--color-text-primary) tracking-tighter mb-4">
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-(--color-text-primary) tracking-tighter mb-2">
                   {stat.value}
                 </span>
                 <span className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest leading-relaxed">
@@ -211,24 +232,35 @@ const About = () => {
       </section>
 
       {/* 4. OUR APPROACH */}
-      <section className="py-20 md:py-32 bg-(--color-bg-primary) relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-(--color-bg-primary) relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-20 md:mb-32">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-normal tracking-tighter text-(--color-text-primary) leading-[1.05]">
-              Empowering organizations to thrive{" "}
-              <br className="hidden lg:block" />
-              in a{" "}
-              <span className="font-serif-italic font-light text-(--color-text-secondary)">
-                fast-paced world.
-              </span>
-            </h2>
+          {/* Approach header + image side by side */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:gap-16 mb-10 md:mb-14">
+            <div className="flex-1">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-normal tracking-tighter text-(--color-text-primary) leading-[1.05]">
+                Empowering organizations to thrive{" "}
+                <br className="hidden lg:block" />
+                in a{" "}
+                <span className="font-serif-italic font-light text-(--color-text-secondary)">
+                  fast-paced world.
+                </span>
+              </h2>
+            </div>
+            {/* Replace with: strategy session, whiteboard, or consulting room photo */}
+            <div className="w-full lg:w-72 aspect-4/3 lg:aspect-3/4 rounded-lg overflow-hidden shrink-0 mt-8 lg:mt-0">
+              <img
+                src="https://images.pexels.com/photos/7710055/pexels-photo-7710055.jpeg"
+                alt=""
+                className="w-full h-full object-cover opacity-100"
+              />
+            </div>
           </div>
 
-          <h3 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-12 md:mb-24">
+          <h3 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-8 md:mb-12">
             Our Approach
           </h3>
 
-          <div className="w-full md:max-w-4xl mb-16 md:mb-32">
+          <div className="w-full md:max-w-4xl mb-8 md:mb-14">
             <MaskRevealText className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-(--color-text-primary) leading-[1.15] sm:leading-snug">
               Most businesses know something isn't working.{" "}
               <br className="hidden sm:block" />
@@ -238,7 +270,7 @@ const About = () => {
             </MaskRevealText>
           </div>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed mb-16 md:mb-32">
+          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed mb-8 md:mb-14">
             <p>
               A dip in sales gets blamed on marketing. Weak marketing gets
               blamed on branding. But in our experience, these are rarely the
@@ -247,13 +279,13 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <div className="border-l-2 md:border-l-4 border-(--color-accent) pl-4 md:pl-10 w-full md:max-w-3xl mb-16 md:mb-32">
+          <div className="border-l-2 md:border-l-4 border-(--color-accent) pl-4 md:pl-10 w-full md:max-w-3xl mb-8 md:mb-14">
             <p className="text-2xl sm:text-3xl md:text-4xl font-light text-(--color-text-primary) tracking-tight leading-snug md:leading-tight">
               At Shaanark Ventures, we go deeper.
             </p>
           </div>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-8 md:gap-12 mb-16 md:mb-32">
+          <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-6 md:gap-8 mb-8 md:mb-14">
             <p>
               We specialize in business acceleration and ecosystem development —
               which means before we talk about campaigns, content, or
@@ -272,7 +304,16 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-8 md:gap-12 mb-16 md:mb-32">
+          {/* Full-width image break — Replace with: data dashboard, analytics screen, or organizational chart */}
+          <div className="w-full aspect-[21/6] rounded-lg overflow-hidden mb-8 md:mb-14">
+            <img
+              src="https://images.pexels.com/photos/8353773/pexels-photo-8353773.jpeg"
+              alt=""
+              className="w-full h-full object-cover opacity-100"
+            />
+          </div>
+
+          <ScrollHighlightText className="w-full md:max-w-3xl md:ml-auto text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-6 md:gap-8 mb-8 md:mb-14">
             <p>
               Our process is straightforward, even when the problems aren't.
             </p>
@@ -291,7 +332,7 @@ const About = () => {
             </p>
           </ScrollHighlightText>
 
-          <div className="w-full md:max-w-4xl mx-auto md:text-center mt-12 md:mt-24">
+          <div className="w-full md:max-w-4xl mx-auto md:text-center mt-8 md:mt-14">
             <p className="text-3xl sm:text-4xl md:text-6xl text-(--color-text-primary) font-normal tracking-tight leading-snug md:leading-tight">
               Because sustainable success isn't a campaign.{" "}
               <br className="hidden sm:block" />
@@ -304,10 +345,10 @@ const About = () => {
       </section>
 
       {/* 5. THE TEAM */}
-      <section className="py-20 md:py-32 bg-(--color-bg-primary) relative">
+      <section className="py-14 md:py-20 bg-(--color-bg-primary) relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-20 md:mb-32">
-            <h2 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-8 md:mb-12">
+          <div className="mb-10 md:mb-14">
+            <h2 className="text-[10px] sm:text-xs font-medium text-(--color-text-secondary) uppercase tracking-widest mb-4 md:mb-6">
               The Collaborative
             </h2>
             <MaskRevealText className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-normal tracking-tighter text-(--color-text-primary) leading-[1.05]">
@@ -318,11 +359,12 @@ const About = () => {
             </MaskRevealText>
           </div>
 
+          {/* Core team — first 5 members */}
           <div className="border-t-2 border-(--color-text-primary)">
-            {team.map((member, idx) => (
+            {team.slice(0, 5).map((member, idx) => (
               <div
                 key={member.name}
-                className="group relative flex flex-col lg:flex-row items-start py-10 md:py-16 border-b border-(--color-border) hover:bg-(--color-bg-secondary) transition-all duration-500 px-4 sm:px-6 -mx-4 sm:-mx-6 overflow-hidden"
+                className="group relative flex flex-col lg:flex-row items-start py-8 md:py-12 border-b border-(--color-border) hover:bg-(--color-bg-secondary) transition-all duration-500 px-4 sm:px-6 -mx-4 sm:-mx-6 overflow-hidden"
               >
                 {/* Number Index */}
                 <div className="hidden lg:block w-1/12 pt-2">
@@ -331,13 +373,11 @@ const About = () => {
                   </span>
                 </div>
 
-                {/* Name & Sleek Role Line */}
-                <div className="w-full lg:w-4/12 mb-6 lg:mb-0 pr-8 z-10">
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-(--color-text-primary) mb-6 group-hover:translate-x-4 transition-transform duration-500 ease-out">
+                {/* Name & Role */}
+                <div className="w-full lg:w-4/12 mb-4 lg:mb-0 pr-8 z-10">
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-(--color-text-primary) mb-4 group-hover:translate-x-4 transition-transform duration-500 ease-out">
                     {member.name}
                   </h3>
-
-                  {/* Replaced pill with editorial line accent */}
                   <div className="flex items-center gap-4 group-hover:translate-x-4 transition-transform duration-500 ease-out delay-75">
                     <span className="h-px w-6 bg-(--color-border) group-hover:bg-(--color-accent) transition-colors duration-500"></span>
                     <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-(--color-text-secondary) group-hover:text-(--color-text-primary) transition-colors duration-500">
@@ -346,7 +386,37 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* Bio Description (Expanded width since arrow is removed) */}
+                {/* Bio */}
+                <div className="w-full lg:w-7/12 pt-2 z-10">
+                  <p className="text-base sm:text-lg font-light text-(--color-text-secondary) leading-relaxed group-hover:text-(--color-text-primary) transition-colors duration-500">
+                    {member.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Distinguished advisory members — last 2, rendered in a recessed card panel */}
+          <div className="mt-12 md:mt-16 bg-(--color-bg-secondary) rounded-xl px-4 sm:px-8 py-2 border border-(--color-border)">
+            {team.slice(5).map((member) => (
+              <div
+                key={member.name}
+                className="group relative flex flex-col lg:flex-row items-start py-8 md:py-12 border-b border-(--color-border) last:border-b-0 hover:bg-(--color-bg-primary) transition-all duration-500 rounded-lg px-2 sm:px-4 overflow-hidden"
+              >
+                {/* Name & Role */}
+                <div className="w-full lg:w-5/12 mb-4 lg:mb-0 pr-8 z-10">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-(--color-text-primary) mb-4 group-hover:translate-x-3 transition-transform duration-500 ease-out">
+                    {member.name}
+                  </h3>
+                  <div className="flex items-center gap-4 group-hover:translate-x-3 transition-transform duration-500 ease-out delay-75">
+                    <span className="h-px w-6 bg-(--color-border) group-hover:bg-(--color-accent) transition-colors duration-500"></span>
+                    <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-(--color-text-secondary) group-hover:text-(--color-text-primary) transition-colors duration-500">
+                      {member.role}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bio */}
                 <div className="w-full lg:w-7/12 pt-2 z-10">
                   <p className="text-base sm:text-lg font-light text-(--color-text-secondary) leading-relaxed group-hover:text-(--color-text-primary) transition-colors duration-500">
                     {member.desc}
@@ -359,15 +429,15 @@ const About = () => {
       </section>
 
       {/* 6. CONVERSION PANEL */}
-      <section className="py-24 md:py-32 bg-(--color-bg-primary) text-center animate-fade-up px-4 sm:px-6 border-t border-(--color-border)">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-8">
+      <section className="py-16 md:py-24 bg-(--color-bg-primary) text-center animate-fade-up px-4 sm:px-6 border-t border-(--color-border)">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-6">
           Ready to scale your{" "}
           <span className="font-serif-italic font-light text-(--color-text-secondary)">
             vision?
           </span>
         </h2>
-        <p className="text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) mb-12 max-w-2xl mx-auto">
-          Let’s discuss how our transformative strategies and restructuring
+        <p className="text-lg md:text-xl font-light tracking-tight text-(--color-text-secondary) mb-8 max-w-2xl mx-auto">
+          Let's discuss how our transformative strategies and restructuring
           solutions can drive sustainable results for your organization.
         </p>
         <Button
