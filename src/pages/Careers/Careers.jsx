@@ -33,7 +33,7 @@ const OPEN_ROLES = [
   },
   {
     id: 5,
-    title: "Business Development Consultant",
+    title: "Commission Based Sales Consultant",
     department: "Business Advisory",
     location: "Netherlands",
     type: "Full-time",
