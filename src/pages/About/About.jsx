@@ -34,6 +34,11 @@ const About = () => {
       desc: "Bitan is an acclaimed educationist with several years in education and learning. His deep understanding of cognitive behavior allows us to build training experiences for trainees and learners. In addition, he understands education from a transformative angle.",
     },
     {
+      name: "Vishal Sharma",
+      role: "LEGAL DIRECTOR",
+      desc: "Mr. Vishal Sharma is a Company Secretary and a Lawyer. He has over 13 years of experience across various functions and domains with top Corporate Houses. He is extensively experienced in the areas of Corporate Secretarial functions. Start up Consultancy, Accounts, regulatory compliances. Merger & Acquisitions and other Company Law matters. He has a vast working experience with ROC, Food Safety, Drug Authorities, SEBI, Various Stock Exchanges and NCLT matters. He held top leadership positions with the big corporate houses as a Company Secretary and Key Managerial Personnel of the Company having exposures in equity funding, NCLT project appraisals, setting up of new business ventures, policy making etc.",
+    },
+    {
       name: "Jitendra Prasad",
       role: "EMERITUS HONORARY ADVISORY",
       desc: "Jitendra Prasad is a leading marine engineer par excellence based in Houston, Texas. He has also done a lot of research work in alternative energy production besides having had set up various ventures or being involved in different ventures. Mr Prasad boasts of over 40 years of rich experience in design, engineering, and construction of projects worldwide in the energy sector. Graduated from the prestigious IIT Kharagpur and then post graduated from UC Berkeley. Currently he resides in Houston, Texas in the United States of America.",
@@ -47,7 +52,6 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-32 selection:bg-(--color-accent) selection:text-(--color-text-primary)">
-      
       {/* 1. HERO SECTION */}
       <section className="max-w-7xl mx-auto px-6 mb-16   animate-fade-up">
         <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-medium tracking-tighter text-(--color-text-primary) leading-none max-w-6xl">
@@ -83,7 +87,9 @@ const About = () => {
               Navigating an unfamiliar culture and an untested market, he did
               what any good storyteller does — he looked for the story worth
               telling. That search led him to a passion project,{" "}
-              <em className="font-normal text-(--color-text-primary)">The Revealing</em>
+              <em className="font-normal text-(--color-text-primary)">
+                The Revealing
+              </em>
               , a short film that would quietly change everything.
             </p>
           </ScrollHighlightText>
@@ -116,8 +122,8 @@ const About = () => {
             </p>
             <p>
               By 2024, those experiences had a name:{" "}
-              <span className="font-medium">Shaanark Ventures Suriname</span>{" "}
-              — built with a circle of shareholders and a clear purpose: to
+              <span className="font-medium">Shaanark Ventures Suriname</span> —
+              built with a circle of shareholders and a clear purpose: to
               deliver business restructuring, marketing, and growth solutions
               that are practical, sustainable, and built to last.
             </p>
@@ -132,12 +138,22 @@ const About = () => {
           <ScrollHighlightText className="w-full md:max-w-3xl text-xl sm:text-2xl md:text-3xl font-light text-(--color-text-primary) leading-relaxed flex flex-col gap-8 md:gap-12 mb-16 md:mb-32">
             <p>
               As the vision expanded, so did the team. In 2026, conversations
-              with long-time professional associates Raymond Francis and Bitan
-              Biswas opened new doors. Through these connections came Vishal
-              Sharma, Founder of Legal Corner, who joined as a Director and
-              helped bring Shaanark Ventures India to life — transforming a
-              shared ambition into a living, breathing cross-border
-              organization.
+              with long-time professional associates{" "}
+              <span className="font-semibold">Raymond Francis</span> and{" "}
+              <span className="font-semibold">Bitan Biswas</span> opened new
+              doors. Through these connections came{" "}
+              <span className="font-semibold">Vishal Sharma</span>, Founder of
+              Legal Corner, who joined as a Director and helped bring Shaanark
+              Ventures India to life — transforming a shared ambition into a
+              living, breathing cross-border organization.
+            </p>
+            <p>
+              Off late, a young enthusiast,
+              <span className="font-semibold"> Md. Saiyaaz Khan</span>, a
+              digital marketer specializing in SEO, analytics, and business
+              growth, joined the team to breathe a new creation into the
+              organization. Bringing fresh ideas, digital innovation, and a
+              growth-oriented mindset.
             </p>
             <p>
               Today, Shaanark Ventures is more than a company. It's a
@@ -320,7 +336,7 @@ const About = () => {
                   <h3 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-(--color-text-primary) mb-6 group-hover:translate-x-4 transition-transform duration-500 ease-out">
                     {member.name}
                   </h3>
-                  
+
                   {/* Replaced pill with editorial line accent */}
                   <div className="flex items-center gap-4 group-hover:translate-x-4 transition-transform duration-500 ease-out delay-75">
                     <span className="h-px w-6 bg-(--color-border) group-hover:bg-(--color-accent) transition-colors duration-500"></span>
