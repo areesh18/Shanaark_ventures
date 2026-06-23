@@ -41,6 +41,12 @@ const TESTIMONIALS = [
     name: "Jonas van Ravenswaay",
     title: "Managing Director of Marthiland (Bam Bino)",
   },
+  {
+    quote:
+      "We have been working with Shaanark for a number of years now. We have never regretted this decision. We initially approached them for social media management, but in the meantime they have helped us with all kinds of marketing issues and have supported us with advice and solutions. This is one of the biggest advantages we experience from our collaboration. We would also recommend others to work with Shaanark to make their business more visible on social media. After all, as an SME entrepreneur, it is not possible to do everything yourself.",
+    name: "Wirathma Mahabier",
+    title: "Managing Director of Agro & Garden Needs",
+  },
 ];
 gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
@@ -51,7 +57,7 @@ const Home = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const testimonialTimer = useRef(null);
-  const TESTIMONIAL_INTERVAL = 4000;
+  const TESTIMONIAL_INTERVAL = 12000;
   const resetTimer = () => {
     if (testimonialTimer.current) clearInterval(testimonialTimer.current);
     testimonialTimer.current = setInterval(() => {

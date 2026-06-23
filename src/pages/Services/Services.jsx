@@ -216,30 +216,12 @@ const SERVICES_DATA = [
     ],
   },
 ];
-const BADGE_COLORS = [
-  "#c7ff1f", // lime
-  "#ff8a5c", // coral
-  "#7dd3fc", // sky blue
-  "#fbbf24", // amber
-  "#f472b6", // pink
-  "#a3e635", // lighter lime/green
-];
+
 // ── 1. CLEAN, STATELESS COMPONENT ──
 // ServiceRow now only handles UI rendering and passes events back up.
-const ServiceRow = ({
-  service,
-  isOpen,
-  onToggleClick,
-  onRowMouseEnter,
-  onRowMouseLeave,
-  badgeColor,
-}) => {
+const ServiceRow = ({ service, isOpen, onToggleClick }) => {
   return (
-    <div
-      className=" border-b border-(--color-border) group relative transition-colors"
-      onMouseEnter={onRowMouseEnter}
-      onMouseLeave={onRowMouseLeave}
-    >
+    <div className=" border-b border-(--color-border) group relative transition-colors">
       <button
         onClick={() => onToggleClick(service.id)}
         className="w-full py-3 sm:py-2 flex items-center justify-between text-left focus:outline-none gap-4 relative z-10"
@@ -253,16 +235,6 @@ const ServiceRow = ({
             }`}
           >
             {service.title}
-            {!isOpen && (
-              <div
-                style={{ backgroundColor: badgeColor }}
-                className="hidden md:block absolute left-40 top-2 -translate-y-full px-4 py-2 rounded-xl border border-(--color-border) shadow-sm transition-all duration-300 ease-out pointer-events-none z-20 max-w-[40vw] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
-              >
-                <p className=" sm:text-5xl lg:2xl font-normal tracking-tighter text-(--color-text-primary) leading-tight">
-                  {service.headline}
-                </p>
-              </div>
-            )}
           </h3>
         </div>
 
@@ -403,17 +375,12 @@ const Services = () => {
               </h2>
 
               <div className="flex flex-col">
-                {group.items.map((service, itemIndex) => (
+                {group.items.map((service) => (
                   <ServiceRow
                     key={service.id}
                     service={service}
                     isOpen={openId === service.id}
                     onToggleClick={handleToggleClick}
-                    badgeColor={
-                      BADGE_COLORS[
-                        (groupIndex * 100 + itemIndex) % BADGE_COLORS.length
-                      ]
-                    }
                   />
                 ))}
               </div>
