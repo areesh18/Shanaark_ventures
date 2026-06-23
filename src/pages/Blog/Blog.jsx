@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button";
-const MOCK_POSTS = [
+import { blogs } from "../../data/blogs";
+/* const MOCK_POSTS = [
   {
     id: 1,
     title: "Navigating Cross-Border Trade in the Caribbean: A 2026 Outlook",
@@ -43,7 +44,7 @@ const MOCK_POSTS = [
     isFeatured: false,
   },
 ];
-
+ */
 const CATEGORIES = [
   "All",
   "Market Trends",
@@ -57,22 +58,20 @@ const Blog = () => {
 
   const filteredPosts =
     activeCategory === "All"
-      ? MOCK_POSTS
-      : MOCK_POSTS.filter((post) => post.category === activeCategory);
+      ? blogs
+      : blogs.filter((post) => post.category === activeCategory);
 
   const featuredPost =
     filteredPosts.find((post) => post.isFeatured) || filteredPosts[0];
   const regularPosts = filteredPosts.filter(
-    (post) => post.id !== featuredPost?.id
+    (post) => post.id !== featuredPost?.id,
   );
 
   return (
     <div className="min-h-screen bg-(--color-bg-primary) pt-24 sm:pt-32 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
-
         {/* ── 1. HEADER ───────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 animate-fade-up border-b border-(--color-border) pb-10 sm:pb-12 gap-8">
-
           {/* Title + subtitle */}
           <div className="max-w-2xl">
             <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl md:text-7xl font-medium tracking-tighter text-(--color-text-primary) mb-3 sm:mb-4">
@@ -126,19 +125,17 @@ const Blog = () => {
         {/* ── 3. FEATURED POST ────────────────────────────────── */}
         {featuredPost && (
           <Link
-            to={`/blog/${featuredPost.id}`}
+            to={`/blog/${featuredPost.slug}`}
             className="group block mb-8 sm:mb-12 animate-fade-up delay-200"
           >
             <div className="flex flex-col lg:flex-row bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl overflow-hidden hover:shadow-lg transition-all duration-300">
-
               {/* Thumbnail */}
-              <div className="w-full lg:w-1/2 h-52 sm:h-64 lg:h-auto bg-slate-200 relative overflow-hidden shrink-0">
-                <div className="absolute inset-0 bg-linear-to-tr from-slate-300 to-slate-100 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-slate-400 font-medium text-xs tracking-widest uppercase">
-                    Featured Image
-                  </span>
-                </div>
+              <div className="w-full lg:w-1/2 h-52 sm:h-64 lg:h-auto overflow-hidden">
+                <img
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
 
               {/* Content */}
@@ -183,7 +180,7 @@ const Blog = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 animate-fade-up delay-300">
             {regularPosts.map((post) => (
               <Link
-                to={`/blog/${post.id}`}
+                to={`/blog/${post.slug}`}
                 key={post.id}
                 className="group flex flex-col bg-white border border-(--color-border) rounded-[1.25rem] sm:rounded-3xl overflow-hidden hover:shadow-md hover:border-(--color-dark)/20 transition-all duration-300"
               >
@@ -256,7 +253,6 @@ const Blog = () => {
           </p>
           <Button hasArrow>Book Consultation</Button>
         </div>
-
       </div>
     </div>
   );

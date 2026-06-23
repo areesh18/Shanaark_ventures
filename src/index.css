@@ -75,10 +75,30 @@ body {
   background: rgba(241, 245, 249, 0.88);
 }
 .hero-bg {
-     background-position: center top;
-   }
-   @media (min-width: 768px) {
-     .hero-bg {
-       background-position: center center;
-     }
-   }
+  background-position: center top;
+}
+@media (min-width: 768px) {
+  .hero-bg {
+    background-position: center center;
+  }
+}
+
+.prose h2 {
+  @apply text-4xl font-medium tracking-tight mt-16 mb-6;
+}
+
+.prose h3 {
+  @apply text-2xl font-medium mt-10 mb-4;
+}
+
+.prose p {
+  @apply text-lg leading-relaxed text-(--color-text-secondary);
+}
+
+.prose ul {
+  @apply my-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
