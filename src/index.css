@@ -84,21 +84,45 @@ body {
 }
 
 .prose h2 {
-  @apply text-4xl font-medium tracking-tight mt-16 mb-6;
+  @apply text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight mt-10 mb-4 md:mt-16 md:mb-6;
 }
 
 .prose h3 {
-  @apply text-2xl font-medium mt-10 mb-4;
+  @apply text-xl md:text-2xl font-medium mt-8 mb-3 md:mt-10 md:mb-4;
 }
 
 .prose p {
-  @apply text-lg leading-relaxed text-(--color-text-secondary);
+  @apply text-base md:text-lg leading-relaxed text-(--color-text-secondary);
 }
 
 .prose ul {
-  @apply my-6;
+  @apply my-4 md:my-6 list-disc pl-6;
+}
+
+.prose ol {
+  @apply my-4 md:my-6 list-decimal pl-6;
 }
 
 .prose li {
-  @apply mb-2;
+  @apply mb-1 md:mb-2 text-base md:text-lg leading-relaxed font-semibold text-(--color-text-primary);
+}
+
+.prose strong {
+  @apply font-semibold text-(--color-text-primary);
+}
+
+.prose a {
+  @apply underline underline-offset-2 decoration-slate-300 hover:decoration-current transition-colors;
+}
+
+.prose blockquote {
+  @apply border-l-2 border-slate-200 pl-5 italic text-(--color-text-secondary) my-8;
+}
+
+.prose hr {
+  @apply border-slate-100 my-12;
+}
+
+.prose code {
+  @apply text-sm bg-slate-100 rounded px-1.5 py-0.5 font-mono;
 }
