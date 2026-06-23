@@ -222,7 +222,7 @@ const Home = () => {
           <div className="md:w-2/3 mt-0 sm:mt-0 flex flex-wrap md:flex-nowrap gap-x-12 sm:gap-x-20 gap-y-8 md:gap-y-10 justify-start md:justify-end">
             {[
               { value: "5", label: "Global Markets" },
-              { value: "13", label: "Core Services" },
+              { value: "15", label: "Service List" },
               { value: "B2B", label: "Growth & Advisory" },
             ].map(({ value, label }, index) => (
               <div key={label} className="flex flex-col items-start">
