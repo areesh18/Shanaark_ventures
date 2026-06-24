@@ -51,7 +51,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="Shaanark Ventures"
-                className="h-12 w-auto object-contain"
+                className="h-22 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-(--color-text-secondary) font-light leading-relaxed tracking-tight max-w-sm">

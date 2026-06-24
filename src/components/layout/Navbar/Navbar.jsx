@@ -49,7 +49,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Shaanark Ventures"
-              className="h-12 w-auto object-contain"
+              className="h-22 w-auto object-contain"
             />
           </Link>
 
