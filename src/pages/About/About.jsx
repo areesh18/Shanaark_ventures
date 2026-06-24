@@ -92,7 +92,7 @@ const About = () => {
               </MaskRevealText>
             </div>
             {/* Decorative image — replace with: aerial shot of Suriname city or tropical coastline */}
-            <div className="w-full lg:w-2/5 aspect-[4/3] rounded-lg overflow-hidden shrink-0">
+            <div className="w-full lg:w-2/5 aspect-4/3 rounded-lg overflow-hidden shrink-0">
               <img
                 src="https://images.pexels.com/photos/13966908/pexels-photo-13966908.jpeg"
                 alt="Aerial view of Suriname's lush tropical coastline representing the founding location of Shaanark Ventures"
