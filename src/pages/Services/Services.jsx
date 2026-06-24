@@ -16,6 +16,8 @@ import imgBizAdvisory from "/services/biz-advisory.webp";
 import imgCeoAdvisory from "/services/ceo-advisory.webp";
 import imgSalesTraining from "/services/sales-training.webp";
 import imgEduConsulting from "/services/edu-consulting.webp";
+import imgEventMgmt from "/services/event-mgmt.webp";
+import imgTender from "/services/tender.webp";
 import imgFallback from "../../assets/hero-img.webp";
 
 const SERVICE_IMAGES = {
@@ -32,6 +34,8 @@ const SERVICE_IMAGES = {
   "ceo-advisory": imgCeoAdvisory,
   "sales-training": imgSalesTraining,
   "edu-consulting": imgEduConsulting,
+  "event-mgmt": imgEventMgmt,
+  tender: imgTender,
 };
 const SERVICES_DATA = [
   {
@@ -104,6 +108,19 @@ const SERVICES_DATA = [
         ],
       },
       {
+        id: "web-dev",
+        title: "Web Development",
+        headline: "Websites built for performance and growth.",
+        description:
+          "We design and develop modern, responsive websites that deliver seamless user experience and business results.",
+        deliverables: [
+          "UI/UX design",
+          "Website development",
+          "Mobile optimization",
+          "Maintenance & support",
+        ],
+      },
+      {
         id: "marketing-management",
         title: "Marketing Management",
         headline: "Your complete marketing team, in one place.",
@@ -130,16 +147,18 @@ const SERVICES_DATA = [
         ],
       },
       {
-        id: "web-dev",
-        title: "Web Development",
-        headline: "Websites built for performance and growth.",
+        id: "event-mgmt",
+        title: "Event Management",
+        headline:
+          "Create events that inspire, engage, and leave lasting impressions.",
         description:
-          "We design and develop modern, responsive websites that deliver seamless user experience and business results.",
+          "Professional event planning and execution services for corporate, government, and private events, ensuring seamless coordination and successful outcomes.",
         deliverables: [
-          "UI/UX design",
-          "Website development",
-          "Mobile optimization",
-          "Maintenance & support",
+          "Event planning & coordination",
+          "Venue selection & logistics",
+          "Vendor & stakeholder management",
+          "On-site event execution",
+          "Post-event reporting & analysis",
         ],
       },
     ],
@@ -211,6 +230,20 @@ const SERVICES_DATA = [
           "Curriculum design & review",
           "Institutional growth strategy",
           "Faculty training & capacity building",
+        ],
+      },
+      {
+        id: "tender",
+        title: "Tender Bidding",
+        headline: "Turning opportunities into successful bids.",
+        description:
+          "End-to-end tender bidding assistance, from opportunity identification and documentation to proposal submission, helping businesses win more contracts with confidence.",
+        deliverables: [
+          "Tender opportunity identification",
+          "Bid documentation & compliance",
+          "Proposal writing & submission",
+          "Commercial & technical bid preparation",
+          "Post-submission support",
         ],
       },
     ],

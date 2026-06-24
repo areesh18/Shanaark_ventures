@@ -182,37 +182,41 @@ const Blog = () => {
               <Link
                 to={`/blog/${post.slug}`}
                 key={post.id}
-                className="group flex flex-col bg-white border border-(--color-border) rounded-[1.25rem] sm:rounded-3xl overflow-hidden hover:shadow-md hover:border-(--color-dark)/20 transition-all duration-300"
+                className="group flex flex-col bg-(--color-bg-secondary) border border-(--color-border) rounded-3xl sm:rounded-4xl overflow-hidden hover:shadow-lg transition-all duration-300"
               >
                 {/* Thumbnail */}
-                <div className="w-full h-44 sm:h-48 bg-slate-100 relative overflow-hidden shrink-0">
-                  <div className="absolute inset-0 bg-linear-to-tr from-slate-200 to-slate-50 group-hover:scale-105 transition-transform duration-700" />
+                <div className="w-full h-44 sm:h-48 overflow-hidden shrink-0">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
 
                 {/* Content */}
-                <div className="p-5 sm:p-6 md:p-8 flex flex-col grow">
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary)">
+                <div className="p-5 sm:p-6 flex flex-col grow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="px-3 py-1 bg-white border border-(--color-border) rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-(--color-text-secondary)">
                       {post.category}
                     </span>
-                    <span className="text-[10px] sm:text-xs font-medium text-slate-400 tracking-tight">
-                      {post.date}
+                    <span className="text-xs font-medium text-slate-400 tracking-tight">
+                      {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg md:text-xl font-medium tracking-tight text-(--color-text-primary) mb-2 sm:mb-3 group-hover:text-(--color-dark)/70 transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg md:text-xl font-medium tracking-tight text-(--color-text-primary) mb-2 group-hover:text-(--color-dark)/70 transition-colors leading-snug">
                     {post.title}
                   </h3>
 
-                  <p className="text-(--color-text-secondary) text-sm font-light leading-relaxed mb-5 sm:mb-6 grow">
+                  <p className="text-(--color-text-secondary) text-sm font-light leading-relaxed mb-4 grow">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-2 text-sm font-medium text-(--color-text-primary) mt-auto">
-                    Read More
+                  <div className="flex items-center gap-2 text-sm font-medium text-(--color-dark) mt-auto">
+                    Read Article
                     <svg
-                      width="13"
-                      height="13"
+                      width="15"
+                      height="15"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"

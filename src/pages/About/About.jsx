@@ -36,7 +36,7 @@ const About = () => {
     {
       name: "Vishal Sharma",
       role: "LEGAL DIRECTOR",
-      desc: "Mr. Vishal Sharma is a Company Secretary and a Lawyer. He has over 13 years of experience across various functions and domains with top Corporate Houses. He is extensively experienced in the areas of Corporate Secretarial functions. Start up Consultancy, Accounts, regulatory compliances. Merger & Acquisitions and other Company Law matters. He has a vast working experience with ROC, Food Safety, Drug Authorities, SEBI, Various Stock Exchanges and NCLT matters. He held top leadership positions with the big corporate houses as a Company Secretary and Key Managerial Personnel of the Company having exposures in equity funding, NCLT project appraisals, setting up of new business ventures, policy making etc.",
+      desc: "Mr. Vishal Sharma is a Company Secretary and a Lawyer in India. He is vastly experienced in the areas of corporate secretarial function, start up consultancy, accounts, regulatory compliances, merger & acquisitions and other company law matters, having had dealt with ROC, Food Safety, Drug Authorities, SEBI, Various Stock Exchanges and NCLT matters.",
     },
     {
       name: "Jitendra Prasad",
