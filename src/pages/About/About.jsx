@@ -2,7 +2,7 @@ import "react";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import ScrollHighlightText from "../../components/animations/ScrollHighlightText";
 import Button from "../../components/ui/Button";
-
+import imgLeap from "../../assets/about/leap-of-faith.webp";
 const About = () => {
   const stats = [
     { label: "Content Desk", value: "3000+", sub: "Content/Year" },
@@ -36,7 +36,7 @@ const About = () => {
     {
       name: "Vishal Sharma",
       role: "LEGAL DIRECTOR",
-      desc: "Mr. Vishal Sharma is a Company Secretary and a Lawyer in India. He is vastly experienced in the areas of corporate secretarial function, start up consultancy, accounts, regulatory compliances, merger & acquisitions and other company law matters, having had dealt with ROC, Food Safety, Drug Authorities, SEBI, Various Stock Exchanges and NCLT matters.",
+      desc: "Mr. Vishal Sharma is a chartered company secretary and a lawyer in India. He is vastly experienced in the areas of corporate secretarial function, start up consultancy, accounts, regulatory compliances, merger & acquisitions and other company law matters, having had dealt with ROC, Food Safety, Drug Authorities, SEBI, Various Stock Exchanges and NCLT matters.",
     },
     {
       name: "Jitendra Prasad",
@@ -94,7 +94,7 @@ const About = () => {
             {/* Decorative image — replace with: aerial shot of Suriname city or tropical coastline */}
             <div className="w-full lg:w-2/5 aspect-4/3 rounded-lg overflow-hidden shrink-0">
               <img
-                src="https://images.pexels.com/photos/13966908/pexels-photo-13966908.jpeg"
+                src={imgLeap}
                 alt="Aerial view of Suriname's lush tropical coastline representing the founding location of Shaanark Ventures"
                 className="w-full h-full object-cover opacity-100"
               />
@@ -169,12 +169,12 @@ const About = () => {
               living, breathing cross-border organization.
             </p>
             <p>
-              Off late, a young enthusiast,
-              <span className="font-semibold"> Md. Saiyaaz Khan</span>, a
-              digital marketer specializing in SEO, analytics, and business
-              growth, joined the team to breathe a new creation into the
-              organization. Bringing fresh ideas, digital innovation, and a
-              growth-oriented mindset.
+              Our latest addition to our India team is a young digital
+              transformation enthusiast,{" "}
+              <span className="font-semibold">Md. Saiyaaz Khan</span>,
+              specializing in SEO, analytics, and business growth with the
+              objective to usher fresh ideas and digital innovation in
+              marketing.
             </p>
             <p>
               Today, Shaanark Ventures is more than a company. It's a

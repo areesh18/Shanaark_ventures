@@ -25,7 +25,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "I have experienced that working with Kris is very pleasant, and that he works with an open mind for customers’ needs and challenges. We had the opportunity to hire Shaanark on doing a baseline training for graphic design and Facebook branding with a combination of conducting a human resource gap analysis for the marketing department and we were sincerely glad with their professionalism...",
+      "I have experienced that working with Kris is very pleasant, and that he works with an open mind for customers’ needs and challenges. We had the opportunity to hire Shaanark for doing a baseline training on graphic design and Facebook branding, with a combination of conducting a human resource gap analysis for the marketing department , and we were sincerely glad with their professionalism...",
     name: "Hans Hiralal",
     title: "Marketing & Operations Director, Subisco International N.V.",
   },
