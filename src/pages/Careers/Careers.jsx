@@ -2,7 +2,27 @@ import { Link } from "react-router-dom";
 import MaskRevealText from "../../components/animations/MaskRevealText";
 import Button from "../../components/ui/Button";
 import handShake from "../../assets/handshake.webp";
-const OPEN_ROLES = [
+
+// Derive job codes: India → I-x, Netherlands → N-x, Suriname → SU-x
+const getCountryPrefix = (location) => {
+  if (location.toLowerCase().includes("india")) return "I";
+  if (location.toLowerCase().includes("netherlands")) return "N";
+  if (location.toLowerCase().includes("suriname")) return "SU";
+  if (location.toLowerCase().includes("singapore")) return "S";
+  return "X";
+};
+
+// Build counters per prefix so codes are sequential within each country
+const buildJobCodes = (roles) => {
+  const counters = {};
+  return roles.map((role) => {
+    const prefix = getCountryPrefix(role.location);
+    counters[prefix] = (counters[prefix] || 0) + 1;
+    return { ...role, jobCode: `${prefix}-${counters[prefix]}` };
+  });
+};
+
+const OPEN_ROLES = buildJobCodes([
   {
     id: 1,
     title: "Graphic Designer",
@@ -59,7 +79,38 @@ const OPEN_ROLES = [
     location: "Netherlands",
     type: "Internship",
   },
-];
+]);
+
+const JobCodeBadge = ({ code }) => {
+  return (
+    <Button
+      aria-label={`Job code: ${code}`}
+      className={`
+        px-5 py-2.5 rounded-full border text-sm font-semibold tracking-wide
+        transition-all duration-300 select-none cursor-pointer
+        
+      `}
+    >
+      <span className="inline-flex items-center gap-2">
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="opacity-60"
+        >
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+          <line x1="7" y1="7" x2="7.01" y2="7" />
+        </svg>
+        {code}
+      </span>
+    </Button>
+  );
+};
 
 const Careers = () => {
   return (
@@ -94,7 +145,45 @@ const Careers = () => {
           </div>
         </div>
 
-        {/* ── 2. OPEN ROLES (Editorial Stacked Layout) ────────── */}
+        {/* ── 2. APPLICATION REQUIREMENTS ─────────────────────── */}
+        <div className="mb-10 sm:mb-14 animate-fade-up">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/70 px-7 py-7 sm:px-10 sm:py-8">
+            <h2 className="text-lg sm:text-xl font-semibold text-(--color-text-primary) tracking-tight mb-4">
+              Application Requirements
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+              Interested candidates are requested to submit the following
+              documents along with their application:
+            </p>
+            <ul className="space-y-2 mb-5">
+              {[
+                "A cover letter explaining why they should be considered for the position.",
+                "An updated resume / CV.",
+                "Contact details of two professional references.",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-sm sm:text-base text-slate-600"
+                >
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Please email all application materials to{" "}
+              <a
+                href="mailto:hr@shaanark.com"
+                className="font-medium text-(--color-text-primary) underline underline-offset-2 hover:text-slate-600 transition-colors"
+              >
+                hr@shaanark.com
+              </a>
+              . Only shortlisted candidates will be contacted.
+            </p>
+          </div>
+        </div>
+
+        {/* ── 3. OPEN ROLES (Editorial Stacked Layout) ────────── */}
         <div className="mb-16 sm:mb-32 animate-fade-up delay-200">
           <div className="flex flex-col border-t border-(--color-border)">
             {OPEN_ROLES.map((role, index) => (
@@ -163,14 +252,9 @@ const Careers = () => {
                   </span>
                 </div>
 
-                {/* Action Buttons */}
+                {/* Job Code Badge */}
                 <div className="flex items-center gap-6">
-                  <Button
-                    to={`/apply/${role.id}`}
-                    className="px-6 py-2.5 bg-(--color-text-primary) text-white text-sm font-medium rounded-full hover:bg-(--color-dark) transition-all shadow-sm"
-                  >
-                    Apply Now
-                  </Button>
+                  <JobCodeBadge code={role.jobCode} />
                 </div>
               </div>
             ))}

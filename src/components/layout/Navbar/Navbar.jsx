@@ -72,12 +72,6 @@ const Navbar = () => {
 
           {/* Desktop CTAs - Restored exact original layout */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
-            <Link
-              to="/contact"
-              className="text-base font-medium text-(--color-text-primary) opacity-75 hover:opacity-100 transition-opacity tracking-tight whitespace-nowrap"
-            >
-              Talk to Us
-            </Link>
             <Button to="/contact" hasArrow>
               Book Consultation
             </Button>
