@@ -189,9 +189,7 @@ const Home = () => {
 
           {/* Subtext */}
           <p className="text-lg sm:text-xl md:text-xl text-(--color-text-secondary) max-w-xl sm:max-w-2xl mb-8 sm:mb-10 leading-relaxed tracking-tight animate-fade-up delay-200 px-2 sm:px-0">
-            We facilitate cross-border business by connecting investors,
-            businesses, and talent. Expert advisory, digital excellence, and
-            end-to-end marketing.
+            We facilitate cross-border business by connecting investors, businesses, and talent through expert advisory, digital solutions, and end-to-end marketing.
           </p>
 
           {/* CTAs */}
